@@ -1,74 +1,1177 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="vi" class="scroll-smooth">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio</title>
+    <title>Hùng Trần — Developer</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./css/reset.css">
     <link rel="stylesheet" href="./css/style.css">
-
-    <!-- fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poetsen+One&display=swap" rel="stylesheet">
 </head>
 
-<body>
-    <div class="warpper">
-        <div class="container">
-            <header class="header">
-                <div class="logo">
-                    <div class="logo-icon">
-                        <span class="logo-iconText">H</span>
-                    </div>
-                    <span class="logo-text">HungTran</span>
-                </div>
-                <ul class="menu">
-                    <li><a href="" class="menu-link">About</a></li>
-                    <li><a href="" class="menu-link">Skills</a></li>
-                    <li><a href="" class="menu-link">Portfolio</a></li>
-                    <li><a href="" class="menu-link">Testimonial</a></li>
-                </ul>
-                <button class="header-button">Download CV</button>
-            </header>
-            <main>
-                <section name="Welcome" id="" class="hero">
-                    <div class="hero-top">
-                        <div class="hero-content">
-                            <div class="tagPart">Welcome</div>
-                            <h1 class="hero-title text-h2"> I have
-                                experience in <span>website
-                                    programming</span>.</h1>
-                            <p class="hero-text text-p2">I'm HungTran, a web programmer. I'm a recent graduate and I've
-                                been involved in small-scale web projects for small teams.</p>
-                            <div class="hero-listButton">
-                                <button class="hero-button">Contact Me</button>
-                                <button class="hero-button inverted-btn ">View Portfolio
-                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                                        strokeWidth={1.5} stroke="currentColor" className="size-6" class="icon">
-                                        <path strokeLinecap="round" strokeLinejoin="round"
-                                            d="m4.5 19.5 15-15m0 0H8.25m11.25 0v11.25" />
-                                    </svg>
-                                </button>
+<body class="antialiased">
 
-                            </div>
-                        </div>
-                        <div class="hero-image">
-                            <img src="https://wildwolf19101.github.io/detal-landingpage/public/image/hero-image.png"
-                                alt="image" class="hero-img">
-                        </div>
-                    </div>
-                    <div class="hero-bottom">Hello</div>
-                </section>
-                <section name="My Skills" id=""></section>
-                <section name="Portfolio" id=""></section>
-                <section name="Reviews" id=""></section>
-                <section name="Contact" id=""></section>
-            </main>
-            <footer class="footer"></footer>
+    <div id="toast-container" class="fixed top-6 right-6 z-[100] flex flex-col gap-3"></div>
+
+    <!-- ===== NAV ===== -->
+    <nav class="fixed top-0 left-0 right-0 z-50 bg-[#050505]/80 backdrop-blur-xl border-b border-white/5">
+        <div class="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
+            <a href="#" class="flex items-center gap-3 group">
+                <div
+                    class="w-8 h-8 rounded-lg bg-blue-500/20 border border-blue-500/30 flex items-center justify-center group-hover:bg-blue-500/30 transition-colors duration-300">
+                    <i data-lucide="terminal" class="w-4 h-4 text-blue-500"></i>
+                </div>
+                <span class="text-sm font-medium tracking-tight">hungtran.dev</span>
+            </a>
+            <div class="hidden md:flex items-center gap-8">
+                <a href="#about" class="text-sm text-neutral-400 hover:text-white transition-colors duration-300">Giới
+                    thiệu</a>
+                <a href="#skills" class="text-sm text-neutral-400 hover:text-white transition-colors duration-300">Kỹ
+                    năng</a>
+                <a href="#projects" class="text-sm text-neutral-400 hover:text-white transition-colors duration-300">Dự
+                    án</a>
+                <a href="#contact" class="text-sm text-neutral-400 hover:text-white transition-colors duration-300">Liên
+                    hệ</a>
+            </div>
+            <div class="hidden md:flex items-center gap-4">
+                <a href="https://github.com" target="_blank"
+                    class="text-neutral-400 hover:text-white transition-colors duration-300"><i data-lucide="github"
+                        class="w-5 h-5"></i></a>
+                <a href="#contact"
+                    class="bg-white text-black text-xs font-medium px-5 py-2.5 rounded-full hover:bg-neutral-200 transition-colors duration-300">Hire
+                    me</a>
+            </div>
+            <button id="menu-toggle" class="md:hidden text-neutral-400 hover:text-white transition-colors"><i
+                    data-lucide="menu" class="w-6 h-6"></i></button>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="mobile-menu fixed inset-0 z-[60] bg-[#050505]/98 backdrop-blur-xl flex flex-col">
+        <div class="px-6 h-16 flex items-center justify-between border-b border-white/5">
+            <span class="text-sm font-medium">hungtran.dev</span>
+            <button id="menu-close" class="text-neutral-400 hover:text-white"><i data-lucide="x"
+                    class="w-6 h-6"></i></button>
+        </div>
+        <div class="flex-1 flex flex-col items-center justify-center gap-8">
+            <a href="#about"
+                class="text-2xl font-light text-neutral-400 hover:text-white transition-colors mobile-link">Giới
+                thiệu</a>
+            <a href="#skills"
+                class="text-2xl font-light text-neutral-400 hover:text-white transition-colors mobile-link">Kỹ năng</a>
+            <a href="#projects"
+                class="text-2xl font-light text-neutral-400 hover:text-white transition-colors mobile-link">Dự án</a>
+            <a href="#contact"
+                class="text-2xl font-light text-neutral-400 hover:text-white transition-colors mobile-link">Liên hệ</a>
+            <a href="#contact"
+                class="mt-4 bg-white text-black text-sm font-medium px-8 py-3 rounded-full mobile-link">Hire me</a>
         </div>
     </div>
+
+    <!-- ===== HERO ===== -->
+    <section class="relative min-h-screen flex items-center justify-center overflow-hidden grid-bg">
+        <div
+            class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full bg-blue-500/10 blur-[120px] glow-pulse pointer-events-none">
+        </div>
+        <div
+            class="absolute bottom-0 left-0 right-0 h-40 bg-gradient-to-t from-[#050505] to-transparent pointer-events-none z-10">
+        </div>
+
+        <div class="relative z-20 max-w-7xl mx-auto px-6 pt-32 pb-24 text-center">
+            <div
+                class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 border border-white/10 mb-8 fade-in">
+                <span class="w-2 h-2 rounded-full bg-blue-500 animate-pulse"></span>
+                <span class="text-xs font-medium text-neutral-400 tracking-wide">Mới ra trường — Sẵn sàng học hỏi</span>
+            </div>
+
+            <div class="flex justify-center mb-8 fade-in">
+                <div class="relative">
+                    <div class="w-24 h-24 rounded-full bg-gradient-to-br from-blue-500 to-cyan-400 p-[2px]">
+                        <div class="w-full h-full rounded-full bg-[#050505] flex items-center justify-center">
+                            <span class="text-3xl font-light">H</span>
+                        </div>
+                    </div>
+                    <div
+                        class="absolute -bottom-1 -right-1 w-7 h-7 rounded-full bg-blue-500 border-4 border-[#050505] flex items-center justify-center">
+                        <i data-lucide="sparkles" class="w-3 h-3 text-white"></i>
+                    </div>
+                </div>
+            </div>
+
+            <h1 class="text-5xl md:text-7xl lg:text-8xl font-medium tracking-tight leading-[0.9] mb-6 fade-in">
+                Xin chào, tôi là<br>
+                <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-400">Hùng Trần</span>
+            </h1>
+
+            <div class="text-lg md:text-xl font-light text-neutral-400 mb-10 fade-in">
+                <span id="typed-text"></span><span class="cursor text-blue-500">|</span>
+            </div>
+
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-4 mb-16 fade-in">
+                <a href="#projects"
+                    class="bg-white text-black text-sm font-medium px-8 py-3.5 rounded-full hover:bg-neutral-200 transition-colors duration-300 flex items-center gap-2">
+                    Xem dự án <i data-lucide="arrow-down-right" class="w-4 h-4"></i>
+                </a>
+                <a href="#contact"
+                    class="border border-white/10 text-white text-sm font-medium px-8 py-3.5 rounded-full hover:bg-white/5 transition-colors duration-300">
+                    Liên hệ ngay
+                </a>
+            </div>
+
+            <div class="max-w-lg mx-auto fade-in">
+                <div class="code-block text-left">
+                    <div class="code-header">
+                        <div class="code-dot bg-red-500/80"></div>
+                        <div class="code-dot bg-yellow-500/80"></div>
+                        <div class="code-dot bg-green-500/80"></div>
+                        <span class="text-xs text-neutral-500 ml-2">profile.java</span>
+                    </div>
+                    <pre class="p-4 text-xs md:text-sm leading-relaxed overflow-x-auto"><code><span class="text-red-400">public class</span> <span class="text-blue-400">HungTran</span> {
+  String[] <span class="text-orange-400">frontend</span> = {<span class="text-green-400">"React"</span>, <span class="text-green-400">"HTML"</span>, <span class="text-green-400">"CSS"</span>, <span class="text-green-400">"JS"</span>};
+  String[] <span class="text-orange-400">backend</span>  = {<span class="text-green-400">"Java"</span>, <span class="text-green-400">"Spring Boot"</span>};
+  String[] <span class="text-orange-400">database</span> = {<span class="text-green-400">"MySQL"</span>, <span class="text-green-400">"SQL Server"</span>};
+  <span class="text-red-400">boolean</span> <span class="text-orange-400">hungry</span> = <span class="text-purple-400">true</span>;
+}</code></pre>
+                </div>
+            </div>
+        </div>
+
+        <div class="absolute bottom-8 left-1/2 -translate-x-1/2 z-20 flex flex-col items-center gap-2">
+            <span class="text-[10px] uppercase tracking-widest text-neutral-600">Scroll</span>
+            <div class="w-5 h-8 rounded-full border border-white/10 flex items-start justify-center p-1.5">
+                <div class="w-1 h-2 rounded-full bg-blue-500 animate-bounce"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== ABOUT ===== -->
+    <section id="about" class="relative py-24 md:py-32">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid md:grid-cols-2 gap-16 items-center">
+                <div class="fade-in">
+                    <div class="relative rounded-3xl overflow-hidden aspect-[4/5] max-w-md mx-auto">
+                        <img src="https://picsum.photos/seed/young-dev-desk/600/750.jpg" alt="Workspace"
+                            class="w-full h-full object-cover opacity-80">
+                        <div class="absolute inset-0 bg-gradient-to-t from-[#050505] via-transparent to-transparent">
+                        </div>
+                        <div class="absolute bottom-6 left-6 right-6">
+                            <div class="bg-black/60 backdrop-blur-xl rounded-2xl p-4 border border-white/10">
+                                <div class="grid grid-cols-3 gap-4 text-center">
+                                    <div>
+                                        <div class="text-2xl font-medium text-blue-500" id="stat-projects">0</div>
+                                        <div class="text-[10px] uppercase tracking-wider text-neutral-500 mt-1">Đồ án
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <div class="text-2xl font-medium text-blue-500" id="stat-tech">0</div>
+                                        <div class="text-[10px] uppercase tracking-wider text-neutral-500 mt-1">Tech
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <div class="text-2xl font-medium text-blue-500" id="stat-repos">0</div>
+                                        <div class="text-[10px] uppercase tracking-wider text-neutral-500 mt-1">Repos
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="fade-in">
+                    <div
+                        class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-blue-500/10 border border-blue-500/20 mb-6">
+                        <span class="text-[10px] uppercase tracking-widest text-blue-500 font-medium">Giới thiệu</span>
+                    </div>
+                    <h2 class="text-3xl md:text-4xl font-medium tracking-tight mb-6">
+                        Fresher với<br>
+                        <span class="text-neutral-500">đam mê Full-Stack</span>
+                    </h2>
+                    <p class="text-neutral-400 font-light leading-relaxed mb-6">
+                        Mới tốt nghiệp Cao Đẳng FPT, tôi đã tự học và thực hành qua khoảng 10 dự án cá nhân. Backend với
+                        Java & Spring Boot, frontend với ReactJS, HTML, CSS, JavaScript — mình muốn trở thành developer
+                        có thể cover toàn bộ stack.
+                    </p>
+                    <p class="text-neutral-400 font-light leading-relaxed mb-8">
+                        Mỗi dự án là một bài học mới. Mình tin rằng kết hợp sức mạnh backend của Java với trải nghiệm
+                        frontend của React là hướng đi đúng đắn.
+                    </p>
+
+                    <div class="space-y-4 mb-8">
+                        <div class="flex items-center gap-4">
+                            <div
+                                class="w-10 h-10 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center flex-shrink-0">
+                                <i data-lucide="map-pin" class="w-4 h-4 text-blue-500"></i>
+                            </div>
+                            <div>
+                                <div class="text-xs text-neutral-500">Vị trí</div>
+                                <div class="text-sm">TP. Hồ Chí Minh, Việt Nam</div>
+                            </div>
+                        </div>
+                        <div class="flex items-center gap-4">
+                            <div
+                                class="w-10 h-10 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center flex-shrink-0">
+                                <i data-lucide="graduation-cap" class="w-4 h-4 text-blue-500"></i>
+                            </div>
+                            <div>
+                                <div class="text-xs text-neutral-500">Học vấn</div>
+                                <div class="text-sm">Cao Đẳng FPT — Ứng dụng phần mềm / Phát triển phần mềm</div>
+                            </div>
+                        </div>
+                        <div class="flex items-center gap-4">
+                            <div
+                                class="w-10 h-10 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center flex-shrink-0">
+                                <i data-lucide="rocket" class="w-4 h-4 text-blue-500"></i>
+                            </div>
+                            <div>
+                                <div class="text-xs text-neutral-500">Trạng thái</div>
+                                <div class="text-sm">Mới ra trường — Tìm cơ hội đầu tiên</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <a href="#"
+                        class="inline-flex items-center gap-2 text-sm text-blue-500 hover:text-blue-400 transition-colors duration-300 group">
+                        Tải CV <i data-lucide="download"
+                            class="w-4 h-4 group-hover:translate-y-0.5 transition-transform duration-300"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== SKILLS ===== -->
+    <section id="skills" class="relative py-24 md:py-32">
+        <div class="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/10 to-transparent">
+        </div>
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-16 fade-in">
+                <div
+                    class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-blue-500/10 border border-blue-500/20 mb-6">
+                    <span class="text-[10px] uppercase tracking-widest text-blue-500 font-medium">Kỹ năng</span>
+                </div>
+                <h2 class="text-3xl md:text-4xl font-medium tracking-tight">Công nghệ tôi sử dụng</h2>
+                <p class="text-neutral-500 font-light mt-4 max-w-lg mx-auto">Học được qua FPT và tự nghiên cứu — Backend
+                    Java + Frontend React</p>
+            </div>
+
+            <!-- Featured: ReactJS -->
+            <div
+                class="card-glow bg-neutral-900/50 border border-blue-500/10 rounded-2xl p-8 md:p-10 mb-6 hover:border-blue-500/20 transition-colors duration-500 fade-in group">
+                <div class="flex flex-col md:flex-row md:items-start gap-8">
+                    <div class="flex-shrink-0">
+                        <div
+                            class="w-20 h-20 rounded-2xl bg-blue-500/10 border border-blue-500/20 flex items-center justify-center group-hover:scale-110 transition-transform duration-500 float">
+                            <i data-lucide="atom" class="w-8 h-8 text-blue-500"></i>
+                        </div>
+                    </div>
+                    <div class="flex-1">
+                        <div class="flex items-center gap-3 mb-2">
+                            <h3 class="text-2xl font-medium">ReactJS</h3>
+                            <span
+                                class="px-2 py-0.5 rounded-full bg-blue-500/10 text-[10px] text-blue-400 font-medium uppercase tracking-wider">Frontend
+                                Core</span>
+                        </div>
+                        <p class="text-sm text-neutral-500 font-light leading-relaxed mb-6 max-w-xl">Thư viện yêu thích
+                            cho frontend. Component-based, hooks, state management — cách tôi xây mọi giao diện.</p>
+                        <div class="grid sm:grid-cols-2 gap-x-8 gap-y-3">
+                            <div>
+                                <div class="flex justify-between text-xs mb-1.5"><span class="text-neutral-400">React
+                                        Hooks / JSX</span><span class="text-blue-500">80%</span></div>
+                                <div class="h-1.5 bg-white/5 rounded-full overflow-hidden">
+                                    <div class="skill-bar h-full bg-gradient-to-r from-blue-500 to-blue-400 rounded-full"
+                                        style="width:80%"></div>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="flex justify-between text-xs mb-1.5"><span class="text-neutral-400">React
+                                        Router</span><span class="text-blue-500">75%</span></div>
+                                <div class="h-1.5 bg-white/5 rounded-full overflow-hidden">
+                                    <div class="skill-bar h-full bg-gradient-to-r from-blue-500 to-blue-400 rounded-full"
+                                        style="width:75%"></div>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="flex justify-between text-xs mb-1.5"><span class="text-neutral-400">State
+                                        Management</span><span class="text-blue-500">65%</span></div>
+                                <div class="h-1.5 bg-white/5 rounded-full overflow-hidden">
+                                    <div class="skill-bar h-full bg-gradient-to-r from-blue-500 to-blue-400 rounded-full"
+                                        style="width:65%"></div>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="flex justify-between text-xs mb-1.5"><span class="text-neutral-400">API
+                                        Integration</span><span class="text-blue-500">78%</span></div>
+                                <div class="h-1.5 bg-white/5 rounded-full overflow-hidden">
+                                    <div class="skill-bar h-full bg-gradient-to-r from-blue-500 to-blue-400 rounded-full"
+                                        style="width:78%"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Featured: Java -->
+            <div
+                class="card-glow card-glow-java bg-neutral-900/50 border border-red-500/10 rounded-2xl p-8 md:p-10 mb-6 hover:border-red-500/20 transition-colors duration-500 fade-in group">
+                <div class="flex flex-col md:flex-row md:items-start gap-8">
+                    <div class="flex-shrink-0">
+                        <div
+                            class="w-20 h-20 rounded-2xl bg-red-500/10 border border-red-500/20 flex items-center justify-center group-hover:scale-110 transition-transform duration-500 float-d1">
+                            <i data-lucide="coffee" class="w-8 h-8 text-red-500"></i>
+                        </div>
+                    </div>
+                    <div class="flex-1">
+                        <div class="flex items-center gap-3 mb-2">
+                            <h3 class="text-2xl font-medium">Java</h3>
+                            <span
+                                class="px-2 py-0.5 rounded-full bg-red-500/10 text-[10px] text-red-400 font-medium uppercase tracking-wider">Backend
+                                Core</span>
+                        </div>
+                        <p class="text-sm text-neutral-500 font-light leading-relaxed mb-6 max-w-xl">Ngôn ngữ đầu tiên
+                            mình học ở FPT. Từ Core Java, OOP đến Spring Boot — nền tảng backend vững chắc.</p>
+                        <div class="grid sm:grid-cols-2 gap-x-8 gap-y-3">
+                            <div>
+                                <div class="flex justify-between text-xs mb-1.5"><span class="text-neutral-400">Core
+                                        Java / OOP</span><span class="text-red-500">78%</span></div>
+                                <div class="h-1.5 bg-white/5 rounded-full overflow-hidden">
+                                    <div class="skill-bar h-full bg-gradient-to-r from-red-500 to-red-400 rounded-full"
+                                        style="width:78%"></div>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="flex justify-between text-xs mb-1.5"><span class="text-neutral-400">Spring
+                                        Boot</span><span class="text-red-500">68%</span></div>
+                                <div class="h-1.5 bg-white/5 rounded-full overflow-hidden">
+                                    <div class="skill-bar h-full bg-gradient-to-r from-red-500 to-red-400 rounded-full"
+                                        style="width:68%"></div>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="flex justify-between text-xs mb-1.5"><span class="text-neutral-400">REST
+                                        API</span><span class="text-red-500">72%</span></div>
+                                <div class="h-1.5 bg-white/5 rounded-full overflow-hidden">
+                                    <div class="skill-bar h-full bg-gradient-to-r from-red-500 to-red-400 rounded-full"
+                                        style="width:72%"></div>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="flex justify-between text-xs mb-1.5"><span
+                                        class="text-neutral-400">Hibernate / JPA</span><span
+                                        class="text-red-500">60%</span></div>
+                                <div class="h-1.5 bg-white/5 rounded-full overflow-hidden">
+                                    <div class="skill-bar h-full bg-gradient-to-r from-red-500 to-red-400 rounded-full"
+                                        style="width:60%"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 4 cards: HTML, CSS, JS, SASS/Tailwind -->
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
+                <div
+                    class="card-glow bg-neutral-900/50 border border-white/5 rounded-2xl p-6 hover:border-white/10 transition-colors duration-500 fade-in group">
+                    <div
+                        class="w-12 h-12 rounded-xl bg-orange-500/10 border border-orange-500/20 flex items-center justify-center mb-5 group-hover:scale-110 transition-transform duration-500 float">
+                        <i data-lucide="file-code" class="w-5 h-5 text-orange-500"></i>
+                    </div>
+                    <h3 class="text-lg font-medium mb-2">HTML5</h3>
+                    <p class="text-xs text-neutral-500 font-light leading-relaxed mb-4">Semantic, form, accessibility.
+                    </p>
+                    <div class="space-y-2">
+                        <div class="flex justify-between text-[11px]"><span
+                                class="text-neutral-400">Semantic</span><span class="text-orange-500">90%</span></div>
+                        <div class="h-1 bg-white/5 rounded-full overflow-hidden">
+                            <div class="skill-bar h-full bg-gradient-to-r from-orange-500 to-orange-400 rounded-full"
+                                style="width:90%"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div
+                    class="card-glow bg-neutral-900/50 border border-white/5 rounded-2xl p-6 hover:border-white/10 transition-colors duration-500 fade-in group">
+                    <div
+                        class="w-12 h-12 rounded-xl bg-pink-500/10 border border-pink-500/20 flex items-center justify-center mb-5 group-hover:scale-110 transition-transform duration-500 float-d1">
+                        <i data-lucide="palette" class="w-5 h-5 text-pink-500"></i>
+                    </div>
+                    <h3 class="text-lg font-medium mb-2">CSS3</h3>
+                    <p class="text-xs text-neutral-500 font-light leading-relaxed mb-4">Flex, Grid, animation,
+                        responsive.</p>
+                    <div class="space-y-2">
+                        <div class="flex justify-between text-[11px]"><span class="text-neutral-400">Flexbox &
+                                Grid</span><span class="text-pink-500">88%</span></div>
+                        <div class="h-1 bg-white/5 rounded-full overflow-hidden">
+                            <div class="skill-bar h-full bg-gradient-to-r from-pink-500 to-pink-400 rounded-full"
+                                style="width:88%"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div
+                    class="card-glow bg-neutral-900/50 border border-white/5 rounded-2xl p-6 hover:border-white/10 transition-colors duration-500 fade-in group">
+                    <div
+                        class="w-12 h-12 rounded-xl bg-yellow-500/10 border border-yellow-500/20 flex items-center justify-center mb-5 group-hover:scale-110 transition-transform duration-500 float-d2">
+                        <i data-lucide="zap" class="w-5 h-5 text-yellow-500"></i>
+                    </div>
+                    <h3 class="text-lg font-medium mb-2">JavaScript</h3>
+                    <p class="text-xs text-neutral-500 font-light leading-relaxed mb-4">ES6+, DOM, async/await, fetch.
+                    </p>
+                    <div class="space-y-2">
+                        <div class="flex justify-between text-[11px]"><span class="text-neutral-400">ES6+ /
+                                DOM</span><span class="text-yellow-500">80%</span></div>
+                        <div class="h-1 bg-white/5 rounded-full overflow-hidden">
+                            <div class="skill-bar h-full bg-gradient-to-r from-yellow-500 to-yellow-400 rounded-full"
+                                style="width:80%"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div
+                    class="card-glow bg-neutral-900/50 border border-white/5 rounded-2xl p-6 hover:border-white/10 transition-colors duration-500 fade-in group">
+                    <div
+                        class="w-12 h-12 rounded-xl bg-violet-500/10 border border-violet-500/20 flex items-center justify-center mb-5 group-hover:scale-110 transition-transform duration-500 float-d3">
+                        <i data-lucide="paintbrush" class="w-5 h-5 text-violet-500"></i>
+                    </div>
+                    <h3 class="text-lg font-medium mb-2">SASS & Tailwind</h3>
+                    <p class="text-xs text-neutral-500 font-light leading-relaxed mb-4">CSS preprocessor &
+                        utility-first.</p>
+                    <div class="space-y-2">
+                        <div class="flex justify-between text-[11px]"><span class="text-neutral-400">SASS +
+                                Tailwind</span><span class="text-violet-500">84%</span></div>
+                        <div class="h-1 bg-white/5 rounded-full overflow-hidden">
+                            <div class="skill-bar h-full bg-gradient-to-r from-violet-500 to-violet-400 rounded-full"
+                                style="width:84%"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Database -->
+            <div class="fade-in mb-16">
+                <div class="text-center mb-8"><span
+                        class="text-xs uppercase tracking-widest text-neutral-600">Database</span></div>
+                <div class="grid grid-cols-2 md:grid-cols-2 gap-4 max-w-lg mx-auto">
+                    <div
+                        class="bg-neutral-900/50 border border-white/5 rounded-2xl p-5 text-center hover:border-white/10 transition-colors duration-500 group">
+                        <div
+                            class="w-12 h-12 rounded-xl bg-cyan-500/10 border border-cyan-500/20 flex items-center justify-center mx-auto mb-3 group-hover:scale-110 transition-transform duration-500">
+                            <i data-lucide="database" class="w-5 h-5 text-cyan-500"></i>
+                        </div>
+                        <div class="text-sm font-medium mb-1">MySQL</div>
+                        <div class="text-[10px] text-neutral-600">CRUD · Query · Design</div>
+                    </div>
+                    <div
+                        class="bg-neutral-900/50 border border-white/5 rounded-2xl p-5 text-center hover:border-white/10 transition-colors duration-500 group">
+                        <div
+                            class="w-12 h-12 rounded-xl bg-purple-500/10 border border-purple-500/20 flex items-center justify-center mx-auto mb-3 group-hover:scale-110 transition-transform duration-500">
+                            <i data-lucide="database" class="w-5 h-5 text-purple-500"></i>
+                        </div>
+                        <div class="text-sm font-medium mb-1">SQL Server</div>
+                        <div class="text-[10px] text-neutral-600">T-SQL · Procedure · View</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tools -->
+            <div class="fade-in">
+                <div class="text-center mb-8"><span class="text-xs uppercase tracking-widest text-neutral-600">Công cụ
+                        khác</span></div>
+                <div class="flex flex-wrap justify-center gap-3">
+                    <span
+                        class="px-4 py-2 rounded-full bg-white/5 border border-white/5 text-sm text-neutral-400 hover:border-white/10 hover:text-white transition-colors duration-300 cursor-default">VS
+                        Code</span>
+                    <span
+                        class="px-4 py-2 rounded-full bg-white/5 border border-white/5 text-sm text-neutral-400 hover:border-white/10 hover:text-white transition-colors duration-300 cursor-default">IntelliJ
+                        IDEA</span>
+                    <span
+                        class="px-4 py-2 rounded-full bg-white/5 border border-white/5 text-sm text-neutral-400 hover:border-white/10 hover:text-white transition-colors duration-300 cursor-default">Git
+                        & GitHub</span>
+                    <span
+                        class="px-4 py-2 rounded-full bg-white/5 border border-white/5 text-sm text-neutral-400 hover:border-white/10 hover:text-white transition-colors duration-300 cursor-default">Figma</span>
+                    <span
+                        class="px-4 py-2 rounded-full bg-white/5 border border-white/5 text-sm text-neutral-400 hover:border-white/10 hover:text-white transition-colors duration-300 cursor-default">Vite</span>
+                    <span
+                        class="px-4 py-2 rounded-full bg-white/5 border border-white/5 text-sm text-neutral-400 hover:border-white/10 hover:text-white transition-colors duration-300 cursor-default">Maven</span>
+                    <span
+                        class="px-4 py-2 rounded-full bg-white/5 border border-white/5 text-sm text-neutral-400 hover:border-white/10 hover:text-white transition-colors duration-300 cursor-default">NPM</span>
+                    <span
+                        class="px-4 py-2 rounded-full bg-white/5 border border-white/5 text-sm text-neutral-400 hover:border-white/10 hover:text-white transition-colors duration-300 cursor-default">Postman</span>
+                    <span
+                        class="px-4 py-2 rounded-full bg-white/5 border border-white/5 text-sm text-neutral-400 hover:border-white/10 hover:text-white transition-colors duration-300 cursor-default">Spring
+                        Initializr</span>
+                    <span
+                        class="px-4 py-2 rounded-full bg-white/5 border border-white/5 text-sm text-neutral-400 hover:border-white/10 hover:text-white transition-colors duration-300 cursor-default">Chrome
+                        DevTools</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== PROJECTS ===== -->
+    <section id="projects" class="relative py-24 md:py-32">
+        <div class="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/10 to-transparent">
+        </div>
+        <div
+            class="absolute top-1/3 left-1/2 -translate-x-1/2 w-[500px] h-[400px] rounded-full bg-blue-500/5 blur-[120px] pointer-events-none">
+        </div>
+
+        <div class="max-w-7xl mx-auto px-6 relative z-10">
+            <div class="text-center mb-16 fade-in">
+                <div
+                    class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-blue-500/10 border border-blue-500/20 mb-6">
+                    <span class="text-[10px] uppercase tracking-widest text-blue-500 font-medium">Dự án</span>
+                </div>
+                <h2 class="text-3xl md:text-4xl font-medium tracking-tight">~10 dự án tôi đã làm</h2>
+                <p class="text-neutral-500 font-light mt-4 max-w-md mx-auto">Đồ án học tập và dự án cá nhân — từ Java
+                    backend đến React frontend</p>
+            </div>
+
+            <!-- Filter -->
+            <div class="flex flex-wrap justify-center gap-2 mb-12 fade-in">
+                <button
+                    class="filter-btn active px-5 py-2 rounded-full text-xs font-medium bg-white text-black transition-all duration-300"
+                    data-filter="all">Tất cả</button>
+                <button
+                    class="filter-btn px-5 py-2 rounded-full text-xs font-medium bg-white/5 text-neutral-400 border border-white/5 hover:text-white transition-all duration-300"
+                    data-filter="java">Java / Backend</button>
+                <button
+                    class="filter-btn px-5 py-2 rounded-full text-xs font-medium bg-white/5 text-neutral-400 border border-white/5 hover:text-white transition-all duration-300"
+                    data-filter="react">ReactJS</button>
+                <button
+                    class="filter-btn px-5 py-2 rounded-full text-xs font-medium bg-white/5 text-neutral-400 border border-white/5 hover:text-white transition-all duration-300"
+                    data-filter="html">HTML/CSS/JS</button>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-6" id="project-grid">
+
+                <!-- 1. E-Commerce REST API (Java) -->
+                <div class="project-card card-glow card-glow-java bg-neutral-900/50 border border-white/5 rounded-2xl overflow-hidden hover:border-white/10 transition-colors duration-500 fade-in group"
+                    data-category="java">
+                    <div class="relative aspect-video overflow-hidden">
+                        <img src="https://picsum.photos/seed/ecommerce-java-api/800/450.jpg" alt=""
+                            class="proj-img w-full h-full object-cover opacity-70">
+                        <div class="absolute inset-0 bg-gradient-to-t from-neutral-900 via-transparent to-transparent">
+                        </div>
+                        <div class="absolute top-4 right-4 flex gap-2">
+                            <span
+                                class="px-2.5 py-1 rounded-full bg-black/50 backdrop-blur-sm text-[10px] text-neutral-300 border border-white/10">Java</span>
+                            <span
+                                class="px-2.5 py-1 rounded-full bg-black/50 backdrop-blur-sm text-[10px] text-neutral-300 border border-white/10">Spring
+                                Boot</span>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-lg font-medium mb-2 group-hover:text-red-400 transition-colors duration-300">
+                            E-Commerce REST API</h3>
+                        <p class="text-sm text-neutral-500 font-light leading-relaxed mb-4">API quản lý sản phẩm, đơn
+                            hàng, user. CRUD, validation, exception handling với Spring Boot.</p>
+                        <div class="flex items-center gap-4">
+                            <a href="#"
+                                class="inline-flex items-center gap-1.5 text-xs text-red-500 hover:text-red-400 transition-colors group/link">Swagger
+                                Docs <i data-lucide="external-link"
+                                    class="w-3.5 h-3.5 group-hover/link:translate-x-0.5 group-hover/link:-translate-y-0.5 transition-transform duration-300"></i></a>
+                            <a href="#"
+                                class="inline-flex items-center gap-1.5 text-xs text-neutral-500 hover:text-white transition-colors"><i
+                                    data-lucide="github" class="w-3.5 h-3.5"></i>Source</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 2. Student Mgmt (Java) -->
+                <div class="project-card card-glow card-glow-java bg-neutral-900/50 border border-white/5 rounded-2xl overflow-hidden hover:border-white/10 transition-colors duration-500 fade-in group"
+                    data-category="java">
+                    <div class="relative aspect-video overflow-hidden">
+                        <img src="https://picsum.photos/seed/student-java-mgmt/800/450.jpg" alt=""
+                            class="proj-img w-full h-full object-cover opacity-70">
+                        <div class="absolute inset-0 bg-gradient-to-t from-neutral-900 via-transparent to-transparent">
+                        </div>
+                        <div class="absolute top-4 right-4 flex gap-2">
+                            <span
+                                class="px-2.5 py-1 rounded-full bg-black/50 backdrop-blur-sm text-[10px] text-neutral-300 border border-white/10">Java</span>
+                            <span
+                                class="px-2.5 py-1 rounded-full bg-black/50 backdrop-blur-sm text-[10px] text-neutral-300 border border-white/10">MySQL</span>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-lg font-medium mb-2 group-hover:text-red-400 transition-colors duration-300">
+                            Quản Lý Sinh Viên</h3>
+                        <p class="text-sm text-neutral-500 font-light leading-relaxed mb-4">Đồ án FPT: CRUD sinh viên,
+                            JDBC, MySQL, phân trang, search, export Excel.</p>
+                        <div class="flex items-center gap-4">
+                            <a href="#"
+                                class="inline-flex items-center gap-1.5 text-xs text-red-500 hover:text-red-400 transition-colors group/link">Chi
+                                tiết <i data-lucide="external-link"
+                                    class="w-3.5 h-3.5 group-hover/link:translate-x-0.5 group-hover/link:-translate-y-0.5 transition-transform duration-300"></i></a>
+                            <a href="#"
+                                class="inline-flex items-center gap-1.5 text-xs text-neutral-500 hover:text-white transition-colors"><i
+                                    data-lucide="github" class="w-3.5 h-3.5"></i>Source</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 3. E-Commerce React -->
+                <div class="project-card card-glow bg-neutral-900/50 border border-white/5 rounded-2xl overflow-hidden hover:border-white/10 transition-colors duration-500 fade-in group"
+                    data-category="react">
+                    <div class="relative aspect-video overflow-hidden">
+                        <img src="https://picsum.photos/seed/ecommerce-react-shop/800/450.jpg" alt=""
+                            class="proj-img w-full h-full object-cover opacity-70">
+                        <div class="absolute inset-0 bg-gradient-to-t from-neutral-900 via-transparent to-transparent">
+                        </div>
+                        <div class="absolute top-4 right-4 flex gap-2">
+                            <span
+                                class="px-2.5 py-1 rounded-full bg-black/50 backdrop-blur-sm text-[10px] text-neutral-300 border border-white/10">ReactJS</span>
+                            <span
+                                class="px-2.5 py-1 rounded-full bg-black/50 backdrop-blur-sm text-[10px] text-neutral-300 border border-white/10">Tailwind</span>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-lg font-medium mb-2 group-hover:text-blue-400 transition-colors duration-300">
+                            E-Commerce Shop</h3>
+                        <p class="text-sm text-neutral-500 font-light leading-relaxed mb-4">Cửa hàng online: danh mục,
+                            giỏ hàng, checkout, search & filter.</p>
+                        <div class="flex items-center gap-4">
+                            <a href="#"
+                                class="inline-flex items-center gap-1.5 text-xs text-blue-500 hover:text-blue-400 transition-colors group/link">Live
+                                Demo <i data-lucide="external-link"
+                                    class="w-3.5 h-3.5 group-hover/link:translate-x-0.5 group-hover/link:-translate-y-0.5 transition-transform duration-300"></i></a>
+                            <a href="#"
+                                class="inline-flex items-center gap-1.5 text-xs text-neutral-500 hover:text-white transition-colors"><i
+                                    data-lucide="github" class="w-3.5 h-3.5"></i>Source</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 4. Movie App -->
+                <div class="project-card card-glow bg-neutral-900/50 border border-white/5 rounded-2xl overflow-hidden hover:border-white/10 transition-colors duration-500 fade-in group"
+                    data-category="react">
+                    <div class="relative aspect-video overflow-hidden">
+                        <img src="https://picsum.photos/seed/movie-search-app/800/450.jpg" alt=""
+                            class="proj-img w-full h-full object-cover opacity-70">
+                        <div class="absolute inset-0 bg-gradient-to-t from-neutral-900 via-transparent to-transparent">
+                        </div>
+                        <div class="absolute top-4 right-4 flex gap-2">
+                            <span
+                                class="px-2.5 py-1 rounded-full bg-black/50 backdrop-blur-sm text-[10px] text-neutral-300 border border-white/10">ReactJS</span>
+                            <span
+                                class="px-2.5 py-1 rounded-full bg-black/50 backdrop-blur-sm text-[10px] text-neutral-300 border border-white/10">API</span>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-lg font-medium mb-2 group-hover:text-blue-400 transition-colors duration-300">
+                            Movie Search App</h3>
+                        <p class="text-sm text-neutral-500 font-light leading-relaxed mb-4">Tìm phim từ TMDB API, xem
+                            chi tiết, rating, trailer preview.</p>
+                        <div class="flex items-center gap-4">
+                            <a href="#"
+                                class="inline-flex items-center gap-1.5 text-xs text-blue-500 hover:text-blue-400 transition-colors group/link">Live
+                                Demo <i data-lucide="external-link"
+                                    class="w-3.5 h-3.5 group-hover/link:translate-x-0.5 group-hover/link:-translate-y-0.5 transition-transform duration-300"></i></a>
+                            <a href="#"
+                                class="inline-flex items-center gap-1.5 text-xs text-neutral-500 hover:text-white transition-colors"><i
+                                    data-lucide="github" class="w-3.5 h-3.5"></i>Source</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 5. Task Manager React -->
+                <div class="project-card card-glow bg-neutral-900/50 border border-white/5 rounded-2xl overflow-hidden hover:border-white/10 transition-colors duration-500 fade-in group"
+                    data-category="react">
+                    <div class="relative aspect-video overflow-hidden">
+                        <img src="https://picsum.photos/seed/task-react-board/800/450.jpg" alt=""
+                            class="proj-img w-full h-full object-cover opacity-70">
+                        <div class="absolute inset-0 bg-gradient-to-t from-neutral-900 via-transparent to-transparent">
+                        </div>
+                        <div class="absolute top-4 right-4 flex gap-2">
+                            <span
+                                class="px-2.5 py-1 rounded-full bg-black/50 backdrop-blur-sm text-[10px] text-neutral-300 border border-white/10">ReactJS</span>
+                            <span
+                                class="px-2.5 py-1 rounded-full bg-black/50 backdrop-blur-sm text-[10px] text-neutral-300 border border-white/10">SASS</span>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-lg font-medium mb-2 group-hover:text-blue-400 transition-colors duration-300">
+                            Task Manager</h3>
+                        <p class="text-sm text-neutral-500 font-light leading-relaxed mb-4">Quản lý công việc:
+                            thêm/sửa/xóa, drag & drop, filter trạng thái.</p>
+                        <div class="flex items-center gap-4">
+                            <a href="#"
+                                class="inline-flex items-center gap-1.5 text-xs text-blue-500 hover:text-blue-400 transition-colors group/link">Live
+                                Demo <i data-lucide="external-link"
+                                    class="w-3.5 h-3.5 group-hover/link:translate-x-0.5 group-hover/link:-translate-y-0.5 transition-transform duration-300"></i></a>
+                            <a href="#"
+                                class="inline-flex items-center gap-1.5 text-xs text-neutral-500 hover:text-white transition-colors"><i
+                                    data-lucide="github" class="w-3.5 h-3.5"></i>Source</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 6. Chat UI -->
+                <div class="project-card card-glow bg-neutral-900/50 border border-white/5 rounded-2xl overflow-hidden hover:border-white/10 transition-colors duration-500 fade-in group"
+                    data-category="react">
+                    <div class="relative aspect-video overflow-hidden">
+                        <img src="https://picsum.photos/seed/chat-ui-react/800/450.jpg" alt=""
+                            class="proj-img w-full h-full object-cover opacity-70">
+                        <div class="absolute inset-0 bg-gradient-to-t from-neutral-900 via-transparent to-transparent">
+                        </div>
+                        <div class="absolute top-4 right-4 flex gap-2">
+                            <span
+                                class="px-2.5 py-1 rounded-full bg-black/50 backdrop-blur-sm text-[10px] text-neutral-300 border border-white/10">ReactJS</span>
+                            <span
+                                class="px-2.5 py-1 rounded-full bg-black/50 backdrop-blur-sm text-[10px] text-neutral-300 border border-white/10">Tailwind</span>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-lg font-medium mb-2 group-hover:text-blue-400 transition-colors duration-300">
+                            Chat UI</h3>
+                        <p class="text-sm text-neutral-500 font-light leading-relaxed mb-4">Giao diện chat: danh sách
+                            conversation, emoji, file attach UI.</p>
+                        <div class="flex items-center gap-4">
+                            <a href="#"
+                                class="inline-flex items-center gap-1.5 text-xs text-blue-500 hover:text-blue-400 transition-colors group/link">Live
+                                Demo <i data-lucide="external-link"
+                                    class="w-3.5 h-3.5 group-hover/link:translate-x-0.5 group-hover/link:-translate-y-0.5 transition-transform duration-300"></i></a>
+                            <a href="#"
+                                class="inline-flex items-center gap-1.5 text-xs text-neutral-500 hover:text-white transition-colors"><i
+                                    data-lucide="github" class="w-3.5 h-3.5"></i>Source</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 7. Admin Dashboard React -->
+                <div class="project-card card-glow bg-neutral-900/50 border border-white/5 rounded-2xl overflow-hidden hover:border-white/10 transition-colors duration-500 fade-in group"
+                    data-category="react">
+                    <div class="relative aspect-video overflow-hidden">
+                        <img src="https://picsum.photos/seed/admin-dashboard-chart/800/450.jpg" alt=""
+                            class="proj-img w-full h-full object-cover opacity-70">
+                        <div class="absolute inset-0 bg-gradient-to-t from-neutral-900 via-transparent to-transparent">
+                        </div>
+                        <div class="absolute top-4 right-4 flex gap-2">
+                            <span
+                                class="px-2.5 py-1 rounded-full bg-black/50 backdrop-blur-sm text-[10px] text-neutral-300 border border-white/10">ReactJS</span>
+                            <span
+                                class="px-2.5 py-1 rounded-full bg-black/50 backdrop-blur-sm text-[10px] text-neutral-300 border border-white/10">Tailwind</span>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-lg font-medium mb-2 group-hover:text-blue-400 transition-colors duration-300">
+                            Admin Dashboard</h3>
+                        <p class="text-sm text-neutral-500 font-light leading-relaxed mb-4">Dashboard quản trị: sidebar,
+                            charts, bảng dữ liệu, user management UI.</p>
+                        <div class="flex items-center gap-4">
+                            <a href="#"
+                                class="inline-flex items-center gap-1.5 text-xs text-blue-500 hover:text-blue-400 transition-colors group/link">Live
+                                Demo <i data-lucide="external-link"
+                                    class="w-3.5 h-3.5 group-hover/link:translate-x-0.5 group-hover/link:-translate-y-0.5 transition-transform duration-300"></i></a>
+                            <a href="#"
+                                class="inline-flex items-center gap-1.5 text-xs text-neutral-500 hover:text-white transition-colors"><i
+                                    data-lucide="github" class="w-3.5 h-3.5"></i>Source</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 8. Portfolio (trang này) -->
+                <div class="project-card card-glow bg-neutral-900/50 border border-white/5 rounded-2xl overflow-hidden hover:border-white/10 transition-colors duration-500 fade-in group"
+                    data-category="html">
+                    <div class="relative aspect-video overflow-hidden">
+                        <img src="https://picsum.photos/seed/portfolio-dark-personal/800/450.jpg" alt=""
+                            class="proj-img w-full h-full object-cover opacity-70">
+                        <div class="absolute inset-0 bg-gradient-to-t from-neutral-900 via-transparent to-transparent">
+                        </div>
+                        <div class="absolute top-4 right-4 flex gap-2">
+                            <span
+                                class="px-2.5 py-1 rounded-full bg-black/50 backdrop-blur-sm text-[10px] text-neutral-300 border border-white/10">HTML</span>
+                            <span
+                                class="px-2.5 py-1 rounded-full bg-black/50 backdrop-blur-sm text-[10px] text-neutral-300 border border-white/10">CSS</span>
+                            <span
+                                class="px-2.5 py-1 rounded-full bg-black/50 backdrop-blur-sm text-[10px] text-neutral-300 border border-white/10">JS</span>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-lg font-medium mb-2 group-hover:text-orange-400 transition-colors duration-300">
+                            Portfolio Cá Nhân</h3>
+                        <p class="text-sm text-neutral-500 font-light leading-relaxed mb-4">Dark theme, typing effect,
+                            filter, toast — chính là trang này.</p>
+                        <div class="flex items-center gap-4">
+                            <a href="#"
+                                class="inline-flex items-center gap-1.5 text-xs text-orange-500 hover:text-orange-400 transition-colors group/link">Live
+                                Demo <i data-lucide="external-link"
+                                    class="w-3.5 h-3.5 group-hover/link:translate-x-0.5 group-hover/link:-translate-y-0.5 transition-transform duration-300"></i></a>
+                            <a href="#"
+                                class="inline-flex items-center gap-1.5 text-xs text-neutral-500 hover:text-white transition-colors"><i
+                                    data-lucide="github" class="w-3.5 h-3.5"></i>Source</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 9. Weather App -->
+                <div class="project-card card-glow bg-neutral-900/50 border border-white/5 rounded-2xl overflow-hidden hover:border-white/10 transition-colors duration-500 fade-in group"
+                    data-category="html">
+                    <div class="relative aspect-video overflow-hidden">
+                        <img src="https://picsum.photos/seed/weather-glass-app/800/450.jpg" alt=""
+                            class="proj-img w-full h-full object-cover opacity-70">
+                        <div class="absolute inset-0 bg-gradient-to-t from-neutral-900 via-transparent to-transparent">
+                        </div>
+                        <div class="absolute top-4 right-4 flex gap-2">
+                            <span
+                                class="px-2.5 py-1 rounded-full bg-black/50 backdrop-blur-sm text-[10px] text-neutral-300 border border-white/10">JavaScript</span>
+                            <span
+                                class="px-2.5 py-1 rounded-full bg-black/50 backdrop-blur-sm text-[10px] text-neutral-300 border border-white/10">API</span>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-lg font-medium mb-2 group-hover:text-orange-400 transition-colors duration-300">
+                            Weather Dashboard</h3>
+                        <p class="text-sm text-neutral-500 font-light leading-relaxed mb-4">Thời tiết thực thời,
+                            geolocation, 5-day forecast, glassmorphism.</p>
+                        <div class="flex items-center gap-4">
+                            <a href="#"
+                                class="inline-flex items-center gap-1.5 text-xs text-orange-500 hover:text-orange-400 transition-colors group/link">Live
+                                Demo <i data-lucide="external-link"
+                                    class="w-3.5 h-3.5 group-hover/link:translate-x-0.5 group-hover/link:-translate-y-0.5 transition-transform duration-300"></i></a>
+                            <a href="#"
+                                class="inline-flex items-center gap-1.5 text-xs text-neutral-500 hover:text-white transition-colors"><i
+                                    data-lucide="github" class="w-3.5 h-3.5"></i>Source</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 10. Restaurant Website -->
+                <div class="project-card card-glow bg-neutral-900/50 border border-white/5 rounded-2xl overflow-hidden hover:border-white/10 transition-colors duration-500 fade-in group"
+                    data-category="html">
+                    <div class="relative aspect-video overflow-hidden">
+                        <img src="https://picsum.photos/seed/restaurant-landing-food/800/450.jpg" alt=""
+                            class="proj-img w-full h-full object-cover opacity-70">
+                        <div class="absolute inset-0 bg-gradient-to-t from-neutral-900 via-transparent to-transparent">
+                        </div>
+                        <div class="absolute top-4 right-4 flex gap-2">
+                            <span
+                                class="px-2.5 py-1 rounded-full bg-black/50 backdrop-blur-sm text-[10px] text-neutral-300 border border-white/10">HTML</span>
+                            <span
+                                class="px-2.5 py-1 rounded-full bg-black/50 backdrop-blur-sm text-[10px] text-neutral-300 border border-white/10">SASS</span>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-lg font-medium mb-2 group-hover:text-orange-400 transition-colors duration-300">
+                            Restaurant Website</h3>
+                        <p class="text-sm text-neutral-500 font-light leading-relaxed mb-4">Landing page nhà hàng: menu,
+                            gallery, đặt bàn, mobile-first.</p>
+                        <div class="flex items-center gap-4">
+                            <a href="#"
+                                class="inline-flex items-center gap-1.5 text-xs text-orange-500 hover:text-orange-400 transition-colors group/link">Live
+                                Demo <i data-lucide="external-link"
+                                    class="w-3.5 h-3.5 group-hover/link:translate-x-0.5 group-hover/link:-translate-y-0.5 transition-transform duration-300"></i></a>
+                            <a href="#"
+                                class="inline-flex items-center gap-1.5 text-xs text-neutral-500 hover:text-white transition-colors"><i
+                                    data-lucide="github" class="w-3.5 h-3.5"></i>Source</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 11. Blog Template -->
+                <div class="project-card card-glow bg-neutral-900/50 border border-white/5 rounded-2xl overflow-hidden hover:border-white/10 transition-colors duration-500 fade-in group"
+                    data-category="html">
+                    <div class="relative aspect-video overflow-hidden">
+                        <img src="https://picsum.photos/seed/blog-articles-reading/800/450.jpg" alt=""
+                            class="proj-img w-full h-full object-cover opacity-70">
+                        <div class="absolute inset-0 bg-gradient-to-t from-neutral-900 via-transparent to-transparent">
+                        </div>
+                        <div class="absolute top-4 right-4 flex gap-2">
+                            <span
+                                class="px-2.5 py-1 rounded-full bg-black/50 backdrop-blur-sm text-[10px] text-neutral-300 border border-white/10">HTML</span>
+                            <span
+                                class="px-2.5 py-1 rounded-full bg-black/50 backdrop-blur-sm text-[10px] text-neutral-300 border border-white/10">CSS</span>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-lg font-medium mb-2 group-hover:text-orange-400 transition-colors duration-300">
+                            Blog Template</h3>
+                        <p class="text-sm text-neutral-500 font-light leading-relaxed mb-4">Template blog: bài viết,
+                            categories, pagination, dark/light toggle.</p>
+                        <div class="flex items-center gap-4">
+                            <a href="#"
+                                class="inline-flex items-center gap-1.5 text-xs text-orange-500 hover:text-orange-400 transition-colors group/link">Live
+                                Demo <i data-lucide="external-link"
+                                    class="w-3.5 h-3.5 group-hover/link:translate-x-0.5 group-hover/link:-translate-y-0.5 transition-transform duration-300"></i></a>
+                            <a href="#"
+                                class="inline-flex items-center gap-1.5 text-xs text-neutral-500 hover:text-white transition-colors"><i
+                                    data-lucide="github" class="w-3.5 h-3.5"></i>Source</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 12. Library Mgmt (Java) -->
+                <div class="project-card card-glow card-glow-java bg-neutral-900/50 border border-white/5 rounded-2xl overflow-hidden hover:border-white/10 transition-colors duration-500 fade-in group"
+                    data-category="java">
+                    <div class="relative aspect-video overflow-hidden">
+                        <img src="https://picsum.photos/seed/library-java-system/800/450.jpg" alt=""
+                            class="proj-img w-full h-full object-cover opacity-70">
+                        <div class="absolute inset-0 bg-gradient-to-t from-neutral-900 via-transparent to-transparent">
+                        </div>
+                        <div class="absolute top-4 right-4 flex gap-2">
+                            <span
+                                class="px-2.5 py-1 rounded-full bg-black/50 backdrop-blur-sm text-[10px] text-neutral-300 border border-white/10">Java</span>
+                            <span
+                                class="px-2.5 py-1 rounded-full bg-black/50 backdrop-blur-sm text-[10px] text-neutral-300 border border-white/10">SQL
+                                Server</span>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-lg font-medium mb-2 group-hover:text-red-400 transition-colors duration-300">
+                            Quản Lý Thư Viện</h3>
+                        <p class="text-sm text-neutral-500 font-light leading-relaxed mb-4">Quản lý sách, mượn/trả,
+                            reader. Java Swing + JDBC + SQL Server.</p>
+                        <div class="flex items-center gap-4">
+                            <a href="#"
+                                class="inline-flex items-center gap-1.5 text-xs text-red-500 hover:text-red-400 transition-colors group/link">Chi
+                                tiết <i data-lucide="external-link"
+                                    class="w-3.5 h-3.5 group-hover/link:translate-x-0.5 group-hover/link:-translate-y-0.5 transition-transform duration-300"></i></a>
+                            <a href="#"
+                                class="inline-flex items-center gap-1.5 text-xs text-neutral-500 hover:text-white transition-colors"><i
+                                    data-lucide="github" class="w-3.5 h-3.5"></i>Source</a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== PROCESS ===== -->
+    <section class="relative py-24 md:py-32">
+        <div class="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/10 to-transparent">
+        </div>
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-16 fade-in">
+                <div
+                    class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-blue-500/10 border border-blue-500/20 mb-6">
+                    <span class="text-[10px] uppercase tracking-widest text-blue-500 font-medium">Học tập</span>
+                </div>
+                <h2 class="text-3xl md:text-4xl font-medium tracking-tight">Cách tôi tiếp cận dự án</h2>
+            </div>
+            <div class="grid md:grid-cols-4 gap-6">
+                <div class="fade-in relative">
+                    <div
+                        class="bg-neutral-900/50 border border-white/5 rounded-2xl p-6 h-full hover:border-white/10 transition-colors duration-500">
+                        <div
+                            class="w-10 h-10 rounded-xl bg-blue-500/10 border border-blue-500/20 flex items-center justify-center mb-4">
+                            <span class="text-sm font-medium text-blue-500">01</span>
+                        </div>
+                        <h3 class="text-base font-medium mb-2">Nghiên cứu</h3>
+                        <p class="text-xs text-neutral-500 font-light leading-relaxed">Đọc docs, xem reference, phân
+                            tích UI/UX từ site thực tế.</p>
+                    </div>
+                    <div class="hidden md:block absolute top-1/2 -right-3 text-neutral-700"><i
+                            data-lucide="chevron-right" class="w-5 h-5"></i></div>
+                </div>
+                <div class="fade-in relative">
+                    <div
+                        class="bg-neutral-900/50 border border-white/5 rounded-2xl p-6 h-full hover:border-white/10 transition-colors duration-500">
+                        <div
+                            class="w-10 h-10 rounded-xl bg-blue-500/10 border border-blue-500/20 flex items-center justify-center mb-4">
+                            <span class="text-sm font-medium text-blue-500">02</span>
+                        </div>
+                        <h3 class="text-base font-medium mb-2">Thiết kế</h3>
+                        <p class="text-xs text-neutral-500 font-light leading-relaxed">Wireframe Figma, chọn color,
+                            typography, database schema.</p>
+                    </div>
+                    <div class="hidden md:block absolute top-1/2 -right-3 text-neutral-700"><i
+                            data-lucide="chevron-right" class="w-5 h-5"></i></div>
+                </div>
+                <div class="fade-in relative">
+                    <div
+                        class="bg-neutral-900/50 border border-white/5 rounded-2xl p-6 h-full hover:border-white/10 transition-colors duration-500">
+                        <div
+                            class="w-10 h-10 rounded-xl bg-blue-500/10 border border-blue-500/20 flex items-center justify-center mb-4">
+                            <span class="text-sm font-medium text-blue-500">03</span>
+                        </div>
+                        <h3 class="text-base font-medium mb-2">Code</h3>
+                        <p class="text-xs text-neutral-500 font-light leading-relaxed">Backend Java trước, frontend
+                            React sau, tích hợp, commit nhỏ.</p>
+                    </div>
+                    <div class="hidden md:block absolute top-1/2 -right-3 text-neutral-700"><i
+                            data-lucide="chevron-right" class="w-5 h-5"></i></div>
+                </div>
+                <div class="fade-in">
+                    <div
+                        class="bg-neutral-900/50 border border-white/5 rounded-2xl p-6 h-full hover:border-white/10 transition-colors duration-500">
+                        <div
+                            class="w-10 h-10 rounded-xl bg-blue-500/10 border border-blue-500/20 flex items-center justify-center mb-4">
+                            <span class="text-sm font-medium text-blue-500">04</span>
+                        </div>
+                        <h3 class="text-base font-medium mb-2">Refactor & Deploy</h3>
+                        <p class="text-xs text-neutral-500 font-light leading-relaxed">Review code, tối ưu, viết README,
+                            deploy Vercel/Render.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== CONTACT ===== -->
+    <section id="contact" class="relative py-24 md:py-32">
+        <div class="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/10 to-transparent">
+        </div>
+        <div
+            class="absolute bottom-0 left-1/2 -translate-x-1/2 w-[500px] h-[300px] rounded-full bg-blue-500/5 blur-[120px] pointer-events-none">
+        </div>
+
+        <div class="max-w-7xl mx-auto px-6 relative z-10">
+            <div class="grid md:grid-cols-2 gap-16">
+                <div class="fade-in">
+                    <div
+                        class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-blue-500/10 border border-blue-500/20 mb-6">
+                        <span class="text-[10px] uppercase tracking-widest text-blue-500 font-medium">Liên hệ</span>
+                    </div>
+                    <h2 class="text-3xl md:text-4xl font-medium tracking-tight mb-6">
+                        Cho mình cơ hội<br>
+                        <span class="text-neutral-500">thể hiện năng lực</span>
+                    </h2>
+                    <p class="text-neutral-400 font-light leading-relaxed mb-10">
+                        Mình mới ra trường và rất mong có cơ hội tham gia team, internship hay junior position — cả
+                        backend Java lẫn frontend React. Mình học nhanh, chăm chỉ và không ngại bắt đầu từ việc nhỏ.
+                    </p>
+
+                    <div class="space-y-5 mb-10">
+                        <a href="mailto:hungtran.dev@gmail.com" class="flex items-center gap-4 group">
+                            <div
+                                class="w-12 h-12 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center flex-shrink-0 group-hover:bg-blue-500/10 group-hover:border-blue-500/20 transition-colors duration-300">
+                                <i data-lucide="mail"
+                                    class="w-5 h-5 text-neutral-400 group-hover:text-blue-500 transition-colors duration-300"></i>
+                            </div>
+                            <div>
+                                <div class="text-xs text-neutral-500 mb-0.5">Email</div>
+                                <div class="text-sm group-hover:text-blue-400 transition-colors duration-300">
+                                    hungtran.dev@gmail.com</div>
+                            </div>
+                        </a>
+                        <a href="tel:+84901234567" class="flex items-center gap-4 group">
+                            <div
+                                class="w-12 h-12 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center flex-shrink-0 group-hover:bg-blue-500/10 group-hover:border-blue-500/20 transition-colors duration-300">
+                                <i data-lucide="phone"
+                                    class="w-5 h-5 text-neutral-400 group-hover:text-blue-500 transition-colors duration-300"></i>
+                            </div>
+                            <div>
+                                <div class="text-xs text-neutral-500 mb-0.5">Điện thoại</div>
+                                <div class="text-sm group-hover:text-blue-400 transition-colors duration-300">+84 901
+                                    234 567</div>
+                            </div>
+                        </a>
+                        <div class="flex items-center gap-4">
+                            <div
+                                class="w-12 h-12 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center flex-shrink-0">
+                                <i data-lucide="message-circle" class="w-5 h-5 text-neutral-400"></i>
+                            </div>
+                            <div>
+                                <div class="text-xs text-neutral-500 mb-0.5">Zalo</div>
+                                <div class="text-sm">0901 234 567</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="flex gap-3">
+                        <a href="#"
+                            class="w-10 h-10 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-neutral-400 hover:text-white hover:bg-white/10 transition-all duration-300"><i
+                                data-lucide="github" class="w-4 h-4"></i></a>
+                        <a href="#"
+                            class="w-10 h-10 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-neutral-400 hover:text-white hover:bg-white/10 transition-all duration-300"><i
+                                data-lucide="linkedin" class="w-4 h-4"></i></a>
+                        <a href="#"
+                            class="w-10 h-10 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-neutral-400 hover:text-white hover:bg-white/10 transition-all duration-300"><i
+                                data-lucide="facebook" class="w-4 h-4"></i></a>
+                    </div>
+                </div>
+
+                <div class="fade-in">
+                    <form id="contact-form" class="bg-neutral-900/50 border border-white/5 rounded-2xl p-8">
+                        <div class="space-y-5">
+                            <div>
+                                <label class="text-xs text-neutral-500 uppercase tracking-wider mb-2 block">Họ và
+                                    tên</label>
+                                <input type="text" name="name" required placeholder="Người liên hệ"
+                                    class="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-sm text-white placeholder-neutral-600 focus:outline-none focus:border-blue-500/50 focus:bg-white/[0.07] transition-all duration-300">
+                            </div>
+                            <div>
+                                <label
+                                    class="text-xs text-neutral-500 uppercase tracking-wider mb-2 block">Email</label>
+                                <input type="email" name="email" required placeholder="email@company.com"
+                                    class="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-sm text-white placeholder-neutral-600 focus:outline-none focus:border-blue-500/50 focus:bg-white/[0.07] transition-all duration-300">
+                            </div>
+                            <div>
+                                <label class="text-xs text-neutral-500 uppercase tracking-wider mb-2 block">Chủ
+                                    đề</label>
+                                <select name="subject" required
+                                    class="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-blue-500/50 focus:bg-white/[0.07] transition-all duration-300 appearance-none cursor-pointer"
+                                    style="background-image: url('data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%2212%22 height=%2212%22 viewBox=%220 0 24 24%22 fill=%22none%22 stroke=%22%23737373%22 stroke-width=%222%22><polyline points=%226 9 12 15 18 9%22></polyline></svg>'); background-repeat: no-repeat; background-position: right 16px center;">
+                                    <option value="" class="bg-neutral-900">Chọn chủ đề</option>
+                                    <option value="intern" class="bg-neutral-900">Tuyển Intern</option>
+                                    <option value="junior-fe" class="bg-neutral-900">Junior Frontend (React)</option>
+                                    <option value="junior-be" class="bg-neutral-900">Junior Backend (Java)</option>
+                                    <option value="fullstack" class="bg-neutral-900">Junior Full-Stack</option>
+                                    <option value="other" class="bg-neutral-900">Khác</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label class="text-xs text-neutral-500 uppercase tracking-wider mb-2 block">Tin
+                                    nhắn</label>
+                                <textarea name="message" required rows="4" placeholder="Mô tả yêu cầu hoặc cơ hội..."
+                                    class="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-sm text-white placeholder-neutral-600 focus:outline-none focus:border-blue-500/50 focus:bg-white/[0.07] transition-all duration-300 resize-none"></textarea>
+                            </div>
+                            <button type="submit" id="submit-btn"
+                                class="w-full bg-white text-black text-sm font-medium py-3.5 rounded-xl hover:bg-neutral-200 transition-colors duration-300 flex items-center justify-center gap-2">
+                                <span>Gửi tin nhắn</span>
+                                <i data-lucide="send" class="w-4 h-4"></i>
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="border-t border-white/5 py-12">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="flex flex-col md:flex-row items-center justify-between gap-6">
+                <div class="flex items-center gap-3">
+                    <div
+                        class="w-7 h-7 rounded-lg bg-blue-500/20 border border-blue-500/30 flex items-center justify-center">
+                        <i data-lucide="terminal" class="w-3.5 h-3.5 text-blue-500"></i>
+                    </div>
+                    <span class="text-sm text-neutral-500">© 2025 Hùng Trần</span>
+                </div>
+                <div class="flex items-center gap-6">
+                    <a href="#about" class="text-xs text-neutral-600 hover:text-neutral-400 transition-colors">Giới
+                        thiệu</a>
+                    <a href="#skills" class="text-xs text-neutral-600 hover:text-neutral-400 transition-colors">Kỹ
+                        năng</a>
+                    <a href="#projects" class="text-xs text-neutral-600 hover:text-neutral-400 transition-colors">Dự
+                        án</a>
+                    <a href="#contact" class="text-xs text-neutral-600 hover:text-neutral-400 transition-colors">Liên
+                        hệ</a>
+                </div>
+                <div class="flex items-center gap-1 text-xs text-neutral-600">
+                    <span>Built with</span>
+                    <i data-lucide="heart" class="w-3 h-3 text-blue-500 fill-blue-500"></i>
+                    <span>Java + React</span>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to top -->
+    <button id="back-to-top"
+        class="fixed bottom-6 right-6 z-50 w-10 h-10 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-neutral-400 hover:text-white hover:bg-white/10 transition-all duration-300 opacity-0 translate-y-4 pointer-events-none"
+        style="transition: opacity 0.3s, transform 0.3s;">
+        <i data-lucide="arrow-up" class="w-4 h-4"></i>
+    </button>
+
+    <script src="./js/animation.js"></script>
 </body>
 
 </html>
