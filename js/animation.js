@@ -120,26 +120,23 @@ function initCounters() {
 // ===== PROJECT DATA =====
 const projects = [
     {
-        title: "E-Commerce REST API",
-        desc: "API quản lý sản phẩm, đơn hàng.",
-        img: "https://picsum.photos/seed/ecommerce-java-api/800/450.jpg",
-        category: "java",
-        tech: ["Java", "Spring Boot"]
-    },
-    {
-        title: "Movie Search App",
-        desc: "Tìm phim từ API.",
-        img: "https://picsum.photos/seed/movie-search-app/800/450.jpg",
-        category: "react",
-        tech: ["ReactJS", "API"]
-    },
-    {
         title: "Portfolio",
         desc: "Trang portfolio cá nhân.",
-        img: "https://picsum.photos/seed/portfolio-dark-personal/800/450.jpg",
+        img: "/assets/images/imgProjects/ke1tran666.github.io_portfolio_.png",
         category: "html",
-        tech: ["HTML", "CSS", "JS"]
-    }
+        tech: ["HTML", "CSS", "JS"],
+        detail: "https://ke1tran666.github.io/portfolio/",
+        github: "https://github.com/Ke1Tran666/portfolio"
+    },
+    {
+        title: "Garment design landingPage",
+        desc: "Trang landing page về thiết kế may mặc.",
+        img: "/assets/images/imgProjects/ke1tran666.github.io_Garment-design-landingPage_.png",
+        category: "html",
+        tech: ["HTML", "CSS", "JS"],
+        detail: "https://ke1tran666.github.io/Garment-design-landingPage/",
+        github: "https://github.com/Ke1Tran666/Garment-design-landingPage"
+    },
 ];
 
 
@@ -171,9 +168,9 @@ function renderProjects(list) {
                 <h3 class="text-lg font-medium mb-2 group-hover:text-red-400 transition-colors duration-300">${p.title}</h3>
                 <p class="text-sm text-neutral-500 font-light leading-relaxed mb-4">${p.desc}</p>
                 <div class="flex items-center gap-4">
-                            <a href="#" class="inline-flex items-center gap-1.5 text-xs text-red-500 hover:text-red-400 transition-colors group/link">Chi
+                            <a href="${p.detail}" class="inline-flex items-center gap-1.5 text-xs text-red-500 hover:text-red-400 transition-colors group/link">Chi
                                 tiết <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="external-link" aria-hidden="true" class="lucide lucide-external-link w-3.5 h-3.5 group-hover/link:translate-x-0.5 group-hover/link:-translate-y-0.5 transition-transform duration-300"><path d="M15 3h6v6"></path><path d="M10 14 21 3"></path><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path></svg></a>
-                            <a href="#" class="inline-flex items-center gap-1.5 text-xs text-neutral-500 hover:text-white transition-colors"><i data-lucide="github" class="w-3.5 h-3.5"></i>Source</a>
+                            <a href="${p.github}" class="inline-flex items-center gap-1.5 text-xs text-neutral-500 hover:text-white transition-colors"><i data-lucide="github" class="w-3.5 h-3.5"></i>Source</a>
                 </div>
             </div>
         </div>
