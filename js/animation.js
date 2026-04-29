@@ -122,7 +122,7 @@ const projects = [
     {
         title: "Portfolio",
         desc: "Trang portfolio cá nhân.",
-        img: "../assets/images/imgProjects/ke1tran666.github.io_portfolio_.png",
+        img: "./assets/images/imgProjects/ke1tran666.github.io_portfolio_.png",
         category: "html",
         tech: ["HTML", "CSS", "JS"],
         detail: "https://ke1tran666.github.io/portfolio/",
@@ -131,7 +131,7 @@ const projects = [
     {
         title: "Garment design landingPage",
         desc: "Trang landing page về thiết kế may mặc.",
-        img: "../assets/images/imgProjects/ke1tran666.github.io_Garment-design-landingPage_.png",
+        img: "./assets/images/imgProjects/ke1tran666.github.io_Garment-design-landingPage_.png",
         category: "html",
         tech: ["HTML", "CSS", "JS"],
         detail: "https://ke1tran666.github.io/Garment-design-landingPage/",
