@@ -38,9 +38,14 @@
                     hệ</a>
             </div>
             <div class="hidden md:flex items-center gap-4">
-                <a href="https://github.com" target="_blank"
-                    class="text-neutral-400 hover:text-white transition-colors duration-300"><i data-lucide="github"
-                        class="w-5 h-5"></i></a>
+                <a href="https://github.com/Ke1Tran666" target="_blank" rel="noopener noreferrer" aria-label="GitHub"
+                    class="text-neutral-400 hover:text-white transition-colors duration-300">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-5 h-5"
+                        aria-hidden="true">
+                        <path
+                            d="M12 .7C5.73.7.65 5.78.65 12.05c0 5.01 3.25 9.26 7.76 10.76.57.1.78-.25.78-.55v-2.16c-3.16.69-3.83-1.34-3.83-1.34-.52-1.31-1.26-1.66-1.26-1.66-1.03-.7.08-.69.08-.69 1.14.08 1.74 1.17 1.74 1.17 1.01 1.74 2.66 1.24 3.31.95.1-.73.4-1.24.72-1.53-2.52-.29-5.17-1.26-5.17-5.61 0-1.24.44-2.25 1.17-3.05-.12-.29-.51-1.45.11-3.01 0 0 .95-.31 3.12 1.16A10.8 10.8 0 0 1 12 6.12c.97 0 1.93.13 2.84.38 2.17-1.47 3.12-1.16 3.12-1.16.62 1.56.23 2.72.11 3.01.73.8 1.17 1.81 1.17 3.05 0 4.36-2.66 5.31-5.19 5.59.41.35.77 1.04.77 2.1v3.17c0 .3.21.66.78.55a11.36 11.36 0 0 0 7.75-10.76C23.35 5.78 18.27.7 12 .7Z" />
+                    </svg>
+                </a>
                 <a href="#contact"
                     class="bg-white text-black text-xs font-medium px-5 py-2.5 rounded-full hover:bg-neutral-200 transition-colors duration-300">Hire
                     me</a>
@@ -131,11 +136,28 @@
                         <span class="text-xs text-neutral-500 ml-2">profile.java</span>
                     </div>
                     <pre class="p-4 text-xs md:text-sm leading-relaxed overflow-x-auto"><code><span class="text-red-400">public class</span> <span class="text-blue-400">HungTran</span> {
-  String[] <span class="text-orange-400">frontend</span> = {<span class="text-green-400">"React"</span>, <span class="text-green-400">"HTML"</span>, <span class="text-green-400">"CSS"</span>, <span class="text-green-400">"JS"</span>};
-  String[] <span class="text-orange-400">backend</span>  = {<span class="text-green-400">"Java"</span>, <span class="text-green-400">"Spring Boot"</span>};
-  String[] <span class="text-orange-400">database</span> = {<span class="text-green-400">"MySQL"</span>, <span class="text-green-400">"SQL Server"</span>};
-  <span class="text-red-400">boolean</span> <span class="text-orange-400">hungry</span> = <span class="text-purple-400">true</span>;
-}</code></pre>
+
+                        String <span class="text-orange-400">role</span> =
+                            <span class="text-green-400">"Full-stack Developer"</span>;
+
+                        String[] <span class="text-orange-400">frontend</span> = {
+                            <span class="text-green-400">"React"</span>,
+                            <span class="text-green-400">"Tailwind CSS"</span>,
+                            <span class="text-green-400">"JavaScript"</span>
+                        };
+
+                        String[] <span class="text-orange-400">backend</span> = {
+                            <span class="text-green-400">"Java"</span>,
+                            <span class="text-green-400">"Spring Boot"</span>,
+                            <span class="text-green-400">"Spring Security"</span>
+                        };
+
+                        String <span class="text-orange-400">database</span> =
+                            <span class="text-green-400">"SQL Server"</span>;
+
+                        boolean <span class="text-orange-400">keepLearning</span> =
+                            <span class="text-purple-400">true</span>;
+                    }</code></pre>
                 </div>
             </div>
         </div>
@@ -150,95 +172,243 @@
 
     <!-- ===== ABOUT ===== -->
     <section id="about" class="relative py-24 md:py-32">
-        <div class="max-w-7xl mx-auto px-6">
-            <div class="grid md:grid-cols-2 gap-16 items-center">
-                <div class="fade-in">
-                    <div class="relative rounded-3xl overflow-hidden aspect-[4/5] max-w-md mx-auto">
-                        <img src="https://picsum.photos/seed/young-dev-desk/600/750.jpg" alt="Workspace"
-                            class="w-full h-full object-cover opacity-80">
-                        <div class="absolute inset-0 bg-gradient-to-t from-[#050505] via-transparent to-transparent">
+        <!-- Divider -->
+        <div class="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/10 to-transparent">
+        </div>
+        <!-- Background glow -->
+        <div
+            class="absolute top-1/2 left-1/4 -translate-y-1/2 w-[400px] h-[400px] rounded-full bg-blue-500/[0.04] blur-[120px] pointer-events-none">
+        </div>
+
+        <div class="max-w-7xl mx-auto px-6 relative z-10">
+            <!-- HEADER -->
+            <div class="mb-16 fade-in">
+                <div
+                    class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-blue-500/10 border border-blue-500/20 mb-6">
+                    <span class="text-[10px] uppercase tracking-widest text-blue-500 font-medium">
+                        Giới thiệu
+                    </span>
+                </div>
+
+                <h2 class="text-3xl md:text-4xl lg:text-5xl font-medium tracking-tight max-w-3xl leading-tight">
+                    Tôi xây dựng ứng dụng web từ
+                    <span class="text-neutral-500">
+                        giao diện đến backend.
+                    </span>
+                </h2>
+            </div>
+
+            <!-- MAIN ABOUT -->
+            <div class="grid lg:grid-cols-[1.15fr_0.85fr] gap-8 items-stretch">
+                <!-- LEFT -->
+                <div class="bg-neutral-900/40 border border-white/5 rounded-3xl p-7 md:p-10 fade-in">
+                    <!-- Intro -->
+                    <div class="mb-10">
+                        <div class="text-xs uppercase tracking-widest text-neutral-600 mb-4">
+                            About Me
                         </div>
-                        <div class="absolute bottom-6 left-6 right-6">
-                            <div class="bg-black/60 backdrop-blur-xl rounded-2xl p-4 border border-white/10">
-                                <div class="grid grid-cols-3 gap-4 text-center">
-                                    <div>
-                                        <div class="text-2xl font-medium text-blue-500" id="stat-projects">0</div>
-                                        <div class="text-[10px] uppercase tracking-wider text-neutral-500 mt-1">Đồ án
-                                        </div>
-                                    </div>
-                                    <div>
-                                        <div class="text-2xl font-medium text-blue-500" id="stat-tech">0</div>
-                                        <div class="text-[10px] uppercase tracking-wider text-neutral-500 mt-1">Tech
-                                        </div>
-                                    </div>
-                                    <div>
-                                        <div class="text-2xl font-medium text-blue-500" id="stat-repos">0</div>
-                                        <div class="text-[10px] uppercase tracking-wider text-neutral-500 mt-1">Repos
-                                        </div>
-                                    </div>
+                        <h3 class="text-2xl md:text-3xl font-medium tracking-tight mb-6">
+                            Xin chào, tôi là
+                            <span class="text-blue-500">
+                                Trần Hữu Hùng.
+                            </span>
+                        </h3>
+                        <div class="space-y-5 text-neutral-400 font-light leading-relaxed">
+                            <p>
+                                Tôi theo hướng
+                                <strong class="text-neutral-200 font-normal">
+                                    Full-stack Developer
+                                </strong>,
+                                tập trung vào xây dựng ứng dụng web với
+                                <strong class="text-neutral-200 font-normal">
+                                    React
+                                </strong>
+                                ở frontend và
+                                <strong class="text-neutral-200 font-normal">
+                                    Java Spring Boot
+                                </strong>
+                                ở backend.
+                            </p>
+                            <p>
+                                Trong các project của mình, tôi đã thực hành
+                                từ xây dựng giao diện và reusable components,
+                                thiết kế database, REST API, xử lý business logic
+                                đến authentication và authorization với
+                                Spring Security.
+                            </p>
+                            <p>
+                                Tôi thích cách phát triển một chức năng theo
+                                luồng hoàn chỉnh:
+                                <span class="text-neutral-200">
+                                    từ những gì người dùng nhìn thấy trên giao diện,
+                                    dữ liệu cần lưu, API cần thiết cho đến cách
+                                    backend xử lý nghiệp vụ.
+                                </span>
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Current focus -->
+                    <div class="pt-8 border-t border-white/5">
+                        <div class="flex items-center gap-2 mb-4">
+                            <span class="relative flex w-2 h-2">
+                                <span
+                                    class="absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-50 animate-ping"></span>
+                                <span class="relative inline-flex rounded-full w-2 h-2 bg-green-500"></span>
+                            </span>
+                            <span class="text-[10px] uppercase tracking-widest text-green-500">
+                                Current Focus
+                            </span>
+                        </div>
+
+                        <p class="text-sm text-neutral-500 leading-relaxed max-w-2xl">
+                            Hiện tại tôi tập trung phát triển kỹ năng
+                            Full-stack, đào sâu React, Java Spring Boot,
+                            Spring Security, database design và cải thiện
+                            testing, Git/GitHub workflow thông qua các
+                            project thực tế.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- RIGHT -->
+                <div class="grid gap-5">
+                    <!-- ROLE -->
+                    <div
+                        class="bg-neutral-900/40 border border-white/5 rounded-2xl p-6 fade-in group hover:border-blue-500/20 transition-all duration-500">
+                        <div class="flex items-start gap-4">
+                            <div
+                                class="w-11 h-11 rounded-xl bg-blue-500/10 border border-blue-500/20 flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform duration-500">
+                                <i data-lucide="code-2" class="w-5 h-5 text-blue-500"></i>
+                            </div>
+
+
+                            <div>
+                                <div class="text-[10px] uppercase tracking-widest text-neutral-600 mb-1">
+                                    Role
                                 </div>
+                                <h4 class="font-medium mb-2">
+                                    Full-stack Developer
+                                </h4>
+                                <p class="text-xs text-neutral-500 leading-relaxed">
+                                    React frontend kết hợp với
+                                    Java Spring Boot backend.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- EDUCATION -->
+                    <div
+                        class="bg-neutral-900/40 border border-white/5 rounded-2xl p-6 fade-in group hover:border-purple-500/20 transition-all duration-500">
+
+                        <div class="flex items-start gap-4">
+                            <div
+                                class="w-11 h-11 rounded-xl bg-purple-500/10 border border-purple-500/20 flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform duration-500">
+                                <i data-lucide="graduation-cap" class="w-5 h-5 text-purple-500"></i>
+                            </div>
+
+                            <div>
+                                <div class="text-[10px] uppercase tracking-widest text-neutral-600 mb-1">
+                                    Education
+                                </div>
+                                <h4 class="font-medium mb-2">
+                                    FPT Polytechnic
+                                </h4>
+                                <p class="text-xs text-neutral-500 leading-relaxed">
+                                    Software Development
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- LOCATION -->
+                    <div
+                        class="bg-neutral-900/40 border border-white/5 rounded-2xl p-6 fade-in group hover:border-green-500/20 transition-all duration-500">
+                        <div class="flex items-start gap-4">
+                            <div
+                                class="w-11 h-11 rounded-xl bg-green-500/10 border border-green-500/20 flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform duration-500">
+                                <i data-lucide="map-pin" class="w-5 h-5 text-green-500"></i>
+                            </div>
+                            <div>
+                                <div class="text-[10px] uppercase tracking-widest text-neutral-600 mb-1">
+                                    Location
+                                </div>
+
+                                <h4 class="font-medium mb-2">
+                                    Ho Chi Minh City
+                                </h4>
+
+                                <p class="text-xs text-neutral-500 leading-relaxed">
+                                    Vietnam
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <!-- INTEREST -->
+                    <div
+                        class="bg-neutral-900/40 border border-white/5 rounded-2xl p-6 fade-in group hover:border-orange-500/20 transition-all duration-500">
+                        <div class="flex items-start gap-4">
+                            <div
+                                class="w-11 h-11 rounded-xl bg-orange-500/10 border border-orange-500/20 flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform duration-500">
+                                <i data-lucide="layers-3" class="w-5 h-5 text-orange-500"></i>
+                            </div>
+
+                            <div>
+                                <div class="text-[10px] uppercase tracking-widest text-neutral-600 mb-1">
+                                    Interested In
+                                </div>
+
+                                <h4 class="font-medium mb-2">
+                                    Web Application Development
+                                </h4>
+
+                                <p class="text-xs text-neutral-500 leading-relaxed">
+                                    Full-stack · UI/UX · Web Security
+                                </p>
                             </div>
                         </div>
                     </div>
                 </div>
+            </div>
 
-                <div class="fade-in">
-                    <div
-                        class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-blue-500/10 border border-blue-500/20 mb-6">
-                        <span class="text-[10px] uppercase tracking-widest text-blue-500 font-medium">Giới thiệu</span>
-                    </div>
-                    <h2 class="text-3xl md:text-4xl font-medium tracking-tight mb-6">
-                        Fresher với<br>
-                        <span class="text-neutral-500">đam mê Full-Stack</span>
-                    </h2>
-                    <p class="text-neutral-400 font-light leading-relaxed mb-6">
-                        Mới tốt nghiệp Cao Đẳng FPT, tôi đã tự học và thực hành qua khoảng 10 dự án cá nhân. Backend với
-                        Java & Spring Boot, frontend với ReactJS, HTML, CSS, JavaScript — mình muốn trở thành developer
-                        có thể cover toàn bộ stack.
-                    </p>
-                    <p class="text-neutral-400 font-light leading-relaxed mb-8">
-                        Mỗi dự án là một bài học mới. Mình tin rằng kết hợp sức mạnh backend của Java với trải nghiệm
-                        frontend của React là hướng đi đúng đắn.
-                    </p>
+            <!-- STACK SUMMARY -->
+            <div class="mt-8 bg-neutral-900/30 border border-white/5 rounded-2xl p-6 md:p-7 fade-in">
 
-                    <div class="space-y-4 mb-8">
-                        <div class="flex items-center gap-4">
-                            <div
-                                class="w-10 h-10 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center flex-shrink-0">
-                                <i data-lucide="map-pin" class="w-4 h-4 text-blue-500"></i>
-                            </div>
-                            <div>
-                                <div class="text-xs text-neutral-500">Vị trí</div>
-                                <div class="text-sm">TP. Hồ Chí Minh, Việt Nam</div>
-                            </div>
-                        </div>
-                        <div class="flex items-center gap-4">
-                            <div
-                                class="w-10 h-10 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center flex-shrink-0">
-                                <i data-lucide="graduation-cap" class="w-4 h-4 text-blue-500"></i>
-                            </div>
-                            <div>
-                                <div class="text-xs text-neutral-500">Học vấn</div>
-                                <div class="text-sm">Cao Đẳng FPT — Ứng dụng phần mềm / Phát triển phần mềm</div>
-                            </div>
-                        </div>
-                        <div class="flex items-center gap-4">
-                            <div
-                                class="w-10 h-10 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center flex-shrink-0">
-                                <i data-lucide="rocket" class="w-4 h-4 text-blue-500"></i>
-                            </div>
-                            <div>
-                                <div class="text-xs text-neutral-500">Trạng thái</div>
-                                <div class="text-sm">Mới ra trường — Tìm cơ hội đầu tiên</div>
-                            </div>
-                        </div>
+                <div class="flex flex-col md:flex-row md:items-center gap-5">
+
+                    <div class="flex items-center gap-2 md:pr-6 md:border-r md:border-white/5 flex-shrink-0">
+                        <i data-lucide="terminal" class="w-4 h-4 text-blue-500"></i>
+                        <span class="text-xs uppercase tracking-widest text-neutral-500">
+                            Main Stack
+                        </span>
                     </div>
 
-                    <a href="#"
-                        class="inline-flex items-center gap-2 text-sm text-blue-500 hover:text-blue-400 transition-colors duration-300 group">
-                        Tải CV <i data-lucide="download"
-                            class="w-4 h-4 group-hover:translate-y-0.5 transition-transform duration-300"></i>
-                    </a>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="skill-chip">
+                            React
+                        </span>
+                        <span class="skill-chip">
+                            Java
+                        </span>
+                        <span class="skill-chip">
+                            Spring Boot
+                        </span>
+                        <span class="skill-chip">
+                            Spring Security
+                        </span>
+                        <span class="skill-chip">
+                            SQL Server
+                        </span>
+                        <span class="skill-chip">
+                            Tailwind CSS
+                        </span>
+                        <span class="skill-chip">
+                            Git
+                        </span>
+                    </div>
                 </div>
             </div>
         </div>
@@ -246,497 +416,2732 @@
 
     <!-- ===== SKILLS ===== -->
     <section id="skills" class="relative py-24 md:py-32">
+        <!-- Top divider -->
         <div class="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/10 to-transparent">
         </div>
+
         <div class="max-w-7xl mx-auto px-6">
+            <!-- HEADER -->
             <div class="text-center mb-16 fade-in">
                 <div
                     class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-blue-500/10 border border-blue-500/20 mb-6">
-                    <span class="text-[10px] uppercase tracking-widest text-blue-500 font-medium">Kỹ năng</span>
+                    <span class="text-[10px] uppercase tracking-widest text-blue-500 font-medium">
+                        Kỹ năng
+                    </span>
                 </div>
-                <h2 class="text-3xl md:text-4xl font-medium tracking-tight">Công nghệ tôi sử dụng</h2>
-                <p class="text-neutral-500 font-light mt-4 max-w-lg mx-auto">Học được qua FPT và tự nghiên cứu — Backend
-                    Java + Frontend React</p>
+                <h2 class="text-3xl md:text-4xl font-medium tracking-tight">
+                    Công nghệ tôi sử dụng
+                </h2>
+                <p class="text-neutral-500 font-light mt-4 max-w-2xl mx-auto leading-relaxed">
+                    Stack tôi đã sử dụng trực tiếp trong các project cá nhân,
+                    từ frontend React đến backend Java Spring Boot,
+                    authentication và database.
+                </p>
             </div>
 
-            <!-- Featured: ReactJS -->
-            <div
-                class="card-glow bg-neutral-900/50 border border-blue-500/10 rounded-2xl p-8 md:p-10 mb-6 hover:border-blue-500/20 transition-colors duration-500 fade-in group">
-                <div class="flex flex-col md:flex-row md:items-start gap-8">
-                    <div class="flex-shrink-0">
-                        <div
-                            class="w-20 h-20 rounded-2xl bg-blue-500/10 border border-blue-500/20 flex items-center justify-center group-hover:scale-110 transition-transform duration-500 float">
-                            <i data-lucide="atom" class="w-8 h-8 text-blue-500"></i>
-                        </div>
-                    </div>
-                    <div class="flex-1">
-                        <div class="flex items-center gap-3 mb-2">
-                            <h3 class="text-2xl font-medium">ReactJS</h3>
-                            <span
-                                class="px-2 py-0.5 rounded-full bg-blue-500/10 text-[10px] text-blue-400 font-medium uppercase tracking-wider">Frontend
-                                Core</span>
-                        </div>
-                        <p class="text-sm text-neutral-500 font-light leading-relaxed mb-6 max-w-xl">Thư viện yêu thích
-                            cho frontend. Component-based, hooks, state management — cách tôi xây mọi giao diện.</p>
-                        <div class="grid sm:grid-cols-2 gap-x-8 gap-y-3">
-                            <div>
-                                <div class="flex justify-between text-xs mb-1.5"><span class="text-neutral-400">React
-                                        Hooks / JSX</span><span class="text-blue-500">80%</span></div>
-                                <div class="h-1.5 bg-white/5 rounded-full overflow-hidden">
-                                    <div class="skill-bar h-full bg-gradient-to-r from-blue-500 to-blue-400 rounded-full"
-                                        style="width:80%"></div>
-                                </div>
-                            </div>
-                            <div>
-                                <div class="flex justify-between text-xs mb-1.5"><span class="text-neutral-400">React
-                                        Router</span><span class="text-blue-500">75%</span></div>
-                                <div class="h-1.5 bg-white/5 rounded-full overflow-hidden">
-                                    <div class="skill-bar h-full bg-gradient-to-r from-blue-500 to-blue-400 rounded-full"
-                                        style="width:75%"></div>
-                                </div>
-                            </div>
-                            <div>
-                                <div class="flex justify-between text-xs mb-1.5"><span class="text-neutral-400">State
-                                        Management</span><span class="text-blue-500">65%</span></div>
-                                <div class="h-1.5 bg-white/5 rounded-full overflow-hidden">
-                                    <div class="skill-bar h-full bg-gradient-to-r from-blue-500 to-blue-400 rounded-full"
-                                        style="width:65%"></div>
-                                </div>
-                            </div>
-                            <div>
-                                <div class="flex justify-between text-xs mb-1.5"><span class="text-neutral-400">API
-                                        Integration</span><span class="text-blue-500">78%</span></div>
-                                <div class="h-1.5 bg-white/5 rounded-full overflow-hidden">
-                                    <div class="skill-bar h-full bg-gradient-to-r from-blue-500 to-blue-400 rounded-full"
-                                        style="width:78%"></div>
-                                </div>
-                            </div>
-                        </div>
+            <!-- CORE STACK -->
+            <div class="mb-20">
+                <div class="flex items-center justify-between mb-8 fade-in">
+                    <div>
+                        <span class="text-xs uppercase tracking-widest text-neutral-600">
+                            Core Stack
+                        </span>
+                        <h3 class="text-xl md:text-2xl font-medium mt-2">
+                            Công nghệ chính
+                        </h3>
                     </div>
                 </div>
+
+                <div class="grid md:grid-cols-2 gap-6">
+                    <!-- REACT -->
+                    <div class="
+                        card-glow
+                        bg-neutral-900/50
+                        border
+                        border-blue-500/10
+                        rounded-2xl
+                        p-7
+                        md:p-8
+                        hover:border-blue-500/20
+                        transition-all
+                        duration-500
+                        fade-in
+                        group
+                    ">
+
+                        <div class="flex items-start gap-5">
+
+                            <div class="
+                                w-14 h-14
+                                rounded-2xl
+                                bg-blue-500/10
+                                border
+                                border-blue-500/20
+                                flex
+                                items-center
+                                justify-center
+                                flex-shrink-0
+                                group-hover:scale-110
+                                transition-transform
+                                duration-500
+                            ">
+                                <i data-lucide="atom" class="w-6 h-6 text-blue-500"></i>
+                            </div>
+
+
+                            <div>
+
+                                <div class="flex flex-wrap items-center gap-2 mb-3">
+
+                                    <h4 class="text-xl font-medium">
+                                        React
+                                    </h4>
+
+                                    <span class="
+                                        px-2.5 py-1
+                                        rounded-full
+                                        bg-blue-500/10
+                                        text-[10px]
+                                        uppercase
+                                        tracking-wider
+                                        text-blue-400
+                                        border
+                                        border-blue-500/20
+                                    ">
+                                        Frontend Core
+                                    </span>
+
+                                </div>
+
+
+                                <p class="
+                                    text-sm
+                                    text-neutral-500
+                                    font-light
+                                    leading-relaxed
+                                    mb-5
+                                ">
+                                    Công nghệ frontend chính tôi sử dụng để
+                                    xây dựng giao diện, component tái sử dụng,
+                                    routing, form và tích hợp REST API.
+                                </p>
+
+
+                                <div class="flex flex-wrap gap-2">
+
+                                    <span class="skill-chip">
+                                        Components
+                                    </span>
+
+                                    <span class="skill-chip">
+                                        Hooks
+                                    </span>
+
+                                    <span class="skill-chip">
+                                        React Router
+                                    </span>
+
+                                    <span class="skill-chip">
+                                        Axios
+                                    </span>
+
+                                    <span class="skill-chip">
+                                        API Integration
+                                    </span>
+
+                                    <span class="skill-chip">
+                                        State Management
+                                    </span>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- ============================== -->
+                    <!-- JAVA -->
+                    <!-- ============================== -->
+
+                    <div class="
+                        card-glow
+                        bg-neutral-900/50
+                        border
+                        border-orange-500/10
+                        rounded-2xl
+                        p-7
+                        md:p-8
+                        hover:border-orange-500/20
+                        transition-all
+                        duration-500
+                        fade-in
+                        group
+                    ">
+
+                        <div class="flex items-start gap-5">
+
+                            <div class="
+                                w-14 h-14
+                                rounded-2xl
+                                bg-orange-500/10
+                                border
+                                border-orange-500/20
+                                flex
+                                items-center
+                                justify-center
+                                flex-shrink-0
+                                group-hover:scale-110
+                                transition-transform
+                                duration-500
+                            ">
+                                <i data-lucide="coffee" class="w-6 h-6 text-orange-500"></i>
+                            </div>
+
+
+                            <div>
+
+                                <div class="flex flex-wrap items-center gap-2 mb-3">
+
+                                    <h4 class="text-xl font-medium">
+                                        Java
+                                    </h4>
+
+                                    <span class="
+                                        px-2.5 py-1
+                                        rounded-full
+                                        bg-orange-500/10
+                                        text-[10px]
+                                        uppercase
+                                        tracking-wider
+                                        text-orange-400
+                                        border
+                                        border-orange-500/20
+                                    ">
+                                        Backend Core
+                                    </span>
+
+                                </div>
+
+
+                                <p class="
+                                    text-sm
+                                    text-neutral-500
+                                    font-light
+                                    leading-relaxed
+                                    mb-5
+                                ">
+                                    Ngôn ngữ backend chính tôi sử dụng,
+                                    từ Java Core, OOP đến xây dựng REST API
+                                    và business logic với Spring Boot.
+                                </p>
+
+
+                                <div class="flex flex-wrap gap-2">
+
+                                    <span class="skill-chip">
+                                        Java Core
+                                    </span>
+
+                                    <span class="skill-chip">
+                                        OOP
+                                    </span>
+
+                                    <span class="skill-chip">
+                                        Collections
+                                    </span>
+
+                                    <span class="skill-chip">
+                                        Exception Handling
+                                    </span>
+
+                                    <span class="skill-chip">
+                                        Layered Architecture
+                                    </span>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- ============================== -->
+                    <!-- SPRING BOOT -->
+                    <!-- ============================== -->
+
+                    <div class="
+                        card-glow
+                        bg-neutral-900/50
+                        border
+                        border-green-500/10
+                        rounded-2xl
+                        p-7
+                        md:p-8
+                        hover:border-green-500/20
+                        transition-all
+                        duration-500
+                        fade-in
+                        group
+                    ">
+
+                        <div class="flex items-start gap-5">
+
+                            <div class="
+                                w-14 h-14
+                                rounded-2xl
+                                bg-green-500/10
+                                border
+                                border-green-500/20
+                                flex
+                                items-center
+                                justify-center
+                                flex-shrink-0
+                                group-hover:scale-110
+                                transition-transform
+                                duration-500
+                            ">
+                                <i data-lucide="leaf" class="w-6 h-6 text-green-500"></i>
+                            </div>
+
+
+                            <div>
+
+                                <div class="flex flex-wrap items-center gap-2 mb-3">
+
+                                    <h4 class="text-xl font-medium">
+                                        Spring Boot
+                                    </h4>
+
+                                    <span class="
+                                        px-2.5 py-1
+                                        rounded-full
+                                        bg-green-500/10
+                                        text-[10px]
+                                        uppercase
+                                        tracking-wider
+                                        text-green-400
+                                        border
+                                        border-green-500/20
+                                    ">
+                                        Backend Framework
+                                    </span>
+
+                                </div>
+
+
+                                <p class="
+                                    text-sm
+                                    text-neutral-500
+                                    font-light
+                                    leading-relaxed
+                                    mb-5
+                                ">
+                                    Framework backend chính cho các project,
+                                    sử dụng để xây REST API, xử lý nghiệp vụ,
+                                    truy cập database và authentication.
+                                </p>
+
+
+                                <div class="flex flex-wrap gap-2">
+
+                                    <span class="skill-chip">
+                                        REST API
+                                    </span>
+
+                                    <span class="skill-chip">
+                                        Spring MVC
+                                    </span>
+
+                                    <span class="skill-chip">
+                                        Spring Data JPA
+                                    </span>
+
+                                    <span class="skill-chip">
+                                        Hibernate
+                                    </span>
+
+                                    <span class="skill-chip">
+                                        Maven
+                                    </span>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- ============================== -->
+                    <!-- SPRING SECURITY -->
+                    <!-- ============================== -->
+
+                    <div class="
+                        card-glow
+                        bg-neutral-900/50
+                        border
+                        border-purple-500/10
+                        rounded-2xl
+                        p-7
+                        md:p-8
+                        hover:border-purple-500/20
+                        transition-all
+                        duration-500
+                        fade-in
+                        group
+                    ">
+
+                        <div class="flex items-start gap-5">
+
+                            <div class="
+                                w-14 h-14
+                                rounded-2xl
+                                bg-purple-500/10
+                                border
+                                border-purple-500/20
+                                flex
+                                items-center
+                                justify-center
+                                flex-shrink-0
+                                group-hover:scale-110
+                                transition-transform
+                                duration-500
+                            ">
+                                <i data-lucide="shield-check" class="w-6 h-6 text-purple-500"></i>
+                            </div>
+
+
+                            <div>
+
+                                <div class="flex flex-wrap items-center gap-2 mb-3">
+
+                                    <h4 class="text-xl font-medium">
+                                        Spring Security
+                                    </h4>
+
+                                    <span class="
+                                        px-2.5 py-1
+                                        rounded-full
+                                        bg-purple-500/10
+                                        text-[10px]
+                                        uppercase
+                                        tracking-wider
+                                        text-purple-400
+                                        border
+                                        border-purple-500/20
+                                    ">
+                                        Web Security
+                                    </span>
+
+                                </div>
+
+
+                                <p class="
+                                    text-sm
+                                    text-neutral-500
+                                    font-light
+                                    leading-relaxed
+                                    mb-5
+                                ">
+                                    Sử dụng trong hệ thống authentication
+                                    và authorization, bao gồm session login,
+                                    CSRF, role và mã hóa mật khẩu.
+                                </p>
+
+
+                                <div class="flex flex-wrap gap-2">
+
+                                    <span class="skill-chip">
+                                        HTTP Session
+                                    </span>
+
+                                    <span class="skill-chip">
+                                        JSESSIONID
+                                    </span>
+
+                                    <span class="skill-chip">
+                                        CSRF
+                                    </span>
+
+                                    <span class="skill-chip">
+                                        BCrypt
+                                    </span>
+
+                                    <span class="skill-chip">
+                                        Role Authorization
+                                    </span>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
             </div>
 
-            <!-- Featured: Java -->
-            <div
-                class="card-glow card-glow-java bg-neutral-900/50 border border-red-500/10 rounded-2xl p-8 md:p-10 mb-6 hover:border-red-500/20 transition-colors duration-500 fade-in group">
-                <div class="flex flex-col md:flex-row md:items-start gap-8">
-                    <div class="flex-shrink-0">
-                        <div
-                            class="w-20 h-20 rounded-2xl bg-red-500/10 border border-red-500/20 flex items-center justify-center group-hover:scale-110 transition-transform duration-500 float-d1">
-                            <i data-lucide="coffee" class="w-8 h-8 text-red-500"></i>
-                        </div>
-                    </div>
-                    <div class="flex-1">
-                        <div class="flex items-center gap-3 mb-2">
-                            <h3 class="text-2xl font-medium">Java</h3>
-                            <span
-                                class="px-2 py-0.5 rounded-full bg-red-500/10 text-[10px] text-red-400 font-medium uppercase tracking-wider">Backend
-                                Core</span>
-                        </div>
-                        <p class="text-sm text-neutral-500 font-light leading-relaxed mb-6 max-w-xl">Ngôn ngữ đầu tiên
-                            mình học ở FPT. Từ Core Java, OOP đến Spring Boot — nền tảng backend vững chắc.</p>
-                        <div class="grid sm:grid-cols-2 gap-x-8 gap-y-3">
-                            <div>
-                                <div class="flex justify-between text-xs mb-1.5"><span class="text-neutral-400">Core
-                                        Java / OOP</span><span class="text-red-500">78%</span></div>
-                                <div class="h-1.5 bg-white/5 rounded-full overflow-hidden">
-                                    <div class="skill-bar h-full bg-gradient-to-r from-red-500 to-red-400 rounded-full"
-                                        style="width:78%"></div>
-                                </div>
-                            </div>
-                            <div>
-                                <div class="flex justify-between text-xs mb-1.5"><span class="text-neutral-400">Spring
-                                        Boot</span><span class="text-red-500">68%</span></div>
-                                <div class="h-1.5 bg-white/5 rounded-full overflow-hidden">
-                                    <div class="skill-bar h-full bg-gradient-to-r from-red-500 to-red-400 rounded-full"
-                                        style="width:68%"></div>
-                                </div>
-                            </div>
-                            <div>
-                                <div class="flex justify-between text-xs mb-1.5"><span class="text-neutral-400">REST
-                                        API</span><span class="text-red-500">72%</span></div>
-                                <div class="h-1.5 bg-white/5 rounded-full overflow-hidden">
-                                    <div class="skill-bar h-full bg-gradient-to-r from-red-500 to-red-400 rounded-full"
-                                        style="width:72%"></div>
-                                </div>
-                            </div>
-                            <div>
-                                <div class="flex justify-between text-xs mb-1.5"><span
-                                        class="text-neutral-400">Hibernate / JPA</span><span
-                                        class="text-red-500">60%</span></div>
-                                <div class="h-1.5 bg-white/5 rounded-full overflow-hidden">
-                                    <div class="skill-bar h-full bg-gradient-to-r from-red-500 to-red-400 rounded-full"
-                                        style="width:60%"></div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+
+            <!-- ================================================= -->
+            <!-- WORKING WITH -->
+            <!-- ================================================= -->
+
+            <div class="mb-20">
+
+                <div class="text-center mb-10 fade-in">
+
+                    <span class="
+                        text-xs
+                        uppercase
+                        tracking-widest
+                        text-neutral-600
+                    ">
+                        Working With
+                    </span>
+
+                    <h3 class="
+                        text-xl
+                        md:text-2xl
+                        font-medium
+                        mt-2
+                    ">
+                        Công nghệ hỗ trợ
+                    </h3>
+
                 </div>
+
+
+                <div class="
+                    grid
+                    sm:grid-cols-2
+                    lg:grid-cols-4
+                    gap-5
+                ">
+
+                    <!-- JAVASCRIPT -->
+                    <div class="tech-card fade-in">
+
+                        <div class="tech-icon bg-yellow-500/10 border-yellow-500/20">
+
+                            <i data-lucide="braces" class="w-5 h-5 text-yellow-500"></i>
+
+                        </div>
+
+                        <h4 class="tech-title">
+                            JavaScript
+                        </h4>
+
+                        <p class="tech-description">
+                            ES6+, async/await, DOM,
+                            event handling và API calls.
+                        </p>
+
+                    </div>
+
+
+                    <!-- TAILWIND -->
+                    <div class="tech-card fade-in">
+
+                        <div class="tech-icon bg-cyan-500/10 border-cyan-500/20">
+
+                            <i data-lucide="palette" class="w-5 h-5 text-cyan-500"></i>
+
+                        </div>
+
+                        <h4 class="tech-title">
+                            Tailwind CSS
+                        </h4>
+
+                        <p class="tech-description">
+                            Responsive UI, reusable style
+                            và utility-first workflow.
+                        </p>
+
+                    </div>
+
+
+                    <!-- SQL SERVER -->
+                    <div class="tech-card fade-in">
+
+                        <div class="tech-icon bg-red-500/10 border-red-500/20">
+
+                            <i data-lucide="database" class="w-5 h-5 text-red-500"></i>
+
+                        </div>
+
+                        <h4 class="tech-title">
+                            SQL Server
+                        </h4>
+
+                        <p class="tech-description">
+                            Relational database design,
+                            query, constraint và relationship.
+                        </p>
+
+                    </div>
+
+
+                    <!-- HTML / CSS -->
+                    <div class="tech-card fade-in">
+
+                        <div class="tech-icon bg-orange-500/10 border-orange-500/20">
+
+                            <i data-lucide="code-2" class="w-5 h-5 text-orange-500"></i>
+
+                        </div>
+
+                        <h4 class="tech-title">
+                            HTML & CSS
+                        </h4>
+
+                        <p class="tech-description">
+                            Semantic HTML, responsive layout,
+                            Flexbox, Grid và animation.
+                        </p>
+
+                    </div>
+
+
+                    <!-- VITE -->
+                    <div class="tech-card fade-in">
+
+                        <div class="tech-icon bg-violet-500/10 border-violet-500/20">
+
+                            <i data-lucide="zap" class="w-5 h-5 text-violet-500"></i>
+
+                        </div>
+
+                        <h4 class="tech-title">
+                            Vite
+                        </h4>
+
+                        <p class="tech-description">
+                            Development environment
+                            và build tool cho React.
+                        </p>
+
+                    </div>
+
+
+                    <!-- AXIOS -->
+                    <div class="tech-card fade-in">
+
+                        <div class="tech-icon bg-blue-500/10 border-blue-500/20">
+
+                            <i data-lucide="plug" class="w-5 h-5 text-blue-500"></i>
+
+                        </div>
+
+                        <h4 class="tech-title">
+                            Axios
+                        </h4>
+
+                        <p class="tech-description">
+                            Kết nối frontend với REST API
+                            và xử lý HTTP request.
+                        </p>
+
+                    </div>
+
+
+                    <!-- JPA -->
+                    <div class="tech-card fade-in">
+
+                        <div class="tech-icon bg-green-500/10 border-green-500/20">
+
+                            <i data-lucide="layers-3" class="w-5 h-5 text-green-500"></i>
+
+                        </div>
+
+                        <h4 class="tech-title">
+                            JPA / Hibernate
+                        </h4>
+
+                        <p class="tech-description">
+                            Entity mapping, repository
+                            và relational data access.
+                        </p>
+
+                    </div>
+
+
+                    <!-- FIGMA -->
+                    <div class="tech-card fade-in">
+
+                        <div class="tech-icon bg-pink-500/10 border-pink-500/20">
+
+                            <i data-lucide="pen-tool" class="w-5 h-5 text-pink-500"></i>
+
+                        </div>
+
+                        <h4 class="tech-title">
+                            UI / UX
+                        </h4>
+
+                        <p class="tech-description">
+                            Figma, responsive design
+                            và reusable component thinking.
+                        </p>
+
+                    </div>
+
+                </div>
+
             </div>
 
-            <!-- 4 cards: HTML, CSS, JS, SASS/Tailwind -->
-            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
-                <div
-                    class="card-glow bg-neutral-900/50 border border-white/5 rounded-2xl p-6 hover:border-white/10 transition-colors duration-500 fade-in group">
-                    <div
-                        class="w-12 h-12 rounded-xl bg-orange-500/10 border border-orange-500/20 flex items-center justify-center mb-5 group-hover:scale-110 transition-transform duration-500 float">
-                        <i data-lucide="file-code" class="w-5 h-5 text-orange-500"></i>
-                    </div>
-                    <h3 class="text-lg font-medium mb-2">HTML5</h3>
-                    <p class="text-xs text-neutral-500 font-light leading-relaxed mb-4">Semantic, form, accessibility.
-                    </p>
-                    <div class="space-y-2">
-                        <div class="flex justify-between text-[11px]"><span
-                                class="text-neutral-400">Semantic</span><span class="text-orange-500">90%</span></div>
-                        <div class="h-1 bg-white/5 rounded-full overflow-hidden">
-                            <div class="skill-bar h-full bg-gradient-to-r from-orange-500 to-orange-400 rounded-full"
-                                style="width:90%"></div>
+
+            <!-- ================================================= -->
+            <!-- PRACTICAL EXPERIENCE -->
+            <!-- ================================================= -->
+
+            <div class="mb-20 fade-in">
+
+                <div class="
+                    bg-neutral-900/40
+                    border
+                    border-white/5
+                    rounded-3xl
+                    p-8
+                    md:p-10
+                ">
+
+                    <div class="
+                        grid
+                        lg:grid-cols-[0.8fr_1.2fr]
+                        gap-10
+                        items-start
+                    ">
+
+                        <!-- LEFT -->
+
+                        <div>
+
+                            <span class="
+                                text-xs
+                                uppercase
+                                tracking-widest
+                                text-blue-500
+                            ">
+                                Practical Experience
+                            </span>
+
+
+                            <h3 class="
+                                text-2xl
+                                md:text-3xl
+                                font-medium
+                                mt-3
+                                mb-4
+                            ">
+                                Tôi đã dùng những kỹ năng này để làm gì?
+                            </h3>
+
+
+                            <p class="
+                                text-sm
+                                text-neutral-500
+                                font-light
+                                leading-relaxed
+                            ">
+                                Thay vì đánh giá kỹ năng bằng phần trăm,
+                                tôi thể hiện chúng thông qua các nghiệp vụ
+                                đã triển khai trực tiếp trong project.
+                            </p>
+
                         </div>
+
+
+                        <!-- RIGHT -->
+
+                        <div class="grid sm:grid-cols-2 gap-4">
+
+
+                            <div class="
+                                flex
+                                gap-3
+                                p-4
+                                rounded-xl
+                                bg-white/[0.02]
+                                border
+                                border-white/5
+                            ">
+
+                                <i data-lucide="check-circle-2" class="
+                                    w-4 h-4
+                                    text-blue-500
+                                    mt-0.5
+                                    flex-shrink-0
+                                "></i>
+
+                                <div>
+
+                                    <div class="text-sm mb-1">
+                                        Authentication
+                                    </div>
+
+                                    <div class="
+                                        text-xs
+                                        text-neutral-600
+                                        leading-relaxed
+                                    ">
+                                        Login, Register, Google,
+                                        Phone OTP và Forgot Password.
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+
+                            <div class="
+                                flex
+                                gap-3
+                                p-4
+                                rounded-xl
+                                bg-white/[0.02]
+                                border
+                                border-white/5
+                            ">
+
+                                <i data-lucide="check-circle-2" class="
+                                    w-4 h-4
+                                    text-blue-500
+                                    mt-0.5
+                                    flex-shrink-0
+                                "></i>
+
+                                <div>
+
+                                    <div class="text-sm mb-1">
+                                        Authorization
+                                    </div>
+
+                                    <div class="
+                                        text-xs
+                                        text-neutral-600
+                                        leading-relaxed
+                                    ">
+                                        Spring Security,
+                                        Role-based authorization
+                                        và protected API.
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+
+                            <div class="
+                                flex
+                                gap-3
+                                p-4
+                                rounded-xl
+                                bg-white/[0.02]
+                                border
+                                border-white/5
+                            ">
+
+                                <i data-lucide="check-circle-2" class="
+                                    w-4 h-4
+                                    text-blue-500
+                                    mt-0.5
+                                    flex-shrink-0
+                                "></i>
+
+                                <div>
+
+                                    <div class="text-sm mb-1">
+                                        REST API
+                                    </div>
+
+                                    <div class="
+                                        text-xs
+                                        text-neutral-600
+                                        leading-relaxed
+                                    ">
+                                        Controller, Service,
+                                        Repository và DTO.
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+
+                            <div class="
+                                flex
+                                gap-3
+                                p-4
+                                rounded-xl
+                                bg-white/[0.02]
+                                border
+                                border-white/5
+                            ">
+
+                                <i data-lucide="check-circle-2" class="
+                                    w-4 h-4
+                                    text-blue-500
+                                    mt-0.5
+                                    flex-shrink-0
+                                "></i>
+
+                                <div>
+
+                                    <div class="text-sm mb-1">
+                                        Database Design
+                                    </div>
+
+                                    <div class="
+                                        text-xs
+                                        text-neutral-600
+                                        leading-relaxed
+                                    ">
+                                        Quan hệ bảng,
+                                        foreign key, CRUD,
+                                        soft delete.
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+
+                            <div class="
+                                flex
+                                gap-3
+                                p-4
+                                rounded-xl
+                                bg-white/[0.02]
+                                border
+                                border-white/5
+                            ">
+
+                                <i data-lucide="check-circle-2" class="
+                                    w-4 h-4
+                                    text-blue-500
+                                    mt-0.5
+                                    flex-shrink-0
+                                "></i>
+
+                                <div>
+
+                                    <div class="text-sm mb-1">
+                                        Reusable Components
+                                    </div>
+
+                                    <div class="
+                                        text-xs
+                                        text-neutral-600
+                                        leading-relaxed
+                                    ">
+                                        Form, Modal, Menu,
+                                        Table, Pagination
+                                        và Input component.
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+
+                            <div class="
+                                flex
+                                gap-3
+                                p-4
+                                rounded-xl
+                                bg-white/[0.02]
+                                border
+                                border-white/5
+                            ">
+
+                                <i data-lucide="check-circle-2" class="
+                                    w-4 h-4
+                                    text-blue-500
+                                    mt-0.5
+                                    flex-shrink-0
+                                "></i>
+
+                                <div>
+
+                                    <div class="text-sm mb-1">
+                                        API Integration
+                                    </div>
+
+                                    <div class="
+                                        text-xs
+                                        text-neutral-600
+                                        leading-relaxed
+                                    ">
+                                        React + Axios kết nối
+                                        Spring Boot backend.
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+
+                            <div class="
+                                flex
+                                gap-3
+                                p-4
+                                rounded-xl
+                                bg-white/[0.02]
+                                border
+                                border-white/5
+                            ">
+
+                                <i data-lucide="check-circle-2" class="
+                                    w-4 h-4
+                                    text-blue-500
+                                    mt-0.5
+                                    flex-shrink-0
+                                "></i>
+
+                                <div>
+
+                                    <div class="text-sm mb-1">
+                                        Dashboard
+                                    </div>
+
+                                    <div class="
+                                        text-xs
+                                        text-neutral-600
+                                        leading-relaxed
+                                    ">
+                                        ApexCharts,
+                                        thống kê dữ liệu
+                                        và drag & drop layout.
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+
+                            <div class="
+                                flex
+                                gap-3
+                                p-4
+                                rounded-xl
+                                bg-white/[0.02]
+                                border
+                                border-white/5
+                            ">
+
+                                <i data-lucide="check-circle-2" class="
+                                    w-4 h-4
+                                    text-blue-500
+                                    mt-0.5
+                                    flex-shrink-0
+                                "></i>
+
+                                <div>
+
+                                    <div class="text-sm mb-1">
+                                        Git Workflow
+                                    </div>
+
+                                    <div class="
+                                        text-xs
+                                        text-neutral-600
+                                        leading-relaxed
+                                    ">
+                                        Branch, merge,
+                                        cherry-pick, stash
+                                        và conflict resolution.
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
                     </div>
+
                 </div>
 
-                <div
-                    class="card-glow bg-neutral-900/50 border border-white/5 rounded-2xl p-6 hover:border-white/10 transition-colors duration-500 fade-in group">
-                    <div
-                        class="w-12 h-12 rounded-xl bg-pink-500/10 border border-pink-500/20 flex items-center justify-center mb-5 group-hover:scale-110 transition-transform duration-500 float-d1">
-                        <i data-lucide="palette" class="w-5 h-5 text-pink-500"></i>
-                    </div>
-                    <h3 class="text-lg font-medium mb-2">CSS3</h3>
-                    <p class="text-xs text-neutral-500 font-light leading-relaxed mb-4">Flex, Grid, animation,
-                        responsive.</p>
-                    <div class="space-y-2">
-                        <div class="flex justify-between text-[11px]"><span class="text-neutral-400">Flexbox &
-                                Grid</span><span class="text-pink-500">88%</span></div>
-                        <div class="h-1 bg-white/5 rounded-full overflow-hidden">
-                            <div class="skill-bar h-full bg-gradient-to-r from-pink-500 to-pink-400 rounded-full"
-                                style="width:88%"></div>
-                        </div>
-                    </div>
-                </div>
-
-                <div
-                    class="card-glow bg-neutral-900/50 border border-white/5 rounded-2xl p-6 hover:border-white/10 transition-colors duration-500 fade-in group">
-                    <div
-                        class="w-12 h-12 rounded-xl bg-yellow-500/10 border border-yellow-500/20 flex items-center justify-center mb-5 group-hover:scale-110 transition-transform duration-500 float-d2">
-                        <i data-lucide="zap" class="w-5 h-5 text-yellow-500"></i>
-                    </div>
-                    <h3 class="text-lg font-medium mb-2">JavaScript</h3>
-                    <p class="text-xs text-neutral-500 font-light leading-relaxed mb-4">ES6+, DOM, async/await, fetch.
-                    </p>
-                    <div class="space-y-2">
-                        <div class="flex justify-between text-[11px]"><span class="text-neutral-400">ES6+ /
-                                DOM</span><span class="text-yellow-500">80%</span></div>
-                        <div class="h-1 bg-white/5 rounded-full overflow-hidden">
-                            <div class="skill-bar h-full bg-gradient-to-r from-yellow-500 to-yellow-400 rounded-full"
-                                style="width:80%"></div>
-                        </div>
-                    </div>
-                </div>
-
-                <div
-                    class="card-glow bg-neutral-900/50 border border-white/5 rounded-2xl p-6 hover:border-white/10 transition-colors duration-500 fade-in group">
-                    <div
-                        class="w-12 h-12 rounded-xl bg-violet-500/10 border border-violet-500/20 flex items-center justify-center mb-5 group-hover:scale-110 transition-transform duration-500 float-d3">
-                        <i data-lucide="paintbrush" class="w-5 h-5 text-violet-500"></i>
-                    </div>
-                    <h3 class="text-lg font-medium mb-2">SASS & Tailwind</h3>
-                    <p class="text-xs text-neutral-500 font-light leading-relaxed mb-4">CSS preprocessor &
-                        utility-first.</p>
-                    <div class="space-y-2">
-                        <div class="flex justify-between text-[11px]"><span class="text-neutral-400">SASS +
-                                Tailwind</span><span class="text-violet-500">84%</span></div>
-                        <div class="h-1 bg-white/5 rounded-full overflow-hidden">
-                            <div class="skill-bar h-full bg-gradient-to-r from-violet-500 to-violet-400 rounded-full"
-                                style="width:84%"></div>
-                        </div>
-                    </div>
-                </div>
             </div>
 
-            <!-- Database -->
-            <div class="fade-in mb-16">
-                <div class="text-center mb-8"><span
-                        class="text-xs uppercase tracking-widest text-neutral-600">Database</span></div>
-                <div class="grid grid-cols-2 md:grid-cols-2 gap-4 max-w-lg mx-auto">
-                    <div
-                        class="bg-neutral-900/50 border border-white/5 rounded-2xl p-5 text-center hover:border-white/10 transition-colors duration-500 group">
-                        <div
-                            class="w-12 h-12 rounded-xl bg-cyan-500/10 border border-cyan-500/20 flex items-center justify-center mx-auto mb-3 group-hover:scale-110 transition-transform duration-500">
-                            <i data-lucide="database" class="w-5 h-5 text-cyan-500"></i>
-                        </div>
-                        <div class="text-sm font-medium mb-1">MySQL</div>
-                        <div class="text-[10px] text-neutral-600">CRUD · Query · Design</div>
-                    </div>
-                    <div
-                        class="bg-neutral-900/50 border border-white/5 rounded-2xl p-5 text-center hover:border-white/10 transition-colors duration-500 group">
-                        <div
-                            class="w-12 h-12 rounded-xl bg-purple-500/10 border border-purple-500/20 flex items-center justify-center mx-auto mb-3 group-hover:scale-110 transition-transform duration-500">
-                            <i data-lucide="database" class="w-5 h-5 text-purple-500"></i>
-                        </div>
-                        <div class="text-sm font-medium mb-1">SQL Server</div>
-                        <div class="text-[10px] text-neutral-600">T-SQL · Procedure · View</div>
-                    </div>
-                </div>
-            </div>
 
-            <!-- Tools -->
+            <!-- ================================================= -->
+            <!-- TOOLS -->
+            <!-- ================================================= -->
+
             <div class="fade-in">
-                <div class="text-center mb-8"><span class="text-xs uppercase tracking-widest text-neutral-600">Công cụ
-                        khác</span></div>
-                <div class="flex flex-wrap justify-center gap-3">
-                    <span
-                        class="px-4 py-2 rounded-full bg-white/5 border border-white/5 text-sm text-neutral-400 hover:border-white/10 hover:text-white transition-colors duration-300 cursor-default">VS
-                        Code</span>
-                    <span
-                        class="px-4 py-2 rounded-full bg-white/5 border border-white/5 text-sm text-neutral-400 hover:border-white/10 hover:text-white transition-colors duration-300 cursor-default">IntelliJ
-                        IDEA</span>
-                    <span
-                        class="px-4 py-2 rounded-full bg-white/5 border border-white/5 text-sm text-neutral-400 hover:border-white/10 hover:text-white transition-colors duration-300 cursor-default">Git
-                        & GitHub</span>
-                    <span
-                        class="px-4 py-2 rounded-full bg-white/5 border border-white/5 text-sm text-neutral-400 hover:border-white/10 hover:text-white transition-colors duration-300 cursor-default">Figma</span>
-                    <span
-                        class="px-4 py-2 rounded-full bg-white/5 border border-white/5 text-sm text-neutral-400 hover:border-white/10 hover:text-white transition-colors duration-300 cursor-default">Vite</span>
-                    <span
-                        class="px-4 py-2 rounded-full bg-white/5 border border-white/5 text-sm text-neutral-400 hover:border-white/10 hover:text-white transition-colors duration-300 cursor-default">Maven</span>
-                    <span
-                        class="px-4 py-2 rounded-full bg-white/5 border border-white/5 text-sm text-neutral-400 hover:border-white/10 hover:text-white transition-colors duration-300 cursor-default">NPM</span>
-                    <span
-                        class="px-4 py-2 rounded-full bg-white/5 border border-white/5 text-sm text-neutral-400 hover:border-white/10 hover:text-white transition-colors duration-300 cursor-default">Postman</span>
-                    <span
-                        class="px-4 py-2 rounded-full bg-white/5 border border-white/5 text-sm text-neutral-400 hover:border-white/10 hover:text-white transition-colors duration-300 cursor-default">Spring
-                        Initializr</span>
-                    <span
-                        class="px-4 py-2 rounded-full bg-white/5 border border-white/5 text-sm text-neutral-400 hover:border-white/10 hover:text-white transition-colors duration-300 cursor-default">Chrome
-                        DevTools</span>
+
+                <div class="text-center mb-8">
+
+                    <span class="
+                        text-xs
+                        uppercase
+                        tracking-widest
+                        text-neutral-600
+                    ">
+                        Tools & Workflow
+                    </span>
+
                 </div>
+
+
+                <div class="flex flex-wrap justify-center gap-3">
+
+                    <span class="tool-chip">
+                        VS Code
+                    </span>
+
+                    <span class="tool-chip">
+                        Eclipse
+                    </span>
+
+                    <span class="tool-chip">
+                        Git
+                    </span>
+
+                    <span class="tool-chip">
+                        GitHub
+                    </span>
+
+                    <span class="tool-chip">
+                        Postman
+                    </span>
+
+                    <span class="tool-chip">
+                        SQL Server Management Studio
+                    </span>
+
+                    <span class="tool-chip">
+                        Figma
+                    </span>
+
+                    <span class="tool-chip">
+                        Maven
+                    </span>
+
+                    <span class="tool-chip">
+                        Yarn
+                    </span>
+
+                    <span class="tool-chip">
+                        Vite
+                    </span>
+
+                    <span class="tool-chip">
+                        Chrome DevTools
+                    </span>
+
+                </div>
+
             </div>
+
         </div>
+
     </section>
 
     <!-- ===== PROJECTS ===== -->
     <section id="projects" class="relative py-24 md:py-32">
-        <div class="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/10 to-transparent">
-        </div>
-        <div
-            class="absolute top-1/3 left-1/2 -translate-x-1/2 w-[500px] h-[400px] rounded-full bg-blue-500/5 blur-[120px] pointer-events-none">
-        </div>
 
-        <div class="max-w-7xl mx-auto px-6 relative z-10">
-            <div class="text-center mb-16 fade-in">
-                <div
-                    class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-blue-500/10 border border-blue-500/20 mb-6">
-                    <span class="text-[10px] uppercase tracking-widest text-blue-500 font-medium">Dự án</span>
+        <div class="
+            absolute top-0 left-0 right-0
+            h-px
+            bg-gradient-to-r
+            from-transparent
+            via-white/10
+            to-transparent
+        "></div>
+
+        <div class="
+            absolute
+            top-1/3 left-1/2
+            -translate-x-1/2
+            w-[500px] h-[400px]
+            rounded-full
+            bg-blue-500/5
+            blur-[120px]
+            pointer-events-none
+        "></div>
+
+
+        <div class="
+            max-w-7xl
+            mx-auto
+            px-6
+            relative
+            z-10
+        ">
+
+            <!-- Heading -->
+            <div class="
+                text-center
+                mb-16
+                fade-in
+            ">
+
+                <div class="
+                    inline-flex
+                    items-center
+                    gap-2
+                    px-3 py-1.5
+                    rounded-full
+                    bg-blue-500/10
+                    border
+                    border-blue-500/20
+                    mb-6
+                ">
+
+                    <span class="
+                        text-[10px]
+                        uppercase
+                        tracking-widest
+                        text-blue-500
+                        font-medium
+                    ">
+                        Dự án
+                    </span>
+
                 </div>
-                <h2 class="text-3xl md:text-4xl font-medium tracking-tight">~10 dự án tôi đã làm</h2>
-                <p class="text-neutral-500 font-light mt-4 max-w-md mx-auto">Đồ án học tập và dự án cá nhân — từ Java
-                    backend đến React frontend</p>
+
+
+                <h2 class="
+                    text-3xl
+                    md:text-4xl
+                    font-medium
+                    tracking-tight
+                ">
+                    Những dự án tôi đã xây dựng
+                </h2>
+
+
+                <p class="
+                    text-neutral-500
+                    font-light
+                    mt-4
+                    max-w-2xl
+                    mx-auto
+                    leading-relaxed
+                ">
+                    Từ các ứng dụng Full-stack với React và
+                    Java Spring Boot đến những project thử nghiệm
+                    AI-assisted để khám phá ý tưởng và công nghệ mới.
+                </p>
+
             </div>
 
-            <!-- Filter -->
-            <div class="flex flex-wrap justify-center gap-2 mb-12 fade-in">
-                <button
-                    class="filter-btn active px-5 py-2 rounded-full text-xs font-medium bg-white text-black transition-all duration-300"
-                    data-filter="all">Tất cả</button>
-                <button
-                    class="filter-btn px-5 py-2 rounded-full text-xs font-medium bg-white/5 text-neutral-400 border border-white/5 hover:text-white transition-all duration-300"
-                    data-filter="java">Java / Backend</button>
-                <button
-                    class="filter-btn px-5 py-2 rounded-full text-xs font-medium bg-white/5 text-neutral-400 border border-white/5 hover:text-white transition-all duration-300"
-                    data-filter="react">ReactJS</button>
-                <button
-                    class="filter-btn px-5 py-2 rounded-full text-xs font-medium bg-white/5 text-neutral-400 border border-white/5 hover:text-white transition-all duration-300"
-                    data-filter="html">HTML/CSS/JS</button>
+
+            <!-- FILTER -->
+            <div class="
+                flex
+                flex-wrap
+                justify-center
+                gap-2
+                mb-12
+                fade-in
+            ">
+
+                <!-- All -->
+                <button class="
+                    filter-btn
+                    active
+                    px-5 py-2
+                    rounded-full
+                    text-xs
+                    font-medium
+                    bg-white
+                    text-black
+                    transition-all
+                    duration-300
+                " data-filter="all">
+                    Tất cả
+                </button>
+
+
+                <!-- Full-stack -->
+                <button class="
+                    filter-btn
+                    px-5 py-2
+                    rounded-full
+                    text-xs
+                    font-medium
+                    bg-white/5
+                    text-neutral-400
+                    border
+                    border-white/5
+                    hover:text-white
+                    transition-all
+                    duration-300
+                " data-filter="fullstack">
+                    Full-stack
+                </button>
+
+
+                <!-- Frontend -->
+                <button class="
+                    filter-btn
+                    px-5 py-2
+                    rounded-full
+                    text-xs
+                    font-medium
+                    bg-white/5
+                    text-neutral-400
+                    border
+                    border-white/5
+                    hover:text-white
+                    transition-all
+                    duration-300
+                " data-filter="frontend">
+                    Frontend
+                </button>
+
+
+                <!-- Learning -->
+                <button class="
+                    filter-btn
+                    px-5 py-2
+                    rounded-full
+                    text-xs
+                    font-medium
+                    bg-white/5
+                    text-neutral-400
+                    border
+                    border-white/5
+                    hover:text-white
+                    transition-all
+                    duration-300
+                " data-filter="learning">
+                    Learning
+                </button>
+
+
+                <!-- AI -->
+                <button class="
+                    filter-btn
+                    px-5 py-2
+                    rounded-full
+                    text-xs
+                    font-medium
+                    bg-white/5
+                    text-neutral-400
+                    border
+                    border-white/5
+                    hover:text-white
+                    transition-all
+                    duration-300
+                " data-filter="ai">
+                    AI-Assisted
+                </button>
+
             </div>
 
-            <div class="grid md:grid-cols-2 gap-6" id="project-grid"></div>
+
+            <!-- PROJECT LIST -->
+            <div id="project-grid" class="
+                grid
+                md:grid-cols-2
+                gap-6
+            "></div>
+
         </div>
+
     </section>
 
-    <!-- ===== PROCESS ===== -->
+    <!-- ===== DEVELOPMENT WORKFLOW ===== -->
     <section class="relative py-24 md:py-32">
-        <div class="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/10 to-transparent">
-        </div>
+
+        <!-- Divider -->
+        <div class="
+            absolute top-0 left-0 right-0
+            h-px
+            bg-gradient-to-r
+            from-transparent
+            via-white/10
+            to-transparent
+        "></div>
+
+
         <div class="max-w-7xl mx-auto px-6">
+
+            <!-- =============================== -->
+            <!-- HEADER -->
+            <!-- =============================== -->
+
             <div class="text-center mb-16 fade-in">
-                <div
-                    class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-blue-500/10 border border-blue-500/20 mb-6">
-                    <span class="text-[10px] uppercase tracking-widest text-blue-500 font-medium">Học tập</span>
+
+                <div class="
+                    inline-flex
+                    items-center
+                    gap-2
+                    px-3 py-1.5
+                    rounded-full
+                    bg-blue-500/10
+                    border
+                    border-blue-500/20
+                    mb-6
+                ">
+                    <span class="
+                        text-[10px]
+                        uppercase
+                        tracking-widest
+                        text-blue-500
+                        font-medium
+                    ">
+                        Development Workflow
+                    </span>
                 </div>
-                <h2 class="text-3xl md:text-4xl font-medium tracking-tight">Cách tôi tiếp cận dự án</h2>
+
+
+                <h2 class="
+                    text-3xl
+                    md:text-4xl
+                    font-medium
+                    tracking-tight
+                ">
+                    Cách tôi xây dựng một project
+                </h2>
+
+
+                <p class="
+                    text-neutral-500
+                    font-light
+                    mt-4
+                    max-w-2xl
+                    mx-auto
+                    leading-relaxed
+                ">
+                    Từ yêu cầu ban đầu đến giao diện, API, backend,
+                    testing và deploy — tôi tiếp cận project theo
+                    từng bước để giữ frontend và backend đồng bộ.
+                </p>
+
             </div>
-            <div class="grid md:grid-cols-4 gap-6">
-                <div class="fade-in relative">
-                    <div
-                        class="bg-neutral-900/50 border border-white/5 rounded-2xl p-6 h-full hover:border-white/10 transition-colors duration-500">
-                        <div
-                            class="w-10 h-10 rounded-xl bg-blue-500/10 border border-blue-500/20 flex items-center justify-center mb-4">
-                            <span class="text-sm font-medium text-blue-500">01</span>
+
+
+            <!-- =============================== -->
+            <!-- WORKFLOW -->
+            <!-- =============================== -->
+
+            <div class="
+                grid
+                md:grid-cols-2
+                lg:grid-cols-3
+                gap-5
+            ">
+
+                <!-- ================================= -->
+                <!-- 01 REQUIREMENT -->
+                <!-- ================================= -->
+
+                <div class="fade-in group">
+
+                    <div class="
+                        relative
+                        bg-neutral-900/50
+                        border
+                        border-white/5
+                        rounded-2xl
+                        p-7
+                        h-full
+                        hover:border-blue-500/20
+                        hover:-translate-y-1
+                        transition-all
+                        duration-500
+                    ">
+
+                        <!-- Number -->
+                        <div class="
+                            absolute
+                            top-6 right-6
+                            text-5xl
+                            font-medium
+                            text-white/[0.03]
+                            select-none
+                        ">
+                            01
                         </div>
-                        <h3 class="text-base font-medium mb-2">Nghiên cứu</h3>
-                        <p class="text-xs text-neutral-500 font-light leading-relaxed">Đọc docs, xem reference, phân
-                            tích UI/UX từ site thực tế.</p>
-                    </div>
-                    <div class="hidden md:block absolute top-1/2 -right-3 text-neutral-700"><i
-                            data-lucide="chevron-right" class="w-5 h-5"></i></div>
-                </div>
-                <div class="fade-in relative">
-                    <div
-                        class="bg-neutral-900/50 border border-white/5 rounded-2xl p-6 h-full hover:border-white/10 transition-colors duration-500">
-                        <div
-                            class="w-10 h-10 rounded-xl bg-blue-500/10 border border-blue-500/20 flex items-center justify-center mb-4">
-                            <span class="text-sm font-medium text-blue-500">02</span>
+
+
+                        <!-- Icon -->
+                        <div class="
+                            w-12 h-12
+                            rounded-xl
+                            bg-blue-500/10
+                            border
+                            border-blue-500/20
+                            flex
+                            items-center
+                            justify-center
+                            mb-6
+                            group-hover:scale-110
+                            transition-transform
+                            duration-500
+                        ">
+                            <i data-lucide="clipboard-list" class="w-5 h-5 text-blue-500"></i>
                         </div>
-                        <h3 class="text-base font-medium mb-2">Thiết kế</h3>
-                        <p class="text-xs text-neutral-500 font-light leading-relaxed">Wireframe Figma, chọn color,
-                            typography, database schema.</p>
-                    </div>
-                    <div class="hidden md:block absolute top-1/2 -right-3 text-neutral-700"><i
-                            data-lucide="chevron-right" class="w-5 h-5"></i></div>
-                </div>
-                <div class="fade-in relative">
-                    <div
-                        class="bg-neutral-900/50 border border-white/5 rounded-2xl p-6 h-full hover:border-white/10 transition-colors duration-500">
-                        <div
-                            class="w-10 h-10 rounded-xl bg-blue-500/10 border border-blue-500/20 flex items-center justify-center mb-4">
-                            <span class="text-sm font-medium text-blue-500">03</span>
+
+
+                        <div class="
+                            text-[10px]
+                            uppercase
+                            tracking-widest
+                            text-blue-500
+                            mb-2
+                        ">
+                            Step 01
                         </div>
-                        <h3 class="text-base font-medium mb-2">Code</h3>
-                        <p class="text-xs text-neutral-500 font-light leading-relaxed">Backend Java trước, frontend
-                            React sau, tích hợp, commit nhỏ.</p>
-                    </div>
-                    <div class="hidden md:block absolute top-1/2 -right-3 text-neutral-700"><i
-                            data-lucide="chevron-right" class="w-5 h-5"></i></div>
-                </div>
-                <div class="fade-in">
-                    <div
-                        class="bg-neutral-900/50 border border-white/5 rounded-2xl p-6 h-full hover:border-white/10 transition-colors duration-500">
-                        <div
-                            class="w-10 h-10 rounded-xl bg-blue-500/10 border border-blue-500/20 flex items-center justify-center mb-4">
-                            <span class="text-sm font-medium text-blue-500">04</span>
+
+
+                        <h3 class="text-lg font-medium mb-3">
+                            Requirement
+                        </h3>
+
+
+                        <p class="
+                            text-sm
+                            text-neutral-500
+                            font-light
+                            leading-relaxed
+                            mb-5
+                        ">
+                            Phân tích yêu cầu, xác định người dùng,
+                            nghiệp vụ chính và các chức năng cần có
+                            trước khi bắt đầu code.
+                        </p>
+
+
+                        <div class="flex flex-wrap gap-2">
+
+                            <span class="skill-chip">
+                                Requirements
+                            </span>
+
+                            <span class="skill-chip">
+                                User Flow
+                            </span>
+
+                            <span class="skill-chip">
+                                Features
+                            </span>
+
                         </div>
-                        <h3 class="text-base font-medium mb-2">Refactor & Deploy</h3>
-                        <p class="text-xs text-neutral-500 font-light leading-relaxed">Review code, tối ưu, viết README,
-                            deploy Vercel/Render.</p>
+
                     </div>
+
                 </div>
+
+
+                <!-- ================================= -->
+                <!-- 02 FRONTEND -->
+                <!-- ================================= -->
+
+                <div class="fade-in group">
+
+                    <div class="
+                        relative
+                        bg-neutral-900/50
+                        border
+                        border-white/5
+                        rounded-2xl
+                        p-7
+                        h-full
+                        hover:border-cyan-500/20
+                        hover:-translate-y-1
+                        transition-all
+                        duration-500
+                    ">
+
+                        <div class="
+                            absolute
+                            top-6 right-6
+                            text-5xl
+                            font-medium
+                            text-white/[0.03]
+                            select-none
+                        ">
+                            02
+                        </div>
+
+
+                        <div class="
+                            w-12 h-12
+                            rounded-xl
+                            bg-cyan-500/10
+                            border
+                            border-cyan-500/20
+                            flex
+                            items-center
+                            justify-center
+                            mb-6
+                            group-hover:scale-110
+                            transition-transform
+                            duration-500
+                        ">
+                            <i data-lucide="monitor" class="w-5 h-5 text-cyan-500"></i>
+                        </div>
+
+
+                        <div class="
+                            text-[10px]
+                            uppercase
+                            tracking-widest
+                            text-cyan-500
+                            mb-2
+                        ">
+                            Step 02
+                        </div>
+
+
+                        <h3 class="text-lg font-medium mb-3">
+                            Frontend
+                        </h3>
+
+
+                        <p class="
+                            text-sm
+                            text-neutral-500
+                            font-light
+                            leading-relaxed
+                            mb-5
+                        ">
+                            Xây dựng giao diện và user flow trước,
+                            chia nhỏ thành các component có thể tái sử dụng
+                            và xác định dữ liệu frontend cần từ backend.
+                        </p>
+
+
+                        <div class="flex flex-wrap gap-2">
+
+                            <span class="skill-chip">
+                                React
+                            </span>
+
+                            <span class="skill-chip">
+                                Tailwind CSS
+                            </span>
+
+                            <span class="skill-chip">
+                                Components
+                            </span>
+
+                            <span class="skill-chip">
+                                Responsive
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- ================================= -->
+                <!-- 03 DATABASE & API -->
+                <!-- ================================= -->
+
+                <div class="fade-in group">
+
+                    <div class="
+                        relative
+                        bg-neutral-900/50
+                        border
+                        border-white/5
+                        rounded-2xl
+                        p-7
+                        h-full
+                        hover:border-purple-500/20
+                        hover:-translate-y-1
+                        transition-all
+                        duration-500
+                    ">
+
+                        <div class="
+                            absolute
+                            top-6 right-6
+                            text-5xl
+                            font-medium
+                            text-white/[0.03]
+                            select-none
+                        ">
+                            03
+                        </div>
+
+
+                        <div class="
+                            w-12 h-12
+                            rounded-xl
+                            bg-purple-500/10
+                            border
+                            border-purple-500/20
+                            flex
+                            items-center
+                            justify-center
+                            mb-6
+                            group-hover:scale-110
+                            transition-transform
+                            duration-500
+                        ">
+                            <i data-lucide="database" class="w-5 h-5 text-purple-500"></i>
+                        </div>
+
+
+                        <div class="
+                            text-[10px]
+                            uppercase
+                            tracking-widest
+                            text-purple-500
+                            mb-2
+                        ">
+                            Step 03
+                        </div>
+
+
+                        <h3 class="text-lg font-medium mb-3">
+                            Database & API Design
+                        </h3>
+
+
+                        <p class="
+                            text-sm
+                            text-neutral-500
+                            font-light
+                            leading-relaxed
+                            mb-5
+                        ">
+                            Từ dữ liệu và nghiệp vụ của frontend,
+                            thiết kế database, relationship và xác định
+                            các API endpoint cần thiết cho hệ thống.
+                        </p>
+
+
+                        <div class="flex flex-wrap gap-2">
+
+                            <span class="skill-chip">
+                                SQL Server
+                            </span>
+
+                            <span class="skill-chip">
+                                Database Design
+                            </span>
+
+                            <span class="skill-chip">
+                                REST API
+                            </span>
+
+                            <span class="skill-chip">
+                                DTO
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- ================================= -->
+                <!-- 04 BACKEND -->
+                <!-- ================================= -->
+
+                <div class="fade-in group">
+
+                    <div class="
+                        relative
+                        bg-neutral-900/50
+                        border
+                        border-white/5
+                        rounded-2xl
+                        p-7
+                        h-full
+                        hover:border-green-500/20
+                        hover:-translate-y-1
+                        transition-all
+                        duration-500
+                    ">
+
+                        <div class="
+                            absolute
+                            top-6 right-6
+                            text-5xl
+                            font-medium
+                            text-white/[0.03]
+                            select-none
+                        ">
+                            04
+                        </div>
+
+
+                        <div class="
+                            w-12 h-12
+                            rounded-xl
+                            bg-green-500/10
+                            border
+                            border-green-500/20
+                            flex
+                            items-center
+                            justify-center
+                            mb-6
+                            group-hover:scale-110
+                            transition-transform
+                            duration-500
+                        ">
+                            <i data-lucide="server" class="w-5 h-5 text-green-500"></i>
+                        </div>
+
+
+                        <div class="
+                            text-[10px]
+                            uppercase
+                            tracking-widest
+                            text-green-500
+                            mb-2
+                        ">
+                            Step 04
+                        </div>
+
+
+                        <h3 class="text-lg font-medium mb-3">
+                            Backend
+                        </h3>
+
+
+                        <p class="
+                            text-sm
+                            text-neutral-500
+                            font-light
+                            leading-relaxed
+                            mb-5
+                        ">
+                            Xây dựng REST API, business logic,
+                            database access, authentication và authorization,
+                            sau đó tích hợp API trở lại frontend.
+                        </p>
+
+
+                        <div class="flex flex-wrap gap-2">
+
+                            <span class="skill-chip">
+                                Java
+                            </span>
+
+                            <span class="skill-chip">
+                                Spring Boot
+                            </span>
+
+                            <span class="skill-chip">
+                                Spring Security
+                            </span>
+
+                            <span class="skill-chip">
+                                JPA
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- ================================= -->
+                <!-- 05 INTEGRATION & DEBUGGING -->
+                <!-- ================================= -->
+
+                <div class="fade-in group">
+
+                    <div class="
+                            relative
+                            bg-neutral-900/50
+                            border
+                            border-white/5
+                            rounded-2xl
+                            p-7
+                            h-full
+                            hover:border-orange-500/20
+                            hover:-translate-y-1
+                            transition-all
+                            duration-500
+                        ">
+
+                        <div class="
+                                absolute
+                                top-6 right-6
+                                text-5xl
+                                font-medium
+                                text-white/[0.03]
+                                select-none
+                            ">
+                            05
+                        </div>
+
+
+                        <div class="
+                                w-12 h-12
+                                rounded-xl
+                                bg-orange-500/10
+                                border
+                                border-orange-500/20
+                                flex
+                                items-center
+                                justify-center
+                                mb-6
+                                group-hover:scale-110
+                                transition-transform
+                                duration-500
+                            ">
+                            <i data-lucide="bug" class="w-5 h-5 text-orange-500"></i>
+                        </div>
+
+
+                        <div class="
+                                text-[10px]
+                                uppercase
+                                tracking-widest
+                                text-orange-500
+                                mb-2
+                            ">
+                            Step 05
+                        </div>
+
+
+                        <h3 class="text-lg font-medium mb-3">
+                            Integration & Debugging
+                        </h3>
+
+
+                        <p class="
+                                text-sm
+                                text-neutral-500
+                                font-light
+                                leading-relaxed
+                                mb-5
+                            ">
+                            Tích hợp frontend với backend, kiểm tra API
+                            và luồng nghiệp vụ, xử lý lỗi phát sinh
+                            trong quá trình phát triển trước khi deploy.
+                        </p>
+
+
+                        <div class="flex flex-wrap gap-2">
+
+                            <span class="skill-chip">
+                                Postman
+                            </span>
+
+                            <span class="skill-chip">
+                                DevTools
+                            </span>
+
+                            <span class="skill-chip">
+                                API Testing
+                            </span>
+
+                            <span class="skill-chip">
+                                Debugging
+                            </span>
+
+                            <span class="skill-chip">
+                                FE / BE Integration
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- ================================= -->
+                <!-- 06 GIT & DEPLOY -->
+                <!-- ================================= -->
+
+                <div class="fade-in group">
+
+                    <div class="
+                        relative
+                        bg-neutral-900/50
+                        border
+                        border-white/5
+                        rounded-2xl
+                        p-7
+                        h-full
+                        hover:border-pink-500/20
+                        hover:-translate-y-1
+                        transition-all
+                        duration-500
+                    ">
+
+                        <div class="
+                            absolute
+                            top-6 right-6
+                            text-5xl
+                            font-medium
+                            text-white/[0.03]
+                            select-none
+                        ">
+                            06
+                        </div>
+
+
+                        <div class="
+                            w-12 h-12
+                            rounded-xl
+                            bg-pink-500/10
+                            border
+                            border-pink-500/20
+                            flex
+                            items-center
+                            justify-center
+                            mb-6
+                            group-hover:scale-110
+                            transition-transform
+                            duration-500
+                        ">
+                            <i data-lucide="git-branch" class="w-5 h-5 text-pink-500"></i>
+                        </div>
+
+
+                        <div class="
+                            text-[10px]
+                            uppercase
+                            tracking-widest
+                            text-pink-500
+                            mb-2
+                        ">
+                            Step 06
+                        </div>
+
+
+                        <h3 class="text-lg font-medium mb-3">
+                            Git & Deploy
+                        </h3>
+
+
+                        <p class="
+                            text-sm
+                            text-neutral-500
+                            font-light
+                            leading-relaxed
+                            mb-5
+                        ">
+                            Quản lý source code bằng Git/GitHub,
+                            làm việc theo branch và commit,
+                            sau đó build và triển khai ứng dụng.
+                        </p>
+
+
+                        <div class="flex flex-wrap gap-2">
+
+                            <span class="skill-chip">
+                                Git
+                            </span>
+
+                            <span class="skill-chip">
+                                GitHub
+                            </span>
+
+                            <span class="skill-chip">
+                                Branch
+                            </span>
+
+                            <span class="skill-chip">
+                                Deploy
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
             </div>
+
+
+            <!-- =============================== -->
+            <!-- FLOW -->
+            <!-- =============================== -->
+
+            <div class="
+                mt-12
+                fade-in
+                hidden
+                md:block
+            ">
+
+                <div class="
+                    flex
+                    items-center
+                    justify-center
+                    flex-wrap
+                    gap-3
+                    text-xs
+                    text-neutral-500
+                ">
+
+                    <span>Requirement</span>
+
+                    <i data-lucide="arrow-right" class="w-3.5 h-3.5 text-neutral-700"></i>
+
+                    <span class="text-cyan-500">Frontend</span>
+
+                    <i data-lucide="arrow-right" class="w-3.5 h-3.5 text-neutral-700"></i>
+
+                    <span>Database & API</span>
+
+                    <i data-lucide="arrow-right" class="w-3.5 h-3.5 text-neutral-700"></i>
+
+                    <span class="text-green-500">Backend</span>
+
+                    <i data-lucide="arrow-right" class="w-3.5 h-3.5 text-neutral-700"></i>
+
+                    <span>Integration & Debugging</span>
+
+                    <i data-lucide="arrow-right" class="w-3.5 h-3.5 text-neutral-700"></i>
+
+                    <span>Git & Deploy</span>
+
+                </div>
+
+            </div>
+
         </div>
+
     </section>
 
     <!-- ===== CONTACT ===== -->
     <section id="contact" class="relative py-24 md:py-32">
-        <div class="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/10 to-transparent">
-        </div>
-        <div
-            class="absolute bottom-0 left-1/2 -translate-x-1/2 w-[500px] h-[300px] rounded-full bg-blue-500/5 blur-[120px] pointer-events-none">
-        </div>
+
+        <!-- Divider -->
+        <div class="
+            absolute top-0 left-0 right-0
+            h-px
+            bg-gradient-to-r
+            from-transparent
+            via-white/10
+            to-transparent
+        "></div>
+
+        <!-- Background -->
+        <div class="
+            absolute
+            bottom-0 left-1/2
+            -translate-x-1/2
+            w-[600px] h-[350px]
+            rounded-full
+            bg-blue-500/[0.05]
+            blur-[120px]
+            pointer-events-none
+        "></div>
+
 
         <div class="max-w-7xl mx-auto px-6 relative z-10">
-            <div class="grid md:grid-cols-2 gap-16">
-                <div class="fade-in">
-                    <div
-                        class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-blue-500/10 border border-blue-500/20 mb-6">
-                        <span class="text-[10px] uppercase tracking-widest text-blue-500 font-medium">Liên hệ</span>
-                    </div>
-                    <h2 class="text-3xl md:text-4xl font-medium tracking-tight mb-6">
-                        Cho mình cơ hội<br>
-                        <span class="text-neutral-500">thể hiện năng lực</span>
-                    </h2>
-                    <p class="text-neutral-400 font-light leading-relaxed mb-10">
-                        Mình mới ra trường và rất mong có cơ hội tham gia team, internship hay junior position — cả
-                        backend Java lẫn frontend React. Mình học nhanh, chăm chỉ và không ngại bắt đầu từ việc nhỏ.
-                    </p>
 
-                    <div class="space-y-5 mb-10">
-                        <a href="mailto:hungtran.dev@gmail.com" class="flex items-center gap-4 group">
-                            <div
-                                class="w-12 h-12 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center flex-shrink-0 group-hover:bg-blue-500/10 group-hover:border-blue-500/20 transition-colors duration-300">
-                                <i data-lucide="mail"
-                                    class="w-5 h-5 text-neutral-400 group-hover:text-blue-500 transition-colors duration-300"></i>
-                            </div>
-                            <div>
-                                <div class="text-xs text-neutral-500 mb-0.5">Email</div>
-                                <div class="text-sm group-hover:text-blue-400 transition-colors duration-300">
-                                    ke1tran666@gmail.com</div>
-                            </div>
-                        </a>
-                        <a href="tel:+84901234567" class="flex items-center gap-4 group">
-                            <div
-                                class="w-12 h-12 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center flex-shrink-0 group-hover:bg-blue-500/10 group-hover:border-blue-500/20 transition-colors duration-300">
-                                <i data-lucide="phone"
-                                    class="w-5 h-5 text-neutral-400 group-hover:text-blue-500 transition-colors duration-300"></i>
-                            </div>
-                            <div>
-                                <div class="text-xs text-neutral-500 mb-0.5">Điện thoại</div>
-                                <div class="text-sm group-hover:text-blue-400 transition-colors duration-300">+84 898
-                                    122 048</div>
-                            </div>
-                        </a>
-                        <div class="flex items-center gap-4">
-                            <div
-                                class="w-12 h-12 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center flex-shrink-0">
-                                <i data-lucide="message-circle" class="w-5 h-5 text-neutral-400"></i>
-                            </div>
-                            <div>
-                                <div class="text-xs text-neutral-500 mb-0.5">Zalo</div>
-                                <div class="text-sm">0898 122 048</div>
-                            </div>
-                        </div>
-                    </div>
+            <!-- ================================================= -->
+            <!-- HEADER -->
+            <!-- ================================================= -->
 
-                    <div class="flex gap-3">
-                        <a href="https://github.com/Ke1Tran666"
-                            class="w-10 h-10 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-neutral-400 hover:text-white hover:bg-white/10 transition-all duration-300"><i
-                                class="fa-brands fa-github"></i></a>
-                        <a href="https://www.facebook.com/keitran.4102"
-                            class="w-10 h-10 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-neutral-400 hover:text-white hover:bg-white/10 transition-all duration-300"><i
-                                class="fa-brands fa-facebook"></i></a>
-                    </div>
+            <div class="text-center mb-16 fade-in">
+
+                <div class="
+                    inline-flex
+                    items-center
+                    gap-2
+                    px-3 py-1.5
+                    rounded-full
+                    bg-blue-500/10
+                    border
+                    border-blue-500/20
+                    mb-6
+                ">
+                    <span class="
+                        text-[10px]
+                        uppercase
+                        tracking-widest
+                        text-blue-500
+                        font-medium
+                    ">
+                        Liên hệ
+                    </span>
                 </div>
 
-                <div class="fade-in">
-                    <form id="contact-form" class="bg-neutral-900/50 border border-white/5 rounded-2xl p-8">
-                        <div class="space-y-5">
-                            <div>
-                                <label class="text-xs text-neutral-500 uppercase tracking-wider mb-2 block">Họ và
-                                    tên</label>
-                                <input type="text" name="name" required placeholder="Người liên hệ"
-                                    class="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-sm text-white placeholder-neutral-600 focus:outline-none focus:border-blue-500/50 focus:bg-white/[0.07] transition-all duration-300">
+
+                <h2 class="
+                    text-3xl
+                    md:text-4xl
+                    lg:text-5xl
+                    font-medium
+                    tracking-tight
+                    mb-5
+                ">
+                    Cùng
+                    <span class="text-neutral-500">
+                        kết nối.
+                    </span>
+                </h2>
+
+
+                <p class="
+                    text-neutral-500
+                    font-light
+                    leading-relaxed
+                    max-w-xl
+                    mx-auto
+                ">
+                    Tôi đang tìm kiếm cơ hội để phát triển với vai trò
+                    Full-stack Developer, Frontend React hoặc Backend Java.
+                    Nếu bạn thấy tôi phù hợp với team hoặc dự án,
+                    hãy liên hệ với tôi.
+                </p>
+
+            </div>
+
+
+            <!-- ================================================= -->
+            <!-- CONTACT CONTENT -->
+            <!-- ================================================= -->
+
+            <div class="
+                grid
+                lg:grid-cols-[0.9fr_1.1fr]
+                gap-8
+                max-w-5xl
+                mx-auto
+            ">
+
+                <!-- ================================================= -->
+                <!-- LEFT - CONTACT INFORMATION -->
+                <!-- ================================================= -->
+
+                <div class="
+                    bg-neutral-900/40
+                    border
+                    border-white/5
+                    rounded-3xl
+                    p-7
+                    md:p-8
+                    fade-in
+                ">
+
+                    <div class="mb-8">
+
+                        <span class="
+                            text-xs
+                            uppercase
+                            tracking-widest
+                            text-neutral-600
+                        ">
+                            Contact Information
+                        </span>
+
+
+                        <h3 class="
+                            text-2xl
+                            font-medium
+                            mt-3
+                            mb-3
+                        ">
+                            Trần Hữu Hùng
+                        </h3>
+
+
+                        <p class="
+                            text-sm
+                            text-neutral-500
+                            leading-relaxed
+                        ">
+                            Full-stack Developer
+                            <br>
+                            React · Java Spring Boot
+                        </p>
+
+                    </div>
+
+
+                    <div class="space-y-3">
+
+                        <!-- EMAIL -->
+                        <a href="mailto:ke1tran666@gmail.com" class="
+                            flex
+                            items-center
+                            gap-4
+                            p-4
+                            rounded-xl
+                            bg-white/[0.02]
+                            border
+                            border-white/5
+                            hover:border-blue-500/20
+                            hover:bg-blue-500/[0.03]
+                            transition-all
+                            duration-300
+                            group
+                        ">
+
+                            <div class="
+                                w-10 h-10
+                                rounded-lg
+                                bg-blue-500/10
+                                border
+                                border-blue-500/20
+                                flex
+                                items-center
+                                justify-center
+                                flex-shrink-0
+                            ">
+                                <i data-lucide="mail" class="w-4 h-4 text-blue-500"></i>
                             </div>
-                            <div>
-                                <label
-                                    class="text-xs text-neutral-500 uppercase tracking-wider mb-2 block">Email</label>
-                                <input type="email" name="email" required placeholder="email@company.com"
-                                    class="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-sm text-white placeholder-neutral-600 focus:outline-none focus:border-blue-500/50 focus:bg-white/[0.07] transition-all duration-300">
+
+
+                            <div class="min-w-0">
+
+                                <div class="
+                                    text-[10px]
+                                    uppercase
+                                    tracking-widest
+                                    text-neutral-600
+                                    mb-1
+                                ">
+                                    Email
+                                </div>
+
+                                <div class="
+                                    text-sm
+                                    text-neutral-300
+                                    group-hover:text-blue-400
+                                    transition-colors
+                                    truncate
+                                ">
+                                    ke1tran666@gmail.com
+                                </div>
+
                             </div>
-                            <div>
-                                <label class="text-xs text-neutral-500 uppercase tracking-wider mb-2 block">Chủ
-                                    đề</label>
-                                <select name="subject" required
-                                    class="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-blue-500/50 focus:bg-white/[0.07] transition-all duration-300 appearance-none cursor-pointer"
-                                    style="background-image: url('data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%2212%22 height=%2212%22 viewBox=%220 0 24 24%22 fill=%22none%22 stroke=%22%23737373%22 stroke-width=%222%22><polyline points=%226 9 12 15 18 9%22></polyline></svg>'); background-repeat: no-repeat; background-position: right 16px center;">
-                                    <option value="" class="bg-neutral-900">Chọn chủ đề</option>
-                                    <option value="intern" class="bg-neutral-900">Tuyển Intern</option>
-                                    <option value="junior-fe" class="bg-neutral-900">Junior Frontend (React)</option>
-                                    <option value="junior-be" class="bg-neutral-900">Junior Backend (Java)</option>
-                                    <option value="fullstack" class="bg-neutral-900">Junior Full-Stack</option>
-                                    <option value="other" class="bg-neutral-900">Khác</option>
-                                </select>
+
+                        </a>
+
+                        <!-- PHONE -->
+                        <a href="tel:+84898122048" class="
+        flex
+        items-center
+        gap-4
+        p-4
+        rounded-xl
+        bg-white/[0.02]
+        border
+        border-white/5
+        hover:border-green-500/20
+        hover:bg-green-500/[0.03]
+        transition-all
+        duration-300
+        group
+    ">
+
+                            <div class="
+            w-10 h-10
+            rounded-lg
+            bg-green-500/10
+            border
+            border-green-500/20
+            flex
+            items-center
+            justify-center
+            flex-shrink-0
+        ">
+                                <i data-lucide="phone" class="w-4 h-4 text-green-500"></i>
                             </div>
-                            <div>
-                                <label class="text-xs text-neutral-500 uppercase tracking-wider mb-2 block">Tin
-                                    nhắn</label>
-                                <textarea name="message" required rows="4" placeholder="Mô tả yêu cầu hoặc cơ hội..."
-                                    class="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-sm text-white placeholder-neutral-600 focus:outline-none focus:border-blue-500/50 focus:bg-white/[0.07] transition-all duration-300 resize-none"></textarea>
+
+
+                            <div class="min-w-0">
+
+                                <div class="
+                text-[10px]
+                uppercase
+                tracking-widest
+                text-neutral-600
+                mb-1
+            ">
+                                    Phone
+                                </div>
+
+                                <div class="
+                text-sm
+                text-neutral-300
+                group-hover:text-green-400
+                transition-colors
+            ">
+                                    0898 122 048
+                                </div>
+
                             </div>
-                            <button type="submit" id="submit-btn"
-                                class="w-full bg-white text-black text-sm font-medium py-3.5 rounded-xl hover:bg-neutral-200 transition-colors duration-300 flex items-center justify-center gap-2">
-                                <span>Gửi tin nhắn</span>
-                                <i data-lucide="send" class="w-4 h-4"></i>
-                            </button>
+
+                        </a>
+
+                        <!-- GITHUB -->
+                        <a href="https://github.com/Ke1Tran666" target="_blank" rel="noopener noreferrer" class="
+                            flex
+                            items-center
+                            gap-4
+                            p-4
+                            rounded-xl
+                            bg-white/[0.02]
+                            border
+                            border-white/5
+                            hover:border-white/10
+                            hover:bg-white/[0.04]
+                            transition-all
+                            duration-300
+                            group
+                        ">
+
+                            <div class="
+                                w-10 h-10
+                                rounded-lg
+                                bg-white/5
+                                border
+                                border-white/10
+                                flex
+                                items-center
+                                justify-center
+                                flex-shrink-0
+                            ">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
+                                    class="w-4 h-4 text-neutral-300" aria-hidden="true">
+                                    <path
+                                        d="M12 .7C5.73.7.65 5.78.65 12.05c0 5.01 3.25 9.26 7.76 10.76.57.1.78-.25.78-.55v-2.16c-3.16.69-3.83-1.34-3.83-1.34-.52-1.31-1.26-1.66-1.26-1.66-1.03-.7.08-.69.08-.69 1.14.08 1.74 1.17 1.74 1.17 1.01 1.74 2.66 1.24 3.31.95.1-.73.4-1.24.72-1.53-2.52-.29-5.17-1.26-5.17-5.61 0-1.24.44-2.25 1.17-3.05-.12-.29-.51-1.45.11-3.01 0 0 .95-.31 3.12 1.16A10.8 10.8 0 0 1 12 6.12c.97 0 1.93.13 2.84.38 2.17-1.47 3.12-1.16 3.12-1.16.62 1.56.23 2.72.11 3.01.73.8 1.17 1.81 1.17 3.05 0 4.36-2.66 5.31-5.19 5.59.41.35.77 1.04.77 2.1v3.17c0 .3.21.66.78.55a11.36 11.36 0 0 0 7.75-10.76C23.35 5.78 18.27.7 12 .7Z" />
+                                </svg>
+                            </div>
+
+
+                            <div class="min-w-0">
+
+                                <div class="
+                                    text-[10px]
+                                    uppercase
+                                    tracking-widest
+                                    text-neutral-600
+                                    mb-1
+                                ">
+                                    GitHub
+                                </div>
+
+                                <div class="
+                                    text-sm
+                                    text-neutral-300
+                                    group-hover:text-white
+                                    transition-colors
+                                ">
+                                    @Ke1Tran666
+                                </div>
+
+                            </div>
+
+
+                            <i data-lucide="external-link" class="
+                                w-3.5 h-3.5
+                                text-neutral-700
+                                ml-auto
+                                group-hover:text-neutral-400
+                                transition-colors
+                            "></i>
+
+                        </a>
+
+
+                        <!-- LOCATION -->
+                        <div class="
+                            flex
+                            items-center
+                            gap-4
+                            p-4
+                            rounded-xl
+                            bg-white/[0.02]
+                            border
+                            border-white/5
+                        ">
+
+                            <div class="
+                                w-10 h-10
+                                rounded-lg
+                                bg-green-500/10
+                                border
+                                border-green-500/20
+                                flex
+                                items-center
+                                justify-center
+                                flex-shrink-0
+                            ">
+                                <i data-lucide="map-pin" class="w-4 h-4 text-green-500"></i>
+                            </div>
+
+
+                            <div>
+
+                                <div class="
+                                    text-[10px]
+                                    uppercase
+                                    tracking-widest
+                                    text-neutral-600
+                                    mb-1
+                                ">
+                                    Location
+                                </div>
+
+                                <div class="text-sm text-neutral-300">
+                                    Ho Chi Minh City, Vietnam
+                                </div>
+
+                            </div>
+
                         </div>
-                    </form>
+
+                    </div>
+
+
+                    <!-- AVAILABILITY -->
+                    <div class="
+                        flex
+                        items-center
+                        gap-3
+                        mt-6
+                        pt-6
+                        border-t
+                        border-white/5
+                    ">
+
+                        <span class="relative flex w-2 h-2">
+
+                            <span class="
+                                absolute
+                                inline-flex
+                                h-full w-full
+                                rounded-full
+                                bg-green-400
+                                opacity-50
+                                animate-ping
+                            "></span>
+
+                            <span class="
+                                relative
+                                inline-flex
+                                rounded-full
+                                w-2 h-2
+                                bg-green-500
+                            "></span>
+
+                        </span>
+
+
+                        <span class="text-xs text-neutral-500">
+                            Open to opportunities
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <!-- ================================================= -->
+                <!-- RIGHT -->
+                <!-- ================================================= -->
+
+                <div class="
+                    bg-neutral-900/40
+                    border
+                    border-white/5
+                    rounded-3xl
+                    p-7
+                    md:p-8
+                    fade-in
+                ">
+
+                    <div class="mb-8">
+
+                        <span class="
+                            text-xs
+                            uppercase
+                            tracking-widest
+                            text-blue-500
+                        ">
+                            Get In Touch
+                        </span>
+
+
+                        <h3 class="
+                            text-2xl
+                            md:text-3xl
+                            font-medium
+                            mt-3
+                            mb-4
+                        ">
+                            Bạn có cơ hội phù hợp?
+                        </h3>
+
+
+                        <p class="
+                            text-sm
+                            text-neutral-500
+                            font-light
+                            leading-relaxed
+                        ">
+                            Tôi quan tâm đến các vị trí Fresher / Junior
+                            liên quan đến phát triển ứng dụng web.
+                            Bạn có thể liên hệ trực tiếp qua email
+                            hoặc xem source code của tôi trên GitHub.
+                        </p>
+
+                    </div>
+
+
+                    <!-- POSITION -->
+                    <div class="
+                        grid
+                        sm:grid-cols-2
+                        gap-3
+                        mb-8
+                    ">
+
+                        <div class="
+                            p-4
+                            rounded-xl
+                            bg-white/[0.02]
+                            border
+                            border-white/5
+                        ">
+                            <i data-lucide="layers-3" class="
+                                w-4 h-4
+                                text-blue-500
+                                mb-3
+                            "></i>
+
+                            <div class="text-sm mb-1">
+                                Full-stack
+                            </div>
+
+                            <div class="text-xs text-neutral-600">
+                                React + Spring Boot
+                            </div>
+
+                        </div>
+
+
+                        <div class="
+                            p-4
+                            rounded-xl
+                            bg-white/[0.02]
+                            border
+                            border-white/5
+                        ">
+                            <i data-lucide="monitor" class="
+                                w-4 h-4
+                                text-cyan-500
+                                mb-3
+                            "></i>
+
+                            <div class="text-sm mb-1">
+                                Frontend
+                            </div>
+
+                            <div class="text-xs text-neutral-600">
+                                React Developer
+                            </div>
+
+                        </div>
+
+
+                        <div class="
+                            p-4
+                            rounded-xl
+                            bg-white/[0.02]
+                            border
+                            border-white/5
+                        ">
+                            <i data-lucide="server" class="
+                                w-4 h-4
+                                text-green-500
+                                mb-3
+                            "></i>
+
+                            <div class="text-sm mb-1">
+                                Backend
+                            </div>
+
+                            <div class="text-xs text-neutral-600">
+                                Java Spring Boot
+                            </div>
+
+                        </div>
+
+
+                        <div class="
+                            p-4
+                            rounded-xl
+                            bg-white/[0.02]
+                            border
+                            border-white/5
+                        ">
+                            <i data-lucide="briefcase-business" class="
+                                w-4 h-4
+                                text-purple-500
+                                mb-3
+                            "></i>
+
+                            <div class="text-sm mb-1">
+                                Level
+                            </div>
+
+                            <div class="text-xs text-neutral-600">
+                                Fresher / Junior
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- CTA -->
+                    <div class="
+                        flex
+                        flex-col
+                        sm:flex-row
+                        gap-3
+                    ">
+
+                        <a href="mailto:ke1tran666@gmail.com" class="
+                            flex-1
+                            inline-flex
+                            items-center
+                            justify-center
+                            gap-2
+                            px-5 py-3
+                            rounded-xl
+                            bg-white
+                            text-black
+                            text-sm
+                            font-medium
+                            hover:bg-neutral-200
+                            transition-colors
+                            duration-300
+                        ">
+                            <i data-lucide="send" class="w-4 h-4"></i>
+
+                            Gửi email
+                        </a>
+
+
+                        <a href="https://github.com/Ke1Tran666" target="_blank" rel="noopener noreferrer"
+                            class="flex-1 inline-flex items-center justify-center gap-2 px-5 py-3 rounded-xl bg-white/5 border border-white/10 text-sm text-neutral-300 hover:text-white hover:bg-white/10 transition-all duration-300">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
+                                class="w-4 h-4" aria-hidden="true">
+                                <path
+                                    d="M12 .7C5.73.7.65 5.78.65 12.05c0 5.01 3.25 9.26 7.76 10.76.57.1.78-.25.78-.55v-2.16c-3.16.69-3.83-1.34-3.83-1.34-.52-1.31-1.26-1.66-1.26-1.66-1.03-.7.08-.69.08-.69 1.14.08 1.74 1.17 1.74 1.17 1.01 1.74 2.66 1.24 3.31.95.1-.73.4-1.24.72-1.53-2.52-.29-5.17-1.26-5.17-5.61 0-1.24.44-2.25 1.17-3.05-.12-.29-.51-1.45.11-3.01 0 0 .95-.31 3.12 1.16A10.8 10.8 0 0 1 12 6.12c.97 0 1.93.13 2.84.38 2.17-1.47 3.12-1.16 3.12-1.16.62 1.56.23 2.72.11 3.01.73.8 1.17 1.81 1.17 3.05 0 4.36-2.66 5.31-5.19 5.59.41.35.77 1.04.77 2.1v3.17c0 .3.21.66.78.55a11.36 11.36 0 0 0 7.75-10.76C23.35 5.78 18.27.7 12 .7Z" />
+                            </svg>
+                            Xem GitHub
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>
@@ -751,7 +3156,7 @@
                         class="w-7 h-7 rounded-lg bg-blue-500/20 border border-blue-500/30 flex items-center justify-center">
                         <i data-lucide="terminal" class="w-3.5 h-3.5 text-blue-500"></i>
                     </div>
-                    <span class="text-sm text-neutral-500">© 2025 Hùng Trần</span>
+                    <span class="text-sm text-neutral-500">© 2026 Hùng Trần</span>
                 </div>
                 <div class="flex items-center gap-6">
                     <a href="#about" class="text-xs text-neutral-600 hover:text-neutral-400 transition-colors">Giới
