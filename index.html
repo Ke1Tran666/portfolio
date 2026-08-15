@@ -15,7 +15,9 @@
 
 <body class="antialiased">
 
-    <div id="toast-container" class="fixed top-6 right-6 z-[100] flex flex-col gap-3"></div>
+    <div id="toast-container"
+        class="fixed top-4 left-4 right-4 sm:top-6 sm:left-auto sm:right-6 sm:w-full sm:max-w-sm z-[100] flex flex-col gap-3">
+    </div>
 
     <!-- ===== NAV ===== -->
     <nav class="fixed top-0 left-0 right-0 z-50 bg-[#050505]/80 backdrop-blur-xl border-b border-white/5">
@@ -50,17 +52,21 @@
                     class="bg-white text-black text-xs font-medium px-5 py-2.5 rounded-full hover:bg-neutral-200 transition-colors duration-300">Hire
                     me</a>
             </div>
-            <button id="menu-toggle" class="md:hidden text-neutral-400 hover:text-white transition-colors"><i
-                    data-lucide="menu" class="w-6 h-6"></i></button>
+            <button id="menu-toggle" type="button" aria-label="Mở menu" aria-controls="mobile-menu"
+                aria-expanded="false" class="md:hidden text-neutral-400 hover:text-white transition-colors">
+                <i data-lucide="menu" class="w-6 h-6"></i>
+            </button>
         </div>
     </nav>
 
     <!-- Mobile Menu -->
-    <div id="mobile-menu" class="mobile-menu fixed inset-0 z-[60] bg-[#050505]/98 backdrop-blur-xl flex flex-col">
+    <div id="mobile-menu" aria-hidden="true"
+        class="mobile-menu fixed inset-0 z-[60] bg-[#050505]/98 backdrop-blur-xl flex flex-col">
         <div class="px-6 h-16 flex items-center justify-between border-b border-white/5">
             <span class="text-sm font-medium">hungtran.dev</span>
-            <button id="menu-close" class="text-neutral-400 hover:text-white"><i data-lucide="x"
-                    class="w-6 h-6"></i></button>
+            <button id="menu-close" type="button" aria-label="Đóng menu" class="text-neutral-400 hover:text-white">
+                <i data-lucide="x" class="w-6 h-6"></i>
+            </button>
         </div>
         <div class="flex-1 flex flex-col items-center justify-center gap-8">
             <a href="#about"
@@ -86,7 +92,7 @@
             class="absolute bottom-0 left-0 right-0 h-40 bg-gradient-to-t from-[#050505] to-transparent pointer-events-none z-10">
         </div>
 
-        <div class="relative z-20 max-w-7xl mx-auto px-6 pt-32 pb-24 text-center">
+        <div class="hero-content relative z-20 w-full min-w-0 max-w-7xl mx-auto px-6 pt-32 pb-24 text-center">
             <div
                 class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 border border-white/10 mb-8 fade-in">
                 <span class="w-2 h-2 rounded-full bg-blue-500 animate-pulse"></span>
@@ -127,7 +133,7 @@
                 </a>
             </div>
 
-            <div class="max-w-lg mx-auto fade-in">
+            <div class="w-full min-w-0 max-w-lg mx-auto fade-in">
                 <div class="code-block text-left">
                     <div class="code-header">
                         <div class="code-dot bg-red-500/80"></div>
@@ -135,7 +141,7 @@
                         <div class="code-dot bg-green-500/80"></div>
                         <span class="text-xs text-neutral-500 ml-2">profile.java</span>
                     </div>
-                    <pre class="p-4 text-xs md:text-sm leading-relaxed overflow-x-auto"><code><span class="text-red-400">public class</span> <span class="text-blue-400">HungTran</span> {
+                    <pre class="w-full max-w-full p-4 text-xs md:text-sm leading-relaxed overflow-x-auto"><code><span class="text-red-400">public class</span> <span class="text-blue-400">HungTran</span> {
 
                         String <span class="text-orange-400">role</span> =
                             <span class="text-green-400">"Full-stack Developer"</span>;
@@ -454,334 +460,148 @@
 
                 <div class="grid md:grid-cols-2 gap-6">
                     <!-- REACT -->
-                    <div class="
-                        card-glow
-                        bg-neutral-900/50
-                        border
-                        border-blue-500/10
-                        rounded-2xl
-                        p-7
-                        md:p-8
-                        hover:border-blue-500/20
-                        transition-all
-                        duration-500
-                        fade-in
-                        group
-                    ">
-
+                    <div
+                        class="card-glow bg-neutral-900/50 border border-blue-500/10 rounded-2xl p-7 md:p-8 hover:border-blue-500/20 transition-all duration-500 fade-in group">
                         <div class="flex items-start gap-5">
-
-                            <div class="
-                                w-14 h-14
-                                rounded-2xl
-                                bg-blue-500/10
-                                border
-                                border-blue-500/20
-                                flex
-                                items-center
-                                justify-center
-                                flex-shrink-0
-                                group-hover:scale-110
-                                transition-transform
-                                duration-500
-                            ">
+                            <div
+                                class="w-14 h-14 rounded-2xl bg-blue-500/10 border border-blue-500/20 flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform duration-500">
                                 <i data-lucide="atom" class="w-6 h-6 text-blue-500"></i>
                             </div>
 
-
                             <div>
-
                                 <div class="flex flex-wrap items-center gap-2 mb-3">
-
                                     <h4 class="text-xl font-medium">
                                         React
                                     </h4>
-
-                                    <span class="
-                                        px-2.5 py-1
-                                        rounded-full
-                                        bg-blue-500/10
-                                        text-[10px]
-                                        uppercase
-                                        tracking-wider
-                                        text-blue-400
-                                        border
-                                        border-blue-500/20
-                                    ">
+                                    <span
+                                        class="px-2.5 py-1 rounded-full bg-blue-500/10 text-[10px] uppercase tracking-wider text-blue-400 border border-blue-500/20">
                                         Frontend Core
                                     </span>
-
                                 </div>
-
-
-                                <p class="
-                                    text-sm
-                                    text-neutral-500
-                                    font-light
-                                    leading-relaxed
-                                    mb-5
-                                ">
+                                <p class="text-sm text-neutral-500 font-light leading-relaxed mb-5">
                                     Công nghệ frontend chính tôi sử dụng để
                                     xây dựng giao diện, component tái sử dụng,
                                     routing, form và tích hợp REST API.
                                 </p>
 
-
                                 <div class="flex flex-wrap gap-2">
-
                                     <span class="skill-chip">
                                         Components
                                     </span>
-
                                     <span class="skill-chip">
                                         Hooks
                                     </span>
-
                                     <span class="skill-chip">
                                         React Router
                                     </span>
-
                                     <span class="skill-chip">
                                         Axios
                                     </span>
-
                                     <span class="skill-chip">
                                         API Integration
                                     </span>
-
                                     <span class="skill-chip">
                                         State Management
                                     </span>
-
                                 </div>
-
                             </div>
-
                         </div>
-
                     </div>
 
-
-                    <!-- ============================== -->
                     <!-- JAVA -->
-                    <!-- ============================== -->
-
-                    <div class="
-                        card-glow
-                        bg-neutral-900/50
-                        border
-                        border-orange-500/10
-                        rounded-2xl
-                        p-7
-                        md:p-8
-                        hover:border-orange-500/20
-                        transition-all
-                        duration-500
-                        fade-in
-                        group
-                    ">
-
+                    <div
+                        class="card-glow bg-neutral-900/50 border border-orange-500/10 rounded-2xl p-7 md:p-8 hover:border-orange-500/20 transition-all duration-500 fade-in group">
                         <div class="flex items-start gap-5">
-
-                            <div class="
-                                w-14 h-14
-                                rounded-2xl
-                                bg-orange-500/10
-                                border
-                                border-orange-500/20
-                                flex
-                                items-center
-                                justify-center
-                                flex-shrink-0
-                                group-hover:scale-110
-                                transition-transform
-                                duration-500
-                            ">
+                            <div
+                                class="w-14 h-14 rounded-2xl bg-orange-500/10 border border-orange-500/20 flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform duration-500">
                                 <i data-lucide="coffee" class="w-6 h-6 text-orange-500"></i>
                             </div>
 
-
                             <div>
-
                                 <div class="flex flex-wrap items-center gap-2 mb-3">
-
                                     <h4 class="text-xl font-medium">
                                         Java
                                     </h4>
-
-                                    <span class="
-                                        px-2.5 py-1
-                                        rounded-full
-                                        bg-orange-500/10
-                                        text-[10px]
-                                        uppercase
-                                        tracking-wider
-                                        text-orange-400
-                                        border
-                                        border-orange-500/20
-                                    ">
+                                    <span
+                                        class="px-2.5 py-1 rounded-full bg-orange-500/10 text-[10px] uppercase tracking-wider text-orange-400 border border-orange-500/20">
                                         Backend Core
                                     </span>
-
                                 </div>
 
-
-                                <p class="
-                                    text-sm
-                                    text-neutral-500
-                                    font-light
-                                    leading-relaxed
-                                    mb-5
-                                ">
+                                <p class="text-sm text-neutral-500 font-light leading-relaxed mb-5">
                                     Ngôn ngữ backend chính tôi sử dụng,
                                     từ Java Core, OOP đến xây dựng REST API
                                     và business logic với Spring Boot.
                                 </p>
-
-
                                 <div class="flex flex-wrap gap-2">
-
                                     <span class="skill-chip">
                                         Java Core
                                     </span>
-
                                     <span class="skill-chip">
                                         OOP
                                     </span>
-
                                     <span class="skill-chip">
                                         Collections
                                     </span>
-
                                     <span class="skill-chip">
                                         Exception Handling
                                     </span>
-
                                     <span class="skill-chip">
                                         Layered Architecture
                                     </span>
-
                                 </div>
-
                             </div>
-
                         </div>
-
                     </div>
 
-
-                    <!-- ============================== -->
                     <!-- SPRING BOOT -->
-                    <!-- ============================== -->
-
-                    <div class="
-                        card-glow
-                        bg-neutral-900/50
-                        border
-                        border-green-500/10
-                        rounded-2xl
-                        p-7
-                        md:p-8
-                        hover:border-green-500/20
-                        transition-all
-                        duration-500
-                        fade-in
-                        group
-                    ">
-
+                    <div
+                        class="card-glow bg-neutral-900/50 border border-green-500/10 rounded-2xl p-7 md:p-8 hover:border-green-500/20 transition-all duration-500 fade-in group">
                         <div class="flex items-start gap-5">
-
-                            <div class="
-                                w-14 h-14
-                                rounded-2xl
-                                bg-green-500/10
-                                border
-                                border-green-500/20
-                                flex
-                                items-center
-                                justify-center
-                                flex-shrink-0
-                                group-hover:scale-110
-                                transition-transform
-                                duration-500
-                            ">
+                            <div
+                                class="w-14 h-14 rounded-2xl bg-green-500/10 border border-green-500/20 flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform duration-500">
                                 <i data-lucide="leaf" class="w-6 h-6 text-green-500"></i>
                             </div>
 
-
                             <div>
-
                                 <div class="flex flex-wrap items-center gap-2 mb-3">
-
                                     <h4 class="text-xl font-medium">
                                         Spring Boot
                                     </h4>
-
-                                    <span class="
-                                        px-2.5 py-1
-                                        rounded-full
-                                        bg-green-500/10
-                                        text-[10px]
-                                        uppercase
-                                        tracking-wider
-                                        text-green-400
-                                        border
-                                        border-green-500/20
-                                    ">
+                                    <span
+                                        class="px-2.5 py-1 rounded-full bg-green-500/10 text-[10px] uppercase tracking-wider text-green-400 border border-green-500/20">
                                         Backend Framework
                                     </span>
-
                                 </div>
 
-
-                                <p class="
-                                    text-sm
-                                    text-neutral-500
-                                    font-light
-                                    leading-relaxed
-                                    mb-5
-                                ">
+                                <p class="text-sm text-neutral-500 font-light leading-relaxed mb-5">
                                     Framework backend chính cho các project,
                                     sử dụng để xây REST API, xử lý nghiệp vụ,
                                     truy cập database và authentication.
                                 </p>
 
-
                                 <div class="flex flex-wrap gap-2">
-
                                     <span class="skill-chip">
                                         REST API
                                     </span>
-
                                     <span class="skill-chip">
                                         Spring MVC
                                     </span>
-
                                     <span class="skill-chip">
                                         Spring Data JPA
                                     </span>
-
                                     <span class="skill-chip">
                                         Hibernate
                                     </span>
-
                                     <span class="skill-chip">
                                         Maven
                                     </span>
-
                                 </div>
-
                             </div>
-
                         </div>
-
                     </div>
 
-
-                    <!-- ============================== -->
                     <!-- SPRING SECURITY -->
-                    <!-- ============================== -->
-
                     <div class="
                         card-glow
                         bg-neutral-900/50
@@ -2815,323 +2635,117 @@
                                 </svg>
                             </div>
 
-
                             <div class="min-w-0">
-
-                                <div class="
-                                    text-[10px]
-                                    uppercase
-                                    tracking-widest
-                                    text-neutral-600
-                                    mb-1
-                                ">
+                                <div class="text-[10px] uppercase
+                                    tracking-widest text-neutral-600mb-1">
                                     GitHub
                                 </div>
-
-                                <div class="
-                                    text-sm
-                                    text-neutral-300
-                                    group-hover:text-white
-                                    transition-colors
-                                ">
+                                <div class="text-sm text-neutral-300 group-hover:text-white transition-colors">
                                     @Ke1Tran666
                                 </div>
-
                             </div>
-
-
-                            <i data-lucide="external-link" class="
-                                w-3.5 h-3.5
-                                text-neutral-700
-                                ml-auto
-                                group-hover:text-neutral-400
-                                transition-colors
-                            "></i>
-
+                            <i data-lucide="external-link"
+                                class="w-3.5 h-3.5 text-neutral-700 ml-auto group-hover:text-neutral-400 transition-colors"></i>
                         </a>
 
-
                         <!-- LOCATION -->
-                        <div class="
-                            flex
-                            items-center
-                            gap-4
-                            p-4
-                            rounded-xl
-                            bg-white/[0.02]
-                            border
-                            border-white/5
-                        ">
-
-                            <div class="
-                                w-10 h-10
-                                rounded-lg
-                                bg-green-500/10
-                                border
-                                border-green-500/20
-                                flex
-                                items-center
-                                justify-center
-                                flex-shrink-0
-                            ">
+                        <div class="flex items-center gap-4 p-4 rounded-xl bg-white/[0.02] border border-white/5">
+                            <div
+                                class="w-10 h-10 rounded-lg bg-green-500/10 border border-green-500/20 flex items-center justify-center flex-shrink-0">
                                 <i data-lucide="map-pin" class="w-4 h-4 text-green-500"></i>
                             </div>
 
-
                             <div>
-
-                                <div class="
-                                    text-[10px]
-                                    uppercase
-                                    tracking-widest
-                                    text-neutral-600
-                                    mb-1
-                                ">
+                                <div class="text-[10px] uppercase tracking-widest text-neutral-600 mb-1">
                                     Location
                                 </div>
-
                                 <div class="text-sm text-neutral-300">
                                     Ho Chi Minh City, Vietnam
                                 </div>
-
                             </div>
-
                         </div>
-
                     </div>
 
-
                     <!-- AVAILABILITY -->
-                    <div class="
-                        flex
-                        items-center
-                        gap-3
-                        mt-6
-                        pt-6
-                        border-t
-                        border-white/5
-                    ">
-
+                    <div class="flex items-center gap-3 mt-6 pt-6 border-t border-white/5">
                         <span class="relative flex w-2 h-2">
-
-                            <span class="
-                                absolute
-                                inline-flex
-                                h-full w-full
-                                rounded-full
-                                bg-green-400
-                                opacity-50
-                                animate-ping
-                            "></span>
-
-                            <span class="
-                                relative
-                                inline-flex
-                                rounded-full
-                                w-2 h-2
-                                bg-green-500
-                            "></span>
-
+                            <span
+                                class="absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-50 animate-ping"></span>
+                            <span class="relative inline-flex rounded-full w-2 h-2 bg-green-500"></span>
                         </span>
-
-
                         <span class="text-xs text-neutral-500">
                             Open to opportunities
                         </span>
-
                     </div>
-
                 </div>
 
-
-                <!-- ================================================= -->
                 <!-- RIGHT -->
-                <!-- ================================================= -->
-
-                <div class="
-                    bg-neutral-900/40
-                    border
-                    border-white/5
-                    rounded-3xl
-                    p-7
-                    md:p-8
-                    fade-in
-                ">
-
+                <div class="bg-neutral-900/40 border border-white/5 rounded-3xl p-7 md:p-8 fade-in">
                     <div class="mb-8">
-
-                        <span class="
-                            text-xs
-                            uppercase
-                            tracking-widest
-                            text-blue-500
-                        ">
+                        <span class="text-xs uppercase tracking-widest text-blue-500">
                             Get In Touch
                         </span>
-
-
-                        <h3 class="
-                            text-2xl
-                            md:text-3xl
-                            font-medium
-                            mt-3
-                            mb-4
-                        ">
+                        <h3 class="text-2xl md:text-3xl font-medium mt-3 mb-4">
                             Bạn có cơ hội phù hợp?
                         </h3>
-
-
-                        <p class="
-                            text-sm
-                            text-neutral-500
-                            font-light
-                            leading-relaxed
-                        ">
+                        <p class="text-sm text-neutral-500 font-light leading-relaxed">
                             Tôi quan tâm đến các vị trí Fresher / Junior
                             liên quan đến phát triển ứng dụng web.
                             Bạn có thể liên hệ trực tiếp qua email
                             hoặc xem source code của tôi trên GitHub.
                         </p>
-
                     </div>
 
-
                     <!-- POSITION -->
-                    <div class="
-                        grid
-                        sm:grid-cols-2
-                        gap-3
-                        mb-8
-                    ">
-
-                        <div class="
-                            p-4
-                            rounded-xl
-                            bg-white/[0.02]
-                            border
-                            border-white/5
-                        ">
-                            <i data-lucide="layers-3" class="
-                                w-4 h-4
-                                text-blue-500
-                                mb-3
-                            "></i>
-
+                    <div class="grid sm:grid-cols-2 gap-3 mb-8">
+                        <div class="p-4 rounded-xl bg-white/[0.02] border border-white/5">
+                            <i data-lucide="layers-3" class="w-4 h-4 text-blue-500"></i>
                             <div class="text-sm mb-1">
                                 Full-stack
                             </div>
-
                             <div class="text-xs text-neutral-600">
                                 React + Spring Boot
                             </div>
-
                         </div>
 
-
-                        <div class="
-                            p-4
-                            rounded-xl
-                            bg-white/[0.02]
-                            border
-                            border-white/5
-                        ">
-                            <i data-lucide="monitor" class="
-                                w-4 h-4
-                                text-cyan-500
-                                mb-3
-                            "></i>
-
+                        <div class="p-4 rounded-xl bg-white/[0.02] border border-white/5">
+                            <i data-lucide="monitor" class="w-4 h-4 text-cyan-500 mb-3"></i>
                             <div class="text-sm mb-1">
                                 Frontend
                             </div>
-
                             <div class="text-xs text-neutral-600">
                                 React Developer
                             </div>
-
                         </div>
 
-
-                        <div class="
-                            p-4
-                            rounded-xl
-                            bg-white/[0.02]
-                            border
-                            border-white/5
-                        ">
-                            <i data-lucide="server" class="
-                                w-4 h-4
-                                text-green-500
-                                mb-3
-                            "></i>
-
+                        <div class="p-4 rounded-xl bg-white/[0.02] border border-white/5">
+                            <i data-lucide="server" class="w-4 h-4 text-green-500 mb-3"></i>
                             <div class="text-sm mb-1">
                                 Backend
                             </div>
-
                             <div class="text-xs text-neutral-600">
                                 Java Spring Boot
                             </div>
-
                         </div>
 
-
-                        <div class="
-                            p-4
-                            rounded-xl
-                            bg-white/[0.02]
-                            border
-                            border-white/5
-                        ">
-                            <i data-lucide="briefcase-business" class="
-                                w-4 h-4
-                                text-purple-500
-                                mb-3
-                            "></i>
-
+                        <div class="p-4 rounded-xl bg-white/[0.02] border border-white/5">
+                            <i data-lucide="briefcase-business" class="w-4 h-4 text-purple-500 mb-3"></i>
                             <div class="text-sm mb-1">
                                 Level
                             </div>
-
                             <div class="text-xs text-neutral-600">
                                 Fresher / Junior
                             </div>
-
                         </div>
-
                     </div>
 
-
                     <!-- CTA -->
-                    <div class="
-                        flex
-                        flex-col
-                        sm:flex-row
-                        gap-3
-                    ">
-
-                        <a href="mailto:ke1tran666@gmail.com" class="
-                            flex-1
-                            inline-flex
-                            items-center
-                            justify-center
-                            gap-2
-                            px-5 py-3
-                            rounded-xl
-                            bg-white
-                            text-black
-                            text-sm
-                            font-medium
-                            hover:bg-neutral-200
-                            transition-colors
-                            duration-300
-                        ">
+                    <div class="flex flex-col sm:flex-row gap-3">
+                        <a href="mailto:ke1tran666@gmail.com"
+                            class="flex-1 inline-flex items-center justify-center gap-2 px-5 py-3 rounded-xl bg-white text-black text-sm font-medium hover:bg-neutral-200 transition-colors duration-300">
                             <i data-lucide="send" class="w-4 h-4"></i>
-
                             Gửi email
                         </a>
-
-
                         <a href="https://github.com/Ke1Tran666" target="_blank" rel="noopener noreferrer"
                             class="flex-1 inline-flex items-center justify-center gap-2 px-5 py-3 rounded-xl bg-white/5 border border-white/10 text-sm text-neutral-300 hover:text-white hover:bg-white/10 transition-all duration-300">
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
@@ -3158,7 +2772,7 @@
                     </div>
                     <span class="text-sm text-neutral-500">© 2026 Hùng Trần</span>
                 </div>
-                <div class="flex items-center gap-6">
+                <div class="flex flex-wrap items-center justify-center gap-x-6 gap-y-3">
                     <a href="#about" class="text-xs text-neutral-600 hover:text-neutral-400 transition-colors">Giới
                         thiệu</a>
                     <a href="#skills" class="text-xs text-neutral-600 hover:text-neutral-400 transition-colors">Kỹ

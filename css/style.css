@@ -212,9 +212,7 @@ body {
     opacity: 0.9;
 }
 
-/* =========================================================
-   SKILLS
-========================================================= */
+/* SKILLS */
 
 .skill-chip {
     display: inline-flex;
@@ -247,10 +245,7 @@ body {
 }
 
 
-/* =========================================================
-   TECHNOLOGY CARD
-========================================================= */
-
+/* TECHNOLOGY CARD */
 .tech-card {
     padding: 1.5rem;
 
@@ -274,7 +269,6 @@ body {
     background: rgba(23, 23, 23, 0.7);
 }
 
-
 .tech-icon {
     width: 3rem;
     height: 3rem;
@@ -296,14 +290,12 @@ body {
     transform: scale(1.08);
 }
 
-
 .tech-title {
     margin-bottom: 0.5rem;
 
     font-size: 1rem;
     font-weight: 500;
 }
-
 
 .tech-description {
     color: #737373;
@@ -315,10 +307,7 @@ body {
 }
 
 
-/* =========================================================
-   TOOL CHIP
-========================================================= */
-
+/* TOOL CHIP */
 .tool-chip {
     display: inline-flex;
     align-items: center;
@@ -353,4 +342,390 @@ body {
     border-color: rgba(255, 255, 255, 0.12);
 
     transform: translateY(-2px);
+}
+
+/* RESPONSIVE LAYOUT */
+
+html,
+body {
+    width: 100%;
+    max-width: 100%;
+
+    /* Fallback cho trình duyệt cũ */
+    overflow-x: hidden;
+    overflow-x: clip;
+}
+
+section {
+    scroll-margin-top: 4rem;
+}
+
+/* MOBILE MENU */
+
+.mobile-menu {
+    visibility: hidden;
+    opacity: 0;
+    pointer-events: none;
+
+    transform: translate3d(100%, 0, 0);
+
+    transition:
+        transform 0.3s ease,
+        opacity 0.3s ease,
+        visibility 0s linear 0.3s;
+}
+
+.mobile-menu.open {
+    visibility: visible;
+    opacity: 1;
+    pointer-events: auto;
+
+    transform: translate3d(0, 0, 0);
+
+    transition-delay: 0s;
+}
+
+body.menu-open {
+    overflow: hidden;
+}
+
+/* Tránh flex item bị giãn theo min-content của code block */
+.hero-content,
+.hero-content>*,
+.code-block,
+.code-block pre {
+    min-width: 0;
+    max-width: 100%;
+}
+
+section:first-of-type {
+    min-height: 100vh;
+    min-height: 100svh;
+}
+
+/* TABLET VÀ MOBILE */
+@media (max-width: 767px) {
+    .grid-bg {
+        background-size: 28px 28px;
+    }
+
+    /*
+     * Giới hạn background glow có kích thước cố định
+     * 400–600px để không tạo horizontal scroll.
+     */
+    section>.pointer-events-none.rounded-full {
+        max-width: 100vw;
+    }
+
+    .hero-content {
+        padding-top: 7rem;
+        padding-bottom: 6rem;
+    }
+
+    .hero-content h1 {
+        font-size: clamp(2.5rem, 13vw, 3rem);
+        line-height: 0.95;
+    }
+
+    .hero-content pre {
+        width: 100%;
+        max-width: 100%;
+        padding: 0.875rem;
+
+        font-size: 0.6875rem;
+        line-height: 1.6;
+
+        overflow-x: auto;
+        overscroll-behavior-inline: contain;
+    }
+
+    #toast-container>* {
+        width: 100%;
+    }
+}
+
+/* MOBILE */
+@media (max-width: 639px) {
+
+    .max-w-7xl {
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+
+    /* Giảm khoảng cách dọc của section */
+    .py-24 {
+        padding-top: 5rem;
+        padding-bottom: 5rem;
+    }
+
+    /* Giảm padding card */
+    .p-7,
+    .p-8 {
+        padding: 1.25rem;
+    }
+
+    .tech-card {
+        padding: 1.25rem;
+    }
+
+    .card-glow>.flex {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    #about .grid.gap-5>div>.flex {
+        flex-direction: column;
+    }
+
+    #project-grid .aspect-video {
+        aspect-ratio: 4 / 3;
+    }
+
+    #project-grid article>div:last-child {
+        padding: 1.25rem;
+    }
+
+    .filter-btn {
+        padding-left: 0.875rem;
+        padding-right: 0.875rem;
+    }
+
+    #back-to-top {
+        right: 1rem;
+        bottom: 1rem;
+    }
+}
+
+/* EXTRA SMALL MOBILE */
+@media (max-width: 374px) {
+    .hero-content h1 {
+        font-size: 2.25rem;
+    }
+
+    .hero-content {
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+
+    .skill-chip {
+        padding: 0.35rem 0.6rem;
+        font-size: 0.65rem;
+    }
+
+    .tool-chip {
+        padding: 0.45rem 0.75rem;
+        font-size: 0.75rem;
+    }
+
+    .filter-btn {
+        padding-left: 0.75rem;
+        padding-right: 0.75rem;
+    }
+}
+
+/* TOUCH DEVICE */
+@media (hover: none) {
+    .tech-card:hover {
+        transform: none;
+    }
+
+    .project-card:hover .proj-img {
+        transform: none;
+        opacity: 0.7;
+    }
+
+    .card-glow:hover::before {
+        opacity: 0;
+    }
+}
+
+/* REDUCED MOTION */
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+
+    .fade-in {
+        opacity: 1;
+        transform: none;
+    }
+}
+
+/* PROJECT GRADIENT FALLBACK */
+.project-radiant {
+    position: relative;
+    isolation: isolate;
+
+    background:
+        linear-gradient(135deg,
+            #111827 0%,
+            #09090b 50%,
+            #050505 100%);
+}
+
+.project-radiant::before,
+.project-radiant::after {
+    content: "";
+
+    position: absolute;
+    z-index: 0;
+
+    width: 16rem;
+    height: 16rem;
+
+    border-radius: 9999px;
+
+    filter: blur(70px);
+    opacity: 0.55;
+
+    pointer-events: none;
+
+    animation: project-radiant-float 8s ease-in-out infinite;
+}
+
+.project-radiant::before {
+    top: -45%;
+    left: -15%;
+}
+
+.project-radiant::after {
+    right: -15%;
+    bottom: -55%;
+
+    animation-delay: -4s;
+}
+
+/* Full-stack: blue + cyan */
+.project-radiant--fullstack {
+    background:
+        linear-gradient(135deg,
+            #071426 0%,
+            #07101c 50%,
+            #050505 100%);
+}
+
+.project-radiant--fullstack::before {
+    background: #2563eb;
+}
+
+.project-radiant--fullstack::after {
+    background: #06b6d4;
+}
+
+/* Frontend: cyan + indigo */
+.project-radiant--frontend {
+    background:
+        linear-gradient(135deg,
+            #061a1f 0%,
+            #090d1f 55%,
+            #050505 100%);
+}
+
+.project-radiant--frontend::before {
+    background: #06b6d4;
+}
+
+.project-radiant--frontend::after {
+    background: #4f46e5;
+}
+
+/* Learning: orange + yellow */
+.project-radiant--learning {
+    background:
+        linear-gradient(135deg,
+            #211306 0%,
+            #171006 50%,
+            #050505 100%);
+}
+
+.project-radiant--learning::before {
+    background: #f97316;
+}
+
+.project-radiant--learning::after {
+    background: #eab308;
+}
+
+/* AI: purple + pink */
+.project-radiant--ai {
+    background:
+        linear-gradient(135deg,
+            #1c0d2e 0%,
+            #14091f 50%,
+            #050505 100%);
+}
+
+.project-radiant--ai::before {
+    background: #9333ea;
+}
+
+.project-radiant--ai::after {
+    background: #ec4899;
+}
+
+/* Default */
+.project-radiant--default::before {
+    background: #525252;
+}
+
+.project-radiant--default::after {
+    background: #2563eb;
+}
+
+.project-radiant-icon {
+    color: rgba(255, 255, 255, 0.85);
+
+    background: rgba(255, 255, 255, 0.07);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+
+    box-shadow:
+        0 12px 40px rgba(0, 0, 0, 0.3),
+        inset 0 1px 0 rgba(255, 255, 255, 0.08);
+
+    backdrop-filter: blur(12px);
+}
+
+@keyframes project-radiant-float {
+
+    0%,
+    100% {
+        transform: translate3d(0, 0, 0) scale(1);
+    }
+
+    50% {
+        transform: translate3d(1rem, -0.75rem, 0) scale(1.08);
+    }
+}
+
+@media (max-width: 639px) {
+
+    .project-radiant::before,
+    .project-radiant::after {
+        width: 12rem;
+        height: 12rem;
+        filter: blur(55px);
+    }
+
+    .project-radiant-icon {
+        width: 3rem;
+        height: 3rem;
+        margin-bottom: 0.75rem;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+    .project-radiant::before,
+    .project-radiant::after {
+        animation: none;
+    }
 }

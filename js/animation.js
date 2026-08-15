@@ -16,36 +16,62 @@ document.addEventListener("DOMContentLoaded", () => {
     initActiveNav();
 });
 
-
-// ======================================================
 // MENU
-// ======================================================
-
 function initMenu() {
     const menuToggle = $("#menu-toggle");
     const menuClose = $("#menu-close");
     const mobileMenu = $("#mobile-menu");
 
-    menuToggle?.addEventListener("click", () => {
-        mobileMenu?.classList.add("open");
+    if (!menuToggle || !mobileMenu) return;
+
+    function setMenuState(isOpen) {
+        mobileMenu.classList.toggle("open", isOpen);
+        document.body.classList.toggle("menu-open", isOpen);
+
+        menuToggle.setAttribute(
+            "aria-expanded",
+            String(isOpen)
+        );
+
+        mobileMenu.setAttribute(
+            "aria-hidden",
+            String(!isOpen)
+        );
+    }
+
+    menuToggle.addEventListener("click", () => {
+        setMenuState(true);
     });
 
     menuClose?.addEventListener("click", () => {
-        mobileMenu?.classList.remove("open");
+        setMenuState(false);
+        menuToggle.focus();
     });
 
     $$(".mobile-link").forEach((link) => {
         link.addEventListener("click", () => {
-            mobileMenu?.classList.remove("open");
+            setMenuState(false);
         });
+    });
+
+    document.addEventListener("keydown", (event) => {
+        const menuIsOpen =
+            mobileMenu.classList.contains("open");
+
+        if (event.key === "Escape" && menuIsOpen) {
+            setMenuState(false);
+            menuToggle.focus();
+        }
+    });
+
+    window.addEventListener("resize", () => {
+        if (window.innerWidth >= 768) {
+            setMenuState(false);
+        }
     });
 }
 
-
-// ======================================================
 // TYPING EFFECT
-// ======================================================
-
 function initTyping() {
     const phrases = [
         "Full-stack Developer với React & Java Spring Boot.",
@@ -91,11 +117,7 @@ function initTyping() {
     type();
 }
 
-
-// ======================================================
 // FADE IN
-// ======================================================
-
 function initFadeIn() {
     const elements = $$(".fade-in");
 
@@ -121,11 +143,7 @@ function initFadeIn() {
     elements.forEach((element) => observer.observe(element));
 }
 
-
-// ======================================================
 // COUNTERS
-// ======================================================
-
 function initCounters() {
     const projectElement = $("#stat-projects");
 
@@ -174,15 +192,8 @@ function initCounters() {
     observer.observe(projectElement);
 }
 
-
-// ======================================================
 // PROJECT DATA
-// ======================================================
-
 const projects = [
-    // ==================================================
-    // GARMENT DESIGN
-    // ==================================================
     {
         title: "Garment Design System",
 
@@ -226,11 +237,6 @@ const projects = [
             },
         ],
     },
-
-
-    // ==================================================
-    // CODEMEIO
-    // ==================================================
     {
         title: "CodemeIO",
 
@@ -242,7 +248,7 @@ const projects = [
             tích hợp frontend/backend và tổ chức project theo nhiều layer.
         `,
 
-        img: "./assets/images/imgProjects/codemeIO.png",
+        img: "",
 
         category: "fullstack",
 
@@ -266,11 +272,6 @@ const projects = [
             },
         ],
     },
-
-
-    // ==================================================
-    // PORTFOLIO
-    // ==================================================
     {
         title: "Personal Portfolio",
 
@@ -301,11 +302,6 @@ const projects = [
             },
         ],
     },
-
-
-    // ==================================================
-    // LEARNING
-    // ==================================================
     {
         title: "Learn-Skill",
 
@@ -334,11 +330,6 @@ const projects = [
             },
         ],
     },
-
-
-    // ==================================================
-    // AI ASSISTED / VIBE PROJECTS
-    // ==================================================
     {
         title: "World Cup 2026 App",
 
@@ -410,7 +401,7 @@ const projects = [
             UI implementation và cách kết hợp AI vào quá trình code.
         `,
 
-        img: "./assets/images/imgProjects/adobee.png",
+        img: "",
 
         category: "ai",
 
@@ -460,11 +451,39 @@ const projects = [
     },
 ];
 
+const projectVisuals = {
+    fullstack: {
+        key: "fullstack",
+        icon: "layers-3",
+        label: "Full-stack Project",
+    },
 
-// ======================================================
+    frontend: {
+        key: "frontend",
+        icon: "monitor",
+        label: "Frontend Project",
+    },
+
+    learning: {
+        key: "learning",
+        icon: "book-open",
+        label: "Learning Project",
+    },
+
+    ai: {
+        key: "ai",
+        icon: "sparkles",
+        label: "AI-Assisted Project",
+    },
+
+    default: {
+        key: "default",
+        icon: "code-2",
+        label: "Development Project",
+    },
+};
+
 // PROJECT RENDER
-// ======================================================
-
 function initProjects() {
     renderProjects(projects);
 }
@@ -477,6 +496,50 @@ function renderProjects(list) {
 
     grid.innerHTML = list
         .map((project) => {
+            const visual =
+                projectVisuals[project.category] ||
+                projectVisuals.default;
+
+            const hasProjectImage =
+                typeof project.img === "string" &&
+                project.img.trim().length > 0;
+
+            const fallbackOpacity = hasProjectImage
+                ? "opacity-0"
+                : "opacity-100";
+
+            const projectImageHTML = hasProjectImage
+                ? `
+                    <img
+                        src="${project.img}"
+                        alt="Ảnh xem trước dự án ${project.title}"
+                        loading="lazy"
+                        class="
+                            proj-img
+                            absolute inset-0
+                            z-10
+                            w-full h-full
+                            object-cover
+                            opacity-70
+                            group-hover:opacity-90
+                            group-hover:scale-[1.03]
+                            transition-all
+                            duration-700
+                        "
+                        onerror="
+                            const fallback =
+                                this.parentElement.querySelector(
+                                    '[data-project-fallback]'
+                                );
+
+                            fallback?.classList.remove('opacity-0');
+                            fallback?.classList.add('opacity-100');
+
+                            this.remove();
+                        "
+                    >
+                `
+                : "";
             const techHTML = project.tech
                 .map(
                     (tech) => `
@@ -496,7 +559,6 @@ function renderProjects(list) {
                     `
                 )
                 .join("");
-
 
             const repoHTML = project.repositories
                 .map(
@@ -522,7 +584,6 @@ function renderProjects(list) {
                     `
                 )
                 .join("");
-
 
             const detailHTML = project.detail
                 ? `
@@ -553,12 +614,11 @@ function renderProjects(list) {
                 `
                 : "";
 
-
             const featuredBadge = project.featured
                 ? `
                     <span
                         class="
-                            absolute top-4 left-4
+                            absolute z-30 top-4 left-4
                             px-3 py-1
                             text-[10px]
                             uppercase tracking-wider
@@ -573,7 +633,6 @@ function renderProjects(list) {
                     </span>
                 `
                 : "";
-
 
             const vibeBadge = project.vibe
                 ? `
@@ -600,7 +659,6 @@ function renderProjects(list) {
                 `
                 : "";
 
-
             const statusHTML = project.status
                 ? `
                     <span
@@ -625,7 +683,6 @@ function renderProjects(list) {
                 `
                 : "";
 
-
             return `
                 <article
                     class="
@@ -642,45 +699,85 @@ function renderProjects(list) {
                     data-category="${project.category}"
                 >
 
-                    <!-- Image -->
+                    <!-- Project visual -->
                     <div
                         class="
+                            project-radiant
+                            project-radiant--${visual.key}
                             relative
                             aspect-video
                             overflow-hidden
                             bg-neutral-900
                         "
                     >
+                        ${projectImageHTML}
 
-                        <img
-                            src="${project.img}"
-                            alt="${project.title}"
-                            loading="lazy"
+                        <!-- Gradient fallback content -->
+                        <div
+                            data-project-fallback
+                            aria-hidden="true"
                             class="
-                                proj-img
-                                w-full h-full
-                                object-cover
-                                opacity-70
-                                group-hover:opacity-90
-                                group-hover:scale-[1.03]
-                                transition-all
-                                duration-700
-                            "
-                            onerror="
-                                this.style.display='none';
-                                this.parentElement.classList.add(
-                                    'flex',
-                                    'items-center',
-                                    'justify-center'
-                                );
+                                absolute inset-0
+                                z-[5]
+                                flex flex-col
+                                items-center
+                                justify-center
+                                px-6
+                                text-center
+                                ${fallbackOpacity}
+                                transition-opacity
+                                duration-500
                             "
                         >
+                            <div
+                                class="
+                                    project-radiant-icon
+                                    w-14 h-14
+                                    rounded-2xl
+                                    flex
+                                    items-center
+                                    justify-center
+                                    mb-4
+                                "
+                            >
+                                <i
+                                    data-lucide="${visual.icon}"
+                                    class="w-6 h-6"
+                                ></i>
+                            </div>
+
+                            <div
+                                class="
+                                    text-[10px]
+                                    uppercase
+                                    tracking-[0.2em]
+                                    text-white/40
+                                    mb-2
+                                "
+                            >
+                                ${visual.label}
+                            </div>
+
+                            <div
+                                class="
+                                    max-w-[80%]
+                                    text-lg
+                                    font-medium
+                                    tracking-tight
+                                    text-white/90
+                                "
+                            >
+                                ${project.title}
+                            </div>
+                        </div>
 
                         ${featuredBadge}
 
+                        <!-- Technology badges -->
                         <div
                             class="
                                 absolute
+                                z-30
                                 top-4 right-4
                                 flex flex-wrap
                                 justify-end
@@ -690,7 +787,6 @@ function renderProjects(list) {
                         >
                             ${techHTML}
                         </div>
-
                     </div>
 
 
@@ -767,11 +863,7 @@ function renderProjects(list) {
     lucide.createIcons();
 }
 
-
-// ======================================================
 // FILTER
-// ======================================================
-
 function initFilter() {
     const buttons = $$(".filter-btn");
 
@@ -808,7 +900,6 @@ function initFilter() {
     });
 }
 
-
 function filterProjects(filter) {
     const cards = $$(".project-card");
 
@@ -837,11 +928,7 @@ function filterProjects(filter) {
     });
 }
 
-
-// ======================================================
 // CONTACT FORM
-// ======================================================
-
 function initForm() {
     const form = $("#contact-form");
 
@@ -871,11 +958,7 @@ function initForm() {
     });
 }
 
-
-// ======================================================
 // TOAST
-// ======================================================
-
 function showToast(message, type = "success") {
     const container = $("#toast-container");
 
@@ -902,11 +985,7 @@ function showToast(message, type = "success") {
     }, 3000);
 }
 
-
-// ======================================================
 // BACK TO TOP
-// ======================================================
-
 function initBackToTop() {
     const button = $("#back-to-top");
 
@@ -933,11 +1012,7 @@ function initBackToTop() {
     });
 }
 
-
-// ======================================================
 // ACTIVE NAVIGATION
-// ======================================================
-
 function initActiveNav() {
     const sections = $$("section[id]");
     const links = $$('nav a[href^="#"]');
