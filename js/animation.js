@@ -3,6 +3,8 @@ const $ = (sel) => document.querySelector(sel);
 const $$ = (sel) => document.querySelectorAll(sel);
 
 document.addEventListener("DOMContentLoaded", () => {
+    initTheme();
+
     lucide.createIcons();
 
     initMenu();
@@ -15,6 +17,136 @@ document.addEventListener("DOMContentLoaded", () => {
     initBackToTop();
     initActiveNav();
 });
+
+// THEME
+const THEME_STORAGE_KEY = "portfolio-theme";
+
+function getStoredTheme() {
+    try {
+        const savedTheme = localStorage.getItem(
+            THEME_STORAGE_KEY
+        );
+
+        return savedTheme === "light" ||
+            savedTheme === "dark"
+            ? savedTheme
+            : null;
+    } catch (error) {
+        return null;
+    }
+}
+
+function getSystemTheme() {
+    return window.matchMedia(
+        "(prefers-color-scheme: light)"
+    ).matches
+        ? "light"
+        : "dark";
+}
+
+function applyTheme(theme, persist = false) {
+    const validTheme =
+        theme === "light" ? "light" : "dark";
+
+    document.documentElement.dataset.theme = validTheme;
+    document.documentElement.style.colorScheme = validTheme;
+
+    if (persist) {
+        try {
+            localStorage.setItem(
+                THEME_STORAGE_KEY,
+                validTheme
+            );
+        } catch (error) {
+            // Trình duyệt chặn localStorage
+        }
+    }
+
+    const isLightTheme = validTheme === "light";
+
+    $$('[data-theme-icon="sun"]').forEach((icon) => {
+        icon.classList.toggle("hidden", isLightTheme);
+    });
+
+    $$('[data-theme-icon="moon"]').forEach((icon) => {
+        icon.classList.toggle("hidden", !isLightTheme);
+    });
+
+    $$("[data-theme-toggle]").forEach((button) => {
+        const nextTheme = isLightTheme
+            ? "dark"
+            : "light";
+
+        const nextThemeLabel = isLightTheme
+            ? "tối"
+            : "sáng";
+
+        button.setAttribute(
+            "aria-label",
+            `Chuyển sang giao diện ${nextThemeLabel}`
+        );
+
+        button.setAttribute(
+            "title",
+            `Chuyển sang giao diện ${nextThemeLabel}`
+        );
+
+        button.setAttribute(
+            "aria-pressed",
+            String(isLightTheme)
+        );
+
+        button.dataset.nextTheme = nextTheme;
+    });
+}
+
+function initTheme() {
+    const currentTheme =
+        document.documentElement.dataset.theme ||
+        getStoredTheme() ||
+        getSystemTheme();
+
+    applyTheme(currentTheme);
+
+    $$("[data-theme-toggle]").forEach((button) => {
+        button.addEventListener("click", () => {
+            const activeTheme =
+                document.documentElement.dataset.theme;
+
+            const nextTheme =
+                activeTheme === "light"
+                    ? "dark"
+                    : "light";
+
+            applyTheme(nextTheme, true);
+        });
+    });
+
+    const systemThemeQuery = window.matchMedia(
+        "(prefers-color-scheme: light)"
+    );
+
+    systemThemeQuery.addEventListener(
+        "change",
+        (event) => {
+            /*
+             * Chỉ theo theme hệ thống nếu người dùng
+             * chưa tự chọn theme.
+             */
+            if (getStoredTheme()) return;
+
+            applyTheme(
+                event.matches ? "light" : "dark"
+            );
+        }
+    );
+
+    requestAnimationFrame(() => {
+        document.documentElement.classList.add(
+            "theme-ready"
+        );
+    });
+}
 
 // MENU
 function initMenu() {
@@ -313,7 +445,7 @@ const projects = [
             workflow và các ghi chú phát triển phần mềm.
         `,
 
-        img: "./assets/images/imgProjects/learn-skill.png",
+        img: "",
 
         category: "learning",
 

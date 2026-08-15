@@ -729,3 +729,346 @@ section:first-of-type {
         animation: none;
     }
 }
+
+/* THEME */
+:root {
+    color-scheme: dark;
+
+    --theme-page: #050505;
+    --theme-surface: #171717;
+    --theme-surface-soft: rgba(23, 23, 23, 0.5);
+
+    --theme-text: #ffffff;
+    --theme-text-soft: #a3a3a3;
+    --theme-text-muted: #737373;
+
+    --theme-border: rgba(255, 255, 255, 0.08);
+    --theme-grid: rgba(255, 255, 255, 0.05);
+
+    --theme-toggle-bg: rgba(255, 255, 255, 0.05);
+    --theme-toggle-hover: rgba(255, 255, 255, 0.1);
+}
+
+:root[data-theme="light"] {
+    color-scheme: light;
+
+    --theme-page: #f8fafc;
+    --theme-surface: #ffffff;
+    --theme-surface-soft: rgba(255, 255, 255, 0.82);
+
+    --theme-text: #0f172a;
+    --theme-text-soft: #475569;
+    --theme-text-muted: #64748b;
+
+    --theme-border: rgba(15, 23, 42, 0.09);
+    --theme-grid: rgba(15, 23, 42, 0.06);
+
+    --theme-toggle-bg: rgba(15, 23, 42, 0.05);
+    --theme-toggle-hover: rgba(15, 23, 42, 0.1);
+}
+
+body {
+    background: var(--theme-page);
+    color: var(--theme-text);
+}
+
+/* Theme toggle button */
+.theme-toggle {
+    width: 2.5rem;
+    height: 2.5rem;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+
+    color: var(--theme-text-soft);
+
+    background: var(--theme-toggle-bg);
+    border: 1px solid var(--theme-border);
+    border-radius: 0.75rem;
+
+    transition:
+        color 0.25s ease,
+        background-color 0.25s ease,
+        border-color 0.25s ease,
+        transform 0.25s ease;
+}
+
+.theme-toggle:hover {
+    color: var(--theme-text);
+    background: var(--theme-toggle-hover);
+    transform: translateY(-1px);
+}
+
+.theme-toggle:focus-visible {
+    outline: 2px solid #3b82f6;
+    outline-offset: 3px;
+}
+
+/* Chỉ transition sau khi theme ban đầu đã được xác định */
+.theme-ready body,
+.theme-ready nav,
+.theme-ready .mobile-menu,
+.theme-ready .card-glow,
+.theme-ready .tech-card,
+.theme-ready .project-card,
+.theme-ready footer {
+    transition:
+        color 0.3s ease,
+        background-color 0.3s ease,
+        border-color 0.3s ease;
+}
+
+/* LIGHT THEME */
+
+html[data-theme="light"] body {
+    background: #f8fafc;
+    color: #0f172a;
+}
+
+/* Navigation và mobile menu */
+html[data-theme="light"] [class~="bg-[#050505]/80"] {
+    background-color: rgba(248, 250, 252, 0.86) !important;
+}
+
+html[data-theme="light"] [class~="bg-[#050505]/98"] {
+    background-color: rgba(248, 250, 252, 0.98) !important;
+}
+
+html[data-theme="light"] [class~="bg-[#050505]"] {
+    background-color: #f8fafc !important;
+}
+
+/* Card surfaces */
+html[data-theme="light"] [class~="bg-neutral-900/30"],
+html[data-theme="light"] [class~="bg-neutral-900/40"],
+html[data-theme="light"] [class~="bg-neutral-900/50"] {
+    background-color: rgba(255, 255, 255, 0.84) !important;
+
+    box-shadow:
+        0 16px 45px rgba(15, 23, 42, 0.05);
+}
+
+html[data-theme="light"] [class~="bg-neutral-900"]:not(.project-radiant) {
+    background-color: #ffffff !important;
+}
+
+/* Subtle backgrounds */
+html[data-theme="light"] [class~="bg-white/5"],
+html[data-theme="light"] [class~="bg-white/[0.02]"] {
+    background-color: rgba(15, 23, 42, 0.035) !important;
+}
+
+html[data-theme="light"] [class~="bg-white/10"],
+html[data-theme="light"] [class~="bg-white/[0.04]"] {
+    background-color: rgba(15, 23, 42, 0.065) !important;
+}
+
+/* Primary buttons */
+html[data-theme="light"] [class~="bg-white"] {
+    background-color: #0f172a !important;
+}
+
+html[data-theme="light"] [class~="text-black"] {
+    color: #ffffff !important;
+}
+
+html[data-theme="light"] [class~="hover:bg-neutral-200"]:hover {
+    background-color: #1e293b !important;
+}
+
+/* Text colors */
+html[data-theme="light"] [class~="text-white"] {
+    color: #0f172a !important;
+}
+
+html[data-theme="light"] [class~="text-neutral-200"] {
+    color: #1e293b !important;
+}
+
+html[data-theme="light"] [class~="text-neutral-300"] {
+    color: #334155 !important;
+}
+
+html[data-theme="light"] [class~="text-neutral-400"] {
+    color: #475569 !important;
+}
+
+html[data-theme="light"] [class~="text-neutral-500"] {
+    color: #64748b !important;
+}
+
+html[data-theme="light"] [class~="text-neutral-600"] {
+    color: #64748b !important;
+}
+
+html[data-theme="light"] [class~="text-neutral-700"] {
+    color: #94a3b8 !important;
+}
+
+html[data-theme="light"] [class~="text-white/[0.03]"] {
+    color: rgba(15, 23, 42, 0.05) !important;
+}
+
+/* Hover text */
+html[data-theme="light"] [class~="hover:text-white"]:hover {
+    color: #0f172a !important;
+}
+
+html[data-theme="light"] .group:hover [class~="group-hover:text-white"] {
+    color: #0f172a !important;
+}
+
+/* Borders */
+html[data-theme="light"] [class~="border-white/5"] {
+    border-color: rgba(15, 23, 42, 0.07) !important;
+}
+
+html[data-theme="light"] [class~="border-white/10"] {
+    border-color: rgba(15, 23, 42, 0.12) !important;
+}
+
+/* Hover backgrounds */
+html[data-theme="light"] [class~="hover:bg-white/5"]:hover {
+    background-color: rgba(15, 23, 42, 0.055) !important;
+}
+
+html[data-theme="light"] [class~="hover:bg-white/10"]:hover {
+    background-color: rgba(15, 23, 42, 0.09) !important;
+}
+
+/* Hero bottom gradient */
+html[data-theme="light"] [class~="from-[#050505]"] {
+    --tw-gradient-from:
+        #f8fafc var(--tw-gradient-from-position) !important;
+
+    --tw-gradient-to:
+        rgb(248 250 252 / 0) var(--tw-gradient-to-position) !important;
+
+    --tw-gradient-stops:
+        var(--tw-gradient-from),
+        var(--tw-gradient-to) !important;
+}
+
+/* Section divider */
+html[data-theme="light"] [class~="via-white/10"] {
+    --tw-gradient-via:
+        rgba(15, 23, 42, 0.12) var(--tw-gradient-via-position) !important;
+}
+
+/* Grid background */
+html[data-theme="light"] .grid-bg {
+    background-image:
+        linear-gradient(to right,
+            rgba(15, 23, 42, 0.06) 1px,
+            transparent 1px),
+        linear-gradient(to bottom,
+            rgba(15, 23, 42, 0.06) 1px,
+            transparent 1px);
+}
+
+/* Custom cards */
+html[data-theme="light"] .skill-chip {
+    color: #475569;
+
+    background: rgba(15, 23, 42, 0.035);
+    border-color: rgba(15, 23, 42, 0.08);
+}
+
+html[data-theme="light"] .skill-chip:hover {
+    color: #0f172a;
+
+    background: rgba(15, 23, 42, 0.07);
+    border-color: rgba(15, 23, 42, 0.14);
+}
+
+html[data-theme="light"] .tool-chip {
+    color: #475569;
+
+    background: rgba(15, 23, 42, 0.035);
+    border-color: rgba(15, 23, 42, 0.08);
+}
+
+html[data-theme="light"] .tool-chip:hover {
+    color: #0f172a;
+
+    background: rgba(15, 23, 42, 0.07);
+    border-color: rgba(15, 23, 42, 0.14);
+}
+
+html[data-theme="light"] .tech-card {
+    background: rgba(255, 255, 255, 0.85);
+    border-color: rgba(15, 23, 42, 0.08);
+
+    box-shadow:
+        0 12px 35px rgba(15, 23, 42, 0.045);
+}
+
+html[data-theme="light"] .tech-card:hover {
+    background: #ffffff;
+    border-color: rgba(15, 23, 42, 0.14);
+}
+
+/*
+ * Giữ code block tối trong cả hai theme để syntax
+ * highlighting không bị giảm độ tương phản.
+ */
+html[data-theme="light"] .code-block {
+    color: #e5e7eb;
+    background: #0a0a0a;
+    border-color: rgba(15, 23, 42, 0.14);
+
+    box-shadow:
+        0 18px 50px rgba(15, 23, 42, 0.12);
+}
+
+html[data-theme="light"] .code-header {
+    background: rgba(255, 255, 255, 0.035);
+    border-color: rgba(255, 255, 255, 0.08);
+}
+
+/* Giữ project gradient ở dark style */
+html[data-theme="light"] .project-radiant {
+    color: #ffffff;
+}
+
+html[data-theme="light"] .project-radiant [class~="text-white/90"] {
+    color: rgba(255, 255, 255, 0.9) !important;
+}
+
+html[data-theme="light"] .project-radiant [class~="text-white/40"] {
+    color: rgba(255, 255, 255, 0.4) !important;
+}
+
+/* Scrollbar */
+html[data-theme="light"] ::-webkit-scrollbar-track {
+    background: #eef2f7;
+}
+
+html[data-theme="light"] ::-webkit-scrollbar-thumb {
+    background: #cbd5e1;
+}
+
+html[data-theme="light"] ::-webkit-scrollbar-thumb:hover {
+    background: #94a3b8;
+}
+
+@media (hover: none) {
+    .theme-toggle:hover {
+        transform: none;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+    .theme-ready body,
+    .theme-ready nav,
+    .theme-ready .mobile-menu,
+    .theme-ready .card-glow,
+    .theme-ready .tech-card,
+    .theme-ready .project-card,
+    .theme-ready footer {
+        transition: none;
+    }
+}
