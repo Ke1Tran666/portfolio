@@ -3,149 +3,21 @@ const $ = (sel) => document.querySelector(sel);
 const $$ = (sel) => document.querySelectorAll(sel);
 
 document.addEventListener("DOMContentLoaded", () => {
-    initTheme();
-
-    lucide.createIcons();
+    window.lucide?.createIcons();
 
     initMenu();
     initTyping();
     initFadeIn();
-    initCounters();
     initProjects();
     initFilter();
-    initForm();
-    initBackToTop();
-    initActiveNav();
+    initCopyEmail();
+    initScrollEffects();
 });
 
-// THEME
-const THEME_STORAGE_KEY = "portfolio-theme";
-
-function getStoredTheme() {
-    try {
-        const savedTheme = localStorage.getItem(
-            THEME_STORAGE_KEY
-        );
-
-        return savedTheme === "light" ||
-            savedTheme === "dark"
-            ? savedTheme
-            : null;
-    } catch (error) {
-        return null;
-    }
-}
-
-function getSystemTheme() {
+function prefersReducedMotion() {
     return window.matchMedia(
-        "(prefers-color-scheme: light)"
-    ).matches
-        ? "light"
-        : "dark";
-}
-
-function applyTheme(theme, persist = false) {
-    const validTheme =
-        theme === "light" ? "light" : "dark";
-
-    document.documentElement.dataset.theme = validTheme;
-    document.documentElement.style.colorScheme = validTheme;
-
-    if (persist) {
-        try {
-            localStorage.setItem(
-                THEME_STORAGE_KEY,
-                validTheme
-            );
-        } catch (error) {
-            // Trình duyệt chặn localStorage
-        }
-    }
-
-    const isLightTheme = validTheme === "light";
-
-    $$('[data-theme-icon="sun"]').forEach((icon) => {
-        icon.classList.toggle("hidden", isLightTheme);
-    });
-
-    $$('[data-theme-icon="moon"]').forEach((icon) => {
-        icon.classList.toggle("hidden", !isLightTheme);
-    });
-
-    $$("[data-theme-toggle]").forEach((button) => {
-        const nextTheme = isLightTheme
-            ? "dark"
-            : "light";
-
-        const nextThemeLabel = isLightTheme
-            ? "tối"
-            : "sáng";
-
-        button.setAttribute(
-            "aria-label",
-            `Chuyển sang giao diện ${nextThemeLabel}`
-        );
-
-        button.setAttribute(
-            "title",
-            `Chuyển sang giao diện ${nextThemeLabel}`
-        );
-
-        button.setAttribute(
-            "aria-pressed",
-            String(isLightTheme)
-        );
-
-        button.dataset.nextTheme = nextTheme;
-    });
-}
-
-function initTheme() {
-    const currentTheme =
-        document.documentElement.dataset.theme ||
-        getStoredTheme() ||
-        getSystemTheme();
-
-    applyTheme(currentTheme);
-
-    $$("[data-theme-toggle]").forEach((button) => {
-        button.addEventListener("click", () => {
-            const activeTheme =
-                document.documentElement.dataset.theme;
-
-            const nextTheme =
-                activeTheme === "light"
-                    ? "dark"
-                    : "light";
-
-            applyTheme(nextTheme, true);
-        });
-    });
-
-    const systemThemeQuery = window.matchMedia(
-        "(prefers-color-scheme: light)"
-    );
-
-    systemThemeQuery.addEventListener(
-        "change",
-        (event) => {
-            /*
-             * Chỉ theo theme hệ thống nếu người dùng
-             * chưa tự chọn theme.
-             */
-            if (getStoredTheme()) return;
-
-            applyTheme(
-                event.matches ? "light" : "dark"
-            );
-        }
-    );
-
-    requestAnimationFrame(() => {
-        document.documentElement.classList.add(
-            "theme-ready"
-        );
-    });
+        "(prefers-reduced-motion: reduce)"
+    ).matches;
 }
 
 // MENU
@@ -160,15 +32,9 @@ function initMenu() {
         mobileMenu.classList.toggle("open", isOpen);
         document.body.classList.toggle("menu-open", isOpen);
 
-        menuToggle.setAttribute(
-            "aria-expanded",
-            String(isOpen)
-        );
+        menuToggle.setAttribute("aria-expanded",String(isOpen));
 
-        mobileMenu.setAttribute(
-            "aria-hidden",
-            String(!isOpen)
-        );
+        mobileMenu.setAttribute("aria-hidden",String(!isOpen));
     }
 
     menuToggle.addEventListener("click", () => {
@@ -187,8 +53,7 @@ function initMenu() {
     });
 
     document.addEventListener("keydown", (event) => {
-        const menuIsOpen =
-            mobileMenu.classList.contains("open");
+        const menuIsOpen = mobileMenu.classList.contains("open");
 
         if (event.key === "Escape" && menuIsOpen) {
             setMenuState(false);
@@ -203,26 +68,18 @@ function initMenu() {
     });
 }
 
-// TYPING EFFECT
 function initTyping() {
-    const phrases = [
-        "Full-stack Developer với React & Java Spring Boot.",
-        "Tôi xây frontend với ReactJS & Tailwind CSS.",
-        "Tôi phát triển REST API với Java & Spring Boot.",
-        "Tôi làm việc với Spring Security & SQL Server.",
-        "Tôi xây dựng ứng dụng từ frontend đến backend.",
-    ];
-
+    const { typingPhrases = [] } = window.PORTFOLIO_DATA || {};
     const el = $("#typed-text");
 
-    if (!el) return;
+    if (!el || !typingPhrases.length) return;
 
     let phraseIndex = 0;
     let charIndex = 0;
     let deleting = false;
 
     function type() {
-        const text = phrases[phraseIndex];
+        const text = typingPhrases[phraseIndex];
 
         if (deleting) {
             charIndex--;
@@ -239,7 +96,7 @@ function initTyping() {
             speed = 2000;
         } else if (deleting && charIndex === 0) {
             deleting = false;
-            phraseIndex = (phraseIndex + 1) % phrases.length;
+            phraseIndex = (phraseIndex + 1) % typingPhrases.length;
             speed = 400;
         }
 
@@ -255,368 +112,46 @@ function initFadeIn() {
 
     if (!elements.length) return;
 
+    if (prefersReducedMotion()) {
+        elements.forEach((element) => element.classList.add("visible"));
+        return;
+    }
+
     const observer = new IntersectionObserver(
         (entries) => {
-            entries.forEach((entry, index) => {
+            let visibleIndex = 0;
+
+            entries.forEach((entry) => {
                 if (!entry.isIntersecting) return;
+
+                const delay = Math.min(visibleIndex, 5) * 45;
+                visibleIndex += 1;
 
                 setTimeout(() => {
                     entry.target.classList.add("visible");
-                }, index * 50);
+                }, delay);
 
                 observer.unobserve(entry.target);
             });
         },
         {
-            threshold: 0.1,
+            threshold: 0.06,
+            rootMargin: "0px 0px -32px 0px",
         }
     );
 
     elements.forEach((element) => observer.observe(element));
 }
 
-// COUNTERS
-function initCounters() {
-    const projectElement = $("#stat-projects");
-
-    if (!projectElement) return;
-
-    const animate = (element, target, suffix = "") => {
-        if (!element) return;
-
-        let count = 0;
-        const step = Math.max(1, Math.ceil(target / 35));
-
-        const interval = setInterval(() => {
-            count += step;
-
-            if (count >= target) {
-                count = target;
-                clearInterval(interval);
-            }
-
-            element.textContent = `${count}${suffix}`;
-        }, 40);
-    };
-
-    const observer = new IntersectionObserver(
-        (entries) => {
-            entries.forEach((entry) => {
-                if (!entry.isIntersecting) return;
-
-                // Các project được nhóm theo sản phẩm thay vì số repo
-                animate($("#stat-projects"), projects.length, "+");
-
-                // Các technology chính đang sử dụng
-                animate($("#stat-tech"), 15, "+");
-
-                // Repo public hiện có trên GitHub
-                animate($("#stat-repos"), 13, "+");
-
-                observer.unobserve(entry.target);
-            });
-        },
-        {
-            threshold: 0.5,
-        }
-    );
-
-    observer.observe(projectElement);
-}
-
-// PROJECT DATA
-const projects = [
-    {
-        title: "Garment Design System",
-
-        subtitle: "Full-stack Garment Manufacturing Service Platform",
-
-        desc: `
-            Hệ thống full-stack phục vụ lĩnh vực may mặc,
-            cho phép quản lý người dùng, dịch vụ, đơn hàng,
-            file sản phẩm, đánh giá, dashboard và các quy trình khách hàng.
-        `,
-
-        img: "./assets/images/imgProjects/ke1tran666.github.io_Garment-design-landingPage_.png",
-
-        category: "fullstack",
-
-        tech: [
-            "React",
-            "Spring Boot",
-            "Spring Security",
-            "SQL Server",
-        ],
-
-        featured: true,
-
-        status: "Active Development",
-
-        detail: "https://ke1tran666.github.io/Garment-design-landingPage/",
-
-        repositories: [
-            {
-                name: "Backend",
-                url: "https://github.com/Ke1Tran666/garmentDesign",
-            },
-            {
-                name: "Frontend",
-                url: "https://github.com/Ke1Tran666/garmentDesign_client",
-            },
-            {
-                name: "Landing Page",
-                url: "https://github.com/Ke1Tran666/Garment-design-landingPage",
-            },
-        ],
-    },
-    {
-        title: "CodemeIO",
-
-        subtitle: "Full-stack Web Development Project",
-
-        desc: `
-            Một trong những dự án full-stack đầu tiên của tôi,
-            được xây dựng để thực hành CRUD, REST API,
-            tích hợp frontend/backend và tổ chức project theo nhiều layer.
-        `,
-
-        img: "",
-
-        category: "fullstack",
-
-        tech: [
-            "Java",
-            "REST API",
-            "JavaScript",
-            "Database",
-        ],
-
-        featured: true,
-
-        repositories: [
-            {
-                name: "Backend / Original",
-                url: "https://github.com/Ke1Tran666/codemeIO",
-            },
-            {
-                name: "Frontend Remake",
-                url: "https://github.com/Ke1Tran666/codemeIO-Client_remake",
-            },
-        ],
-    },
-    {
-        title: "Personal Portfolio",
-
-        subtitle: "Developer Portfolio",
-
-        desc: `
-            Portfolio cá nhân dùng để giới thiệu kỹ năng,
-            dự án, công nghệ đang sử dụng và hành trình
-            phát triển của tôi với vai trò Full-stack Developer.
-        `,
-
-        img: "./assets/images/imgProjects/ke1tran666.github.io_portfolio_.png",
-
-        category: "frontend",
-
-        tech: [
-            "HTML",
-            "Tailwind",
-            "JavaScript",
-        ],
-
-        detail: "https://ke1tran666.github.io/portfolio/",
-
-        repositories: [
-            {
-                name: "Source",
-                url: "https://github.com/Ke1Tran666/portfolio",
-            },
-        ],
-    },
-    {
-        title: "Learn-Skill",
-
-        subtitle: "Learning & Technical Notes",
-
-        desc: `
-            Repository dành cho việc học và luyện tập các kỹ năng
-            kỹ thuật như Git, GitHub, programming concepts,
-            workflow và các ghi chú phát triển phần mềm.
-        `,
-
-        img: "",
-
-        category: "learning",
-
-        tech: [
-            "Git",
-            "GitHub",
-            "Programming",
-        ],
-
-        repositories: [
-            {
-                name: "Repository",
-                url: "https://github.com/Ke1Tran666/Learn-Skill",
-            },
-        ],
-    },
-    {
-        title: "World Cup 2026 App",
-
-        subtitle: "AI-Assisted Project",
-
-        desc: `
-            Ứng dụng thử nghiệm xoay quanh FIFA World Cup 2026,
-            được phát triển theo workflow AI-assisted / vibe coding
-            để thử nghiệm ý tưởng và xây dựng prototype nhanh.
-        `,
-
-        img: "./assets/images/imgProjects/ke1tran666.github.io_world-cup-2026_.png",
-
-        category: "ai",
-
-        tech: [
-            "AI Assisted",
-            "Web App",
-        ],
-
-        vibe: true,
-
-        repositories: [
-            {
-                name: "Repository",
-                url: "https://github.com/Ke1Tran666/world-cup-2026-app",
-            },
-        ],
-    },
-
-    {
-        title: "ToDooList",
-
-        subtitle: "AI-Assisted Task Management",
-
-        desc: `
-            Ứng dụng quản lý công việc được tạo như một thử nghiệm
-            về rapid application development và cách sử dụng AI
-            để hỗ trợ quá trình xây dựng sản phẩm.
-        `,
-
-        img: "./assets/images/imgProjects/ke1tran666.github.io_todolist_.png",
-
-        category: "ai",
-
-        tech: [
-            "AI Assisted",
-            "Task Management",
-        ],
-
-        vibe: true,
-
-        repositories: [
-            {
-                name: "Repository",
-                url: "https://github.com/Ke1Tran666/toDooList",
-            },
-        ],
-    },
-
-    {
-        title: "Adobee",
-
-        subtitle: "AI-Assisted Experiment",
-
-        desc: `
-            Project thử nghiệm được phát triển với workflow
-            AI-assisted nhằm nghiên cứu rapid prototyping,
-            UI implementation và cách kết hợp AI vào quá trình code.
-        `,
-
-        img: "",
-
-        category: "ai",
-
-        tech: [
-            "AI Assisted",
-            "Prototype",
-        ],
-
-        vibe: true,
-
-        repositories: [
-            {
-                name: "Repository",
-                url: "https://github.com/Ke1Tran666/Adobee",
-            },
-        ],
-    },
-
-    {
-        title: "Gold & Silver Tracker",
-
-        subtitle: "AI-Assisted Tracking Application",
-
-        desc: `
-            Ứng dụng thử nghiệm theo dõi thông tin liên quan
-            đến vàng và bạc, được xây dựng bằng workflow
-            AI-assisted để thử nghiệm ý tưởng sản phẩm.
-        `,
-
-        img: "./assets/images/imgProjects/ke1tran666.github.io_gold-silver-tracker_.png",
-
-        category: "ai",
-
-        tech: [
-            "AI Assisted",
-            "Tracking",
-        ],
-
-        vibe: true,
-
-        repositories: [
-            {
-                name: "Repository",
-                url: "https://github.com/Ke1Tran666/gold-silver-tracker",
-            },
-        ],
-    },
-];
-
-const projectVisuals = {
-    fullstack: {
-        key: "fullstack",
-        icon: "layers-3",
-        label: "Full-stack Project",
-    },
-
-    frontend: {
-        key: "frontend",
-        icon: "monitor",
-        label: "Frontend Project",
-    },
-
-    learning: {
-        key: "learning",
-        icon: "book-open",
-        label: "Learning Project",
-    },
-
-    ai: {
-        key: "ai",
-        icon: "sparkles",
-        label: "AI-Assisted Project",
-    },
-
-    default: {
-        key: "default",
-        icon: "code-2",
-        label: "Development Project",
-    },
+// PROJECT RENDER
+const DEFAULT_PROJECT_VISUAL = {
+    key: "default",
+    icon: "code-2",
+    label: "Development Project",
 };
 
-// PROJECT RENDER
 function initProjects() {
+    const { projects = [] } = window.PORTFOLIO_DATA || {};
     renderProjects(projects);
 }
 
@@ -626,11 +161,14 @@ function renderProjects(list) {
 
     if (!grid) return;
 
+    const { projectVisuals = {} } = window.PORTFOLIO_DATA || {};
+
     grid.innerHTML = list
         .map((project) => {
             const visual =
                 projectVisuals[project.category] ||
-                projectVisuals.default;
+                projectVisuals.default ||
+                DEFAULT_PROJECT_VISUAL;
 
             const hasProjectImage =
                 typeof project.img === "string" &&
@@ -825,8 +363,6 @@ function renderProjects(list) {
                         overflow-hidden
                         group
                         hover:border-white/10
-                        transition-all
-                        duration-500
                     "
                     data-category="${project.category}"
                 >
@@ -992,7 +528,7 @@ function renderProjects(list) {
         .join("");
 
     // Lucide icons được thêm bằng innerHTML
-    lucide.createIcons();
+    window.lucide?.createIcons();
 }
 
 // FILTER
@@ -1005,6 +541,7 @@ function initFilter() {
                 item.classList.remove(
                     "bg-white",
                     "text-black",
+                    "border-transparent",
                     "active"
                 );
 
@@ -1018,12 +555,14 @@ function initFilter() {
 
             button.classList.remove(
                 "bg-white/5",
-                "text-neutral-400"
+                "text-neutral-400",
+                "border-white/5"
             );
 
             button.classList.add(
                 "bg-white",
                 "text-black",
+                "border-transparent",
                 "active"
             );
 
@@ -1037,13 +576,20 @@ function filterProjects(filter) {
 
     cards.forEach((card) => {
         const category = card.dataset.category;
+        const show = filter === "all" || category === filter;
 
-        const show =
-            filter === "all" ||
-            category === filter;
+        clearTimeout(card._hideTimer);
 
         if (show) {
+            const wasHidden = card.style.display === "none";
+
             card.style.display = "";
+
+            if (wasHidden) {
+                card.style.opacity = "0";
+                card.style.transform = "translateY(14px)";
+                void card.offsetWidth;
+            }
 
             requestAnimationFrame(() => {
                 card.style.opacity = "1";
@@ -1051,42 +597,100 @@ function filterProjects(filter) {
             });
         } else {
             card.style.opacity = "0";
-            card.style.transform = "translateY(20px)";
+            card.style.transform = "translateY(14px)";
 
-            setTimeout(() => {
+            card._hideTimer = setTimeout(() => {
                 card.style.display = "none";
-            }, 300);
+            }, 320);
         }
     });
 }
 
-// CONTACT FORM
-function initForm() {
-    const form = $("#contact-form");
+// COPY EMAIL
+async function copyTextToClipboard(text) {
+    if (navigator.clipboard && window.isSecureContext) {
+        try {
+            await navigator.clipboard.writeText(text);
+            return true;
+        } catch (error) {
+            // Fallback cho môi trường không hỗ trợ Clipboard API
+        }
+    }
 
-    if (!form) return;
+    const textarea = document.createElement("textarea");
+    textarea.value = text;
+    textarea.setAttribute("readonly", "");
+    textarea.style.position = "fixed";
+    textarea.style.top = "-9999px";
+    textarea.style.left = "-9999px";
 
-    form.addEventListener("submit", (event) => {
-        event.preventDefault();
+    document.body.appendChild(textarea);
+    textarea.select();
+    textarea.setSelectionRange(0, textarea.value.length);
 
-        const button = $("#submit-btn");
+    let copied = false;
 
-        if (!button) return;
+    try {
+        copied = document.execCommand("copy");
+    } catch (error) {
+        copied = false;
+    } finally {
+        textarea.remove();
+    }
 
-        button.innerHTML = "Đang gửi...";
-        button.disabled = true;
+    return copied;
+}
 
-        setTimeout(() => {
-            button.innerHTML = "Gửi tin nhắn";
-            button.disabled = false;
+function initCopyEmail() {
+    const buttons = $$("[data-copy-email]");
 
-            form.reset();
+    if (!buttons.length) return;
 
-            showToast(
-                "Tin nhắn đã được ghi nhận!",
-                "success"
+    buttons.forEach((button) => {
+        button.addEventListener("click", async () => {
+            const email = button.dataset.copyEmail;
+
+            if (!email) return;
+
+            const copied = await copyTextToClipboard(email);
+
+            if (!copied) {
+                showToast(
+                    "Không thể sao chép tự động, vui lòng copy thủ công.",
+                    "error"
+                );
+                return;
+            }
+
+            const copyIcon = button.querySelector(
+                '[data-copy-icon="copy"]'
             );
-        }, 1200);
+            const checkIcon = button.querySelector(
+                '[data-copy-icon="check"]'
+            );
+            const label = button.querySelector("[data-copy-label]");
+
+            button.classList.add("is-copied");
+            copyIcon?.classList.add("hidden");
+            checkIcon?.classList.remove("hidden");
+
+            if (label) {
+                label.textContent = "Đã copy";
+            }
+
+            clearTimeout(button._copyTimeout);
+            button._copyTimeout = setTimeout(() => {
+                button.classList.remove("is-copied");
+                copyIcon?.classList.remove("hidden");
+                checkIcon?.classList.add("hidden");
+
+                if (label) {
+                    label.textContent = "Copy";
+                }
+            }, 2000);
+
+            showToast(`Đã sao chép ${email}`, "success");
+        });
     });
 }
 
@@ -1100,6 +704,8 @@ function showToast(message, type = "success") {
 
     toast.className = `
         toast-in
+        pointer-events-auto
+        flex items-center gap-2.5
         px-4 py-3
         bg-neutral-900
         border border-white/10
@@ -1108,68 +714,103 @@ function showToast(message, type = "success") {
         text-sm
     `;
 
-    toast.textContent = message;
+    toast.setAttribute("role", "status");
+    toast.setAttribute("aria-live", "polite");
 
+    const icon = document.createElement("i");
+    icon.dataset.lucide =
+        type === "error" ? "alert-circle" : "check-circle-2";
+    icon.className = `w-4 h-4 flex-shrink-0 ${
+        type === "error" ? "text-red-500" : "text-green-500"
+    }`;
+
+    const text = document.createElement("span");
+    text.textContent = message;
+
+    toast.append(icon, text);
     container.appendChild(toast);
 
+    if (window.lucide?.createIcons) {
+        lucide.createIcons();
+    }
+
     setTimeout(() => {
-        toast.remove();
-    }, 3000);
+        toast.classList.remove("toast-in");
+        toast.classList.add("toast-out");
+
+        setTimeout(() => {
+            toast.remove();
+        }, 400);
+    }, 2600);
 }
 
-// BACK TO TOP
-function initBackToTop() {
-    const button = $("#back-to-top");
+// SCROLL EFFECTS (BACK TO TOP + ACTIVE NAV)
+function initScrollEffects() {
+    const backToTopButton = $("#back-to-top");
+    const sections = Array.from($$("section[id]"));
+    const navLinks = Array.from($$('nav a[href^="#"]'));
 
-    if (!button) return;
+    let isTopVisible = null;
+    let activeSectionId = null;
+    let ticking = false;
 
-    window.addEventListener("scroll", () => {
-        const visible = window.scrollY > 500;
+    const updateOnScroll = () => {
+        ticking = false;
+        const scrollY = window.scrollY;
 
-        button.style.opacity = visible ? "1" : "0";
-        button.style.transform = visible
-            ? "translateY(0)"
-            : "translateY(1rem)";
+        if (backToTopButton) {
+            const shouldShow = scrollY > 500;
 
-        button.style.pointerEvents = visible
-            ? "auto"
-            : "none";
+            if (shouldShow !== isTopVisible) {
+                isTopVisible = shouldShow;
+                backToTopButton.style.opacity = shouldShow ? "1" : "0";
+                backToTopButton.style.transform = shouldShow
+                    ? "translateY(0)"
+                    : "translateY(1rem)";
+                backToTopButton.style.pointerEvents = shouldShow
+                    ? "auto"
+                    : "none";
+            }
+        }
+
+        if (sections.length && navLinks.length) {
+            let current = "";
+            const offset = scrollY + 120;
+
+            for (const section of sections) {
+                if (offset >= section.offsetTop) {
+                    current = section.id;
+                }
+            }
+
+            if (current !== activeSectionId) {
+                activeSectionId = current;
+
+                navLinks.forEach((link) => {
+                    const isActive =
+                        link.getAttribute("href") === `#${current}`;
+                    link.classList.toggle("text-white", isActive);
+                });
+            }
+        }
+    };
+
+    const requestTick = () => {
+        if (!ticking) {
+            ticking = true;
+            requestAnimationFrame(updateOnScroll);
+        }
+    };
+
+    window.addEventListener("scroll", requestTick, {
+        passive: true,
     });
+    updateOnScroll();
 
-    button.addEventListener("click", () => {
+    backToTopButton?.addEventListener("click", () => {
         window.scrollTo({
             top: 0,
-            behavior: "smooth",
-        });
-    });
-}
-
-// ACTIVE NAVIGATION
-function initActiveNav() {
-    const sections = $$("section[id]");
-    const links = $$('nav a[href^="#"]');
-
-    window.addEventListener("scroll", () => {
-        let current = "";
-
-        sections.forEach((section) => {
-            if (
-                window.scrollY >=
-                section.offsetTop - 120
-            ) {
-                current = section.id;
-            }
-        });
-
-        links.forEach((link) => {
-            link.classList.remove("text-white");
-
-            if (
-                link.getAttribute("href") ===
-                `#${current}`
-            ) {
-                link.classList.add("text-white");
-            }
+            behavior: prefersReducedMotion() ? "auto" : "smooth",
         });
     });
 }
