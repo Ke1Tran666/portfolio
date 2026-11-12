@@ -1,5 +1,5 @@
 * {
-    font-family: 'Inter', sans-serif;
+    font-family: "Inter", sans-serif;
 }
 
 ::-webkit-scrollbar {
@@ -68,7 +68,7 @@
 }
 
 .card-glow::before {
-    content: '';
+    content: "";
     position: absolute;
     top: -50%;
     left: -50%;
@@ -354,7 +354,6 @@ section:first-of-type {
 
 /* MOBILE */
 @media (max-width: 639px) {
-
     .max-w-7xl {
         padding-left: 1rem;
         padding-right: 1rem;

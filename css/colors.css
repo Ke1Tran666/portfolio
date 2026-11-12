@@ -76,11 +76,9 @@ body {
 
 /* ===== COMPONENT COLORS (DARK DEFAULT) ===== */
 .card-glow::before {
-    background: radial-gradient(
-        circle,
-        rgba(59, 130, 246, 0.06) 0%,
-        transparent 70%
-    );
+    background: radial-gradient(circle,
+            rgba(59, 130, 246, 0.06) 0%,
+            transparent 70%);
 }
 
 .code-block {
@@ -133,19 +131,11 @@ body {
 
 /* Project visual & overlay badges */
 .project-radiant {
-    background:
-        linear-gradient(135deg,
-            #111827 0%,
-            #09090b 50%,
-            #050505 100%);
+    background: linear-gradient(135deg, #111827 0%, #09090b 50%, #050505 100%);
 }
 
 .project-radiant--fullstack {
-    background:
-        linear-gradient(135deg,
-            #071426 0%,
-            #07101c 50%,
-            #050505 100%);
+    background: linear-gradient(135deg, #071426 0%, #07101c 50%, #050505 100%);
 }
 
 .project-radiant--fullstack::before {
@@ -157,11 +147,7 @@ body {
 }
 
 .project-radiant--frontend {
-    background:
-        linear-gradient(135deg,
-            #061a1f 0%,
-            #090d1f 55%,
-            #050505 100%);
+    background: linear-gradient(135deg, #061a1f 0%, #090d1f 55%, #050505 100%);
 }
 
 .project-radiant--frontend::before {
@@ -173,11 +159,7 @@ body {
 }
 
 .project-radiant--learning {
-    background:
-        linear-gradient(135deg,
-            #211306 0%,
-            #171006 50%,
-            #050505 100%);
+    background: linear-gradient(135deg, #211306 0%, #171006 50%, #050505 100%);
 }
 
 .project-radiant--learning::before {
@@ -189,11 +171,7 @@ body {
 }
 
 .project-radiant--ai {
-    background:
-        linear-gradient(135deg,
-            #1c0d2e 0%,
-            #14091f 50%,
-            #050505 100%);
+    background: linear-gradient(135deg, #1c0d2e 0%, #14091f 50%, #050505 100%);
 }
 
 .project-radiant--ai::before {
@@ -222,12 +200,10 @@ body {
 }
 
 .project-scrim {
-    background: linear-gradient(
-        to bottom,
-        rgba(0, 0, 0, 0.45) 0%,
-        rgba(0, 0, 0, 0.14) 55%,
-        transparent 100%
-    );
+    background: linear-gradient(to bottom,
+            rgba(0, 0, 0, 0.45) 0%,
+            rgba(0, 0, 0, 0.14) 55%,
+            transparent 100%);
 }
 
 .project-tech-chip {
@@ -427,21 +403,17 @@ html[data-theme="light"] [class~="hover:bg-white/10"]:hover {
 
 /* Hero bottom gradient */
 html[data-theme="light"] [class~="from-[#050505]"] {
-    --tw-gradient-from:
-        #f8fafc var(--tw-gradient-from-position) !important;
+    --tw-gradient-from: #f8fafc var(--tw-gradient-from-position) !important;
 
-    --tw-gradient-to:
-        rgb(248 250 252 / 0) var(--tw-gradient-to-position) !important;
+    --tw-gradient-to: rgb(248 250 252 / 0) var(--tw-gradient-to-position) !important;
 
     --tw-gradient-stops:
-        var(--tw-gradient-from),
-        var(--tw-gradient-to) !important;
+        var(--tw-gradient-from), var(--tw-gradient-to) !important;
 }
 
 /* Section divider */
 html[data-theme="light"] [class~="via-white/10"] {
-    --tw-gradient-via:
-        rgba(15, 23, 42, 0.12) var(--tw-gradient-via-position) !important;
+    --tw-gradient-via: rgba(15, 23, 42, 0.12) var(--tw-gradient-via-position) !important;
 }
 
 /* Custom cards & chips (light theme) */

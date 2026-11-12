@@ -1,18 +1,17 @@
 (() => {
-    const DEFAULT_PROJECT_VISUAL = {
-        key: "default",
-        icon: "code-2",
-        label: "Development Project",
-    };
+  const DEFAULT_PROJECT_VISUAL = {
+    key: "default",
+    icon: "code-2",
+    label: "Development Project",
+  };
 
-    function renderProjectImage(project) {
-        const hasProjectImage =
-            typeof project.img === "string" &&
-            project.img.trim().length > 0;
+  function renderProjectImage(project) {
+    const hasProjectImage =
+      typeof project.img === "string" && project.img.trim().length > 0;
 
-        if (!hasProjectImage) return "";
+    if (!hasProjectImage) return "";
 
-        return `
+    return `
             <img
                 src="${project.img}"
                 alt="Ảnh xem trước dự án ${project.title}"
@@ -55,12 +54,12 @@
                 "
             ></div>
         `;
-    }
+  }
 
-    function renderTechBadges(techList = []) {
-        return techList
-            .map(
-                (tech) => `
+  function renderTechBadges(techList = []) {
+    return techList
+      .map(
+        (tech) => `
                     <span
                         class="
                             project-tech-chip
@@ -72,15 +71,15 @@
                     >
                         ${tech}
                     </span>
-                `
-            )
-            .join("");
-    }
+                `,
+      )
+      .join("");
+  }
 
-    function renderRepositories(repositories = []) {
-        return repositories
-            .map(
-                (repo) => `
+  function renderRepositories(repositories = []) {
+    return repositories
+      .map(
+        (repo) => `
                     <a
                         href="${repo.url}"
                         target="_blank"
@@ -99,15 +98,15 @@
 
                         ${repo.name}
                     </a>
-                `
-            )
-            .join("");
-    }
+                `,
+      )
+      .join("");
+  }
 
-    function renderLiveDemoLink(detailUrl) {
-        if (!detailUrl) return "";
+  function renderLiveDemoLink(detailUrl) {
+    if (!detailUrl) return "";
 
-        return `
+    return `
             <a
                 href="${detailUrl}"
                 target="_blank"
@@ -133,12 +132,12 @@
                 ></i>
             </a>
         `;
-    }
+  }
 
-    function renderFeaturedBadge(isFeatured) {
-        if (!isFeatured) return "";
+  function renderFeaturedBadge(isFeatured) {
+    if (!isFeatured) return "";
 
-        return `
+    return `
             <span
                 class="
                     project-featured-badge
@@ -153,12 +152,12 @@
                 Featured
             </span>
         `;
-    }
+  }
 
-    function renderVibeBadge(isVibe) {
-        if (!isVibe) return "";
+  function renderVibeBadge(isVibe) {
+    if (!isVibe) return "";
 
-        return `
+    return `
             <span
                 class="
                     inline-flex items-center gap-1
@@ -180,12 +179,12 @@
                 AI-Assisted
             </span>
         `;
-    }
+  }
 
-    function renderStatusBadge(status) {
-        if (!status) return "";
+  function renderStatusBadge(status) {
+    if (!status) return "";
 
-        return `
+    return `
             <span
                 class="
                     project-status
@@ -208,24 +207,24 @@
                 ${status}
             </span>
         `;
-    }
+  }
 
-    function renderProjectCard(project, projectVisuals = {}) {
-        const visual =
-            projectVisuals[project.category] ||
-            projectVisuals.default ||
-            DEFAULT_PROJECT_VISUAL;
+  function renderProjectCard(project, projectVisuals = {}) {
+    const visual =
+      projectVisuals[project.category] ||
+      projectVisuals.default ||
+      DEFAULT_PROJECT_VISUAL;
 
-        const projectImageHTML = renderProjectImage(project);
-        const fallbackOpacity = projectImageHTML ? "opacity-0" : "opacity-100";
-        const techHTML = renderTechBadges(project.tech);
-        const repoHTML = renderRepositories(project.repositories);
-        const detailHTML = renderLiveDemoLink(project.detail);
-        const featuredBadge = renderFeaturedBadge(project.featured);
-        const vibeBadge = renderVibeBadge(project.vibe);
-        const statusHTML = renderStatusBadge(project.status);
+    const projectImageHTML = renderProjectImage(project);
+    const fallbackOpacity = projectImageHTML ? "opacity-0" : "opacity-100";
+    const techHTML = renderTechBadges(project.tech);
+    const repoHTML = renderRepositories(project.repositories);
+    const detailHTML = renderLiveDemoLink(project.detail);
+    const featuredBadge = renderFeaturedBadge(project.featured);
+    const vibeBadge = renderVibeBadge(project.vibe);
+    const statusHTML = renderStatusBadge(project.status);
 
-        return `
+    return `
             <article
                 class="
                     project-card
@@ -396,36 +395,36 @@
 
             </article>
         `;
-    }
+  }
 
-    function renderProjects(list = []) {
-        const grid = document.querySelector("#project-grid");
+  function renderProjects(list = []) {
+    const grid = document.querySelector("#project-grid");
 
-        if (!grid) return;
+    if (!grid) return;
 
-        const { projectVisuals = {} } = window.PORTFOLIO_DATA || {};
+    const { projectVisuals = {} } = window.PORTFOLIO_DATA || {};
 
-        grid.innerHTML = list
-            .map((project) => renderProjectCard(project, projectVisuals))
-            .join("");
+    grid.innerHTML = list
+      .map((project) => renderProjectCard(project, projectVisuals))
+      .join("");
 
-        // Lucide icons được thêm bằng innerHTML
-        window.lucide?.createIcons();
-    }
+    // Lucide icons được thêm bằng innerHTML
+    window.lucide?.createIcons();
+  }
 
-    function initProjects() {
-        const { projects = [] } = window.PORTFOLIO_DATA || {};
-        renderProjects(projects);
-    }
+  function initProjects() {
+    const { projects = [] } = window.PORTFOLIO_DATA || {};
+    renderProjects(projects);
+  }
 
-    window.PORTFOLIO_RENDER = {
-        initProjects,
-        renderProjects,
-    };
+  window.PORTFOLIO_RENDER = {
+    initProjects,
+    renderProjects,
+  };
 
-    if (document.readyState === "loading") {
-        document.addEventListener("DOMContentLoaded", initProjects);
-    } else {
-        initProjects();
-    }
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", initProjects);
+  } else {
+    initProjects();
+  }
 })();

@@ -46,12 +46,7 @@ html.theme-transitioning *,
 html.theme-transitioning *::before,
 html.theme-transitioning *::after {
     transition-property:
-        color,
-        background-color,
-        border-color,
-        text-decoration-color,
-        fill,
-        stroke,
+        color, background-color, border-color, text-decoration-color, fill, stroke,
         box-shadow !important;
     transition-duration: 0.36s !important;
     transition-timing-function: cubic-bezier(0.22, 1, 0.36, 1) !important;
@@ -87,6 +82,7 @@ html.theme-transitioning *::after {
 }
 
 @media (prefers-reduced-motion: reduce) {
+
     ::view-transition-old(root),
     ::view-transition-new(root) {
         animation: none !important;
