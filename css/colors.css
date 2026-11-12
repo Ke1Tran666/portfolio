@@ -1,0 +1,578 @@
+/* ===== COLOR TOKENS ===== */
+:root {
+    color-scheme: dark;
+
+    --theme-page: #050505;
+    --theme-surface: #171717;
+    --theme-surface-soft: rgba(23, 23, 23, 0.5);
+
+    --theme-text: #ffffff;
+    --theme-text-soft: #a3a3a3;
+    --theme-text-muted: #737373;
+
+    --theme-border: rgba(255, 255, 255, 0.08);
+    --theme-grid: rgba(255, 255, 255, 0.05);
+
+    --theme-toggle-bg: rgba(255, 255, 255, 0.05);
+    --theme-toggle-hover: rgba(255, 255, 255, 0.1);
+}
+
+:root[data-theme="light"] {
+    color-scheme: light;
+
+    --theme-page: #f8fafc;
+    --theme-surface: #ffffff;
+    --theme-surface-soft: rgba(255, 255, 255, 0.82);
+
+    --theme-text: #0f172a;
+    --theme-text-soft: #475569;
+    --theme-text-muted: #64748b;
+
+    --theme-border: rgba(15, 23, 42, 0.09);
+    --theme-grid: rgba(15, 23, 42, 0.06);
+
+    --theme-toggle-bg: rgba(15, 23, 42, 0.05);
+    --theme-toggle-hover: rgba(15, 23, 42, 0.1);
+}
+
+/* ===== BASE & CHROME COLORS ===== */
+body {
+    background-color: var(--theme-page);
+    color: var(--theme-text);
+}
+
+::-webkit-scrollbar-track {
+    background: #0a0a0a;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #333;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+
+.grid-bg {
+    background-image:
+        linear-gradient(to right, var(--theme-grid) 1px, transparent 1px),
+        linear-gradient(to bottom, var(--theme-grid) 1px, transparent 1px);
+}
+
+.theme-toggle {
+    color: var(--theme-text-soft);
+    background-color: var(--theme-toggle-bg);
+    border-color: var(--theme-border);
+}
+
+.theme-toggle:hover {
+    color: var(--theme-text);
+    background-color: var(--theme-toggle-hover);
+}
+
+.theme-toggle:focus-visible {
+    outline-color: #3b82f6;
+}
+
+/* ===== COMPONENT COLORS (DARK DEFAULT) ===== */
+.card-glow::before {
+    background: radial-gradient(
+        circle,
+        rgba(59, 130, 246, 0.06) 0%,
+        transparent 70%
+    );
+}
+
+.code-block {
+    background-color: #0a0a0a;
+    border-color: rgba(255, 255, 255, 0.08);
+}
+
+.code-header {
+    background-color: rgba(255, 255, 255, 0.03);
+    border-bottom-color: rgba(255, 255, 255, 0.08);
+}
+
+.skill-chip {
+    background-color: rgba(255, 255, 255, 0.03);
+    border-color: rgba(255, 255, 255, 0.06);
+    color: #a3a3a3;
+}
+
+.skill-chip:hover {
+    color: #ffffff;
+    background-color: rgba(255, 255, 255, 0.05);
+    border-color: rgba(255, 255, 255, 0.12);
+}
+
+.tech-card {
+    background-color: rgba(23, 23, 23, 0.5);
+    border-color: rgba(255, 255, 255, 0.05);
+}
+
+.tech-card:hover {
+    border-color: rgba(255, 255, 255, 0.1);
+    background-color: rgba(23, 23, 23, 0.7);
+}
+
+.tech-description {
+    color: var(--theme-text-muted);
+}
+
+.tool-chip {
+    background-color: rgba(255, 255, 255, 0.03);
+    border-color: rgba(255, 255, 255, 0.05);
+    color: #a3a3a3;
+}
+
+.tool-chip:hover {
+    color: #ffffff;
+    background-color: rgba(255, 255, 255, 0.05);
+    border-color: rgba(255, 255, 255, 0.12);
+}
+
+/* Project visual & overlay badges */
+.project-radiant {
+    background:
+        linear-gradient(135deg,
+            #111827 0%,
+            #09090b 50%,
+            #050505 100%);
+}
+
+.project-radiant--fullstack {
+    background:
+        linear-gradient(135deg,
+            #071426 0%,
+            #07101c 50%,
+            #050505 100%);
+}
+
+.project-radiant--fullstack::before {
+    background: #2563eb;
+}
+
+.project-radiant--fullstack::after {
+    background: #06b6d4;
+}
+
+.project-radiant--frontend {
+    background:
+        linear-gradient(135deg,
+            #061a1f 0%,
+            #090d1f 55%,
+            #050505 100%);
+}
+
+.project-radiant--frontend::before {
+    background: #06b6d4;
+}
+
+.project-radiant--frontend::after {
+    background: #4f46e5;
+}
+
+.project-radiant--learning {
+    background:
+        linear-gradient(135deg,
+            #211306 0%,
+            #171006 50%,
+            #050505 100%);
+}
+
+.project-radiant--learning::before {
+    background: #f97316;
+}
+
+.project-radiant--learning::after {
+    background: #eab308;
+}
+
+.project-radiant--ai {
+    background:
+        linear-gradient(135deg,
+            #1c0d2e 0%,
+            #14091f 50%,
+            #050505 100%);
+}
+
+.project-radiant--ai::before {
+    background: #9333ea;
+}
+
+.project-radiant--ai::after {
+    background: #ec4899;
+}
+
+.project-radiant--default::before {
+    background: #525252;
+}
+
+.project-radiant--default::after {
+    background: #2563eb;
+}
+
+.project-radiant-icon {
+    color: rgba(255, 255, 255, 0.85);
+    background-color: rgba(255, 255, 255, 0.07);
+    border-color: rgba(255, 255, 255, 0.12);
+    box-shadow:
+        0 12px 40px rgba(0, 0, 0, 0.3),
+        inset 0 1px 0 rgba(255, 255, 255, 0.08);
+}
+
+.project-scrim {
+    background: linear-gradient(
+        to bottom,
+        rgba(0, 0, 0, 0.45) 0%,
+        rgba(0, 0, 0, 0.14) 55%,
+        transparent 100%
+    );
+}
+
+.project-tech-chip {
+    color: rgba(255, 255, 255, 0.92);
+    background-color: rgba(10, 10, 14, 0.84);
+    border-color: rgba(255, 255, 255, 0.16);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.28);
+}
+
+.project-featured-badge {
+    color: #93c5fd;
+    background-color: rgba(10, 10, 14, 0.84);
+    border-color: rgba(96, 165, 250, 0.38);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.28);
+}
+
+.copy-email-btn:focus-visible {
+    outline-color: #3b82f6;
+}
+
+.copy-email-btn.is-copied,
+.copy-email-btn.is-copied:hover {
+    color: #22c55e !important;
+    border-color: rgba(34, 197, 94, 0.35) !important;
+    background-color: rgba(34, 197, 94, 0.1) !important;
+}
+
+/* ===== LIGHT THEME OVERRIDES ===== */
+html[data-theme="light"] body {
+    background-color: #f8fafc;
+    color: #0f172a;
+}
+
+/* Navigation và mobile menu */
+html[data-theme="light"] [class~="bg-[#050505]/80"] {
+    background-color: rgba(248, 250, 252, 0.86) !important;
+}
+
+html[data-theme="light"] [class~="bg-[#050505]/98"] {
+    background-color: rgba(248, 250, 252, 0.98) !important;
+}
+
+html[data-theme="light"] [class~="bg-[#050505]"] {
+    background-color: #f8fafc !important;
+}
+
+html[data-theme="light"] [class~="border-[#050505]"] {
+    border-color: #f8fafc !important;
+}
+
+/* Card surfaces */
+html[data-theme="light"] [class~="bg-neutral-900/30"],
+html[data-theme="light"] [class~="bg-neutral-900/40"],
+html[data-theme="light"] [class~="bg-neutral-900/50"] {
+    background-color: rgba(255, 255, 255, 0.84) !important;
+    box-shadow: 0 16px 45px rgba(15, 23, 42, 0.05);
+}
+
+html[data-theme="light"] [class~="bg-neutral-900"]:not(.project-radiant) {
+    background-color: #ffffff !important;
+}
+
+/* Subtle backgrounds */
+html[data-theme="light"] [class~="bg-white/5"],
+html[data-theme="light"] [class~="bg-white/[0.02]"] {
+    background-color: rgba(15, 23, 42, 0.035) !important;
+}
+
+html[data-theme="light"] [class~="bg-white/10"],
+html[data-theme="light"] [class~="bg-white/[0.04]"] {
+    background-color: rgba(15, 23, 42, 0.065) !important;
+}
+
+/* Primary buttons */
+html[data-theme="light"] [class~="bg-white"] {
+    background-color: #0f172a !important;
+}
+
+html[data-theme="light"] [class~="text-black"] {
+    color: #ffffff !important;
+}
+
+html[data-theme="light"] [class~="hover:bg-neutral-200"]:hover {
+    background-color: #1e293b !important;
+}
+
+/* Text colors (từ nhạt đến đậm để text-white luôn thắng text-neutral-*) */
+html[data-theme="light"] [class~="text-neutral-700"] {
+    color: #94a3b8 !important;
+}
+
+html[data-theme="light"] [class~="text-neutral-600"] {
+    color: #64748b !important;
+}
+
+html[data-theme="light"] [class~="text-neutral-500"] {
+    color: #64748b !important;
+}
+
+html[data-theme="light"] [class~="text-neutral-400"] {
+    color: #475569 !important;
+}
+
+html[data-theme="light"] [class~="text-neutral-300"] {
+    color: #334155 !important;
+}
+
+html[data-theme="light"] [class~="text-neutral-200"] {
+    color: #1e293b !important;
+}
+
+html[data-theme="light"] [class~="text-white"] {
+    color: #0f172a !important;
+}
+
+/* Giữ chữ trắng cho nút chính (.bg-white.text-black) và badge màu */
+html[data-theme="light"] [class~="bg-white"][class~="text-black"] {
+    color: #ffffff !important;
+}
+
+html[data-theme="light"] .hero-avatar-badge [class~="text-white"] {
+    color: #ffffff !important;
+}
+
+html[data-theme="light"] [class~="text-white/[0.03]"] {
+    color: rgba(15, 23, 42, 0.05) !important;
+}
+
+/* Hover text */
+html[data-theme="light"] [class~="hover:text-white"]:hover {
+    color: #0f172a !important;
+}
+
+html[data-theme="light"] [class~="hover:text-neutral-400"]:hover {
+    color: #0f172a !important;
+}
+
+html[data-theme="light"] .group:hover [class~="group-hover:text-white"] {
+    color: #0f172a !important;
+}
+
+/* Accent text trên nền sáng */
+html[data-theme="light"] .hero-name {
+    background-image: linear-gradient(to right, #2563eb, #0891b2);
+}
+
+html[data-theme="light"] [class~="text-blue-400"] {
+    color: #2563eb !important;
+}
+
+html[data-theme="light"] [class~="hover:text-blue-400"]:hover {
+    color: #1d4ed8 !important;
+}
+
+html[data-theme="light"] .group:hover [class~="group-hover:text-blue-400"] {
+    color: #2563eb !important;
+}
+
+html[data-theme="light"] [class~="text-orange-400"] {
+    color: #c2410c !important;
+}
+
+html[data-theme="light"] [class~="text-green-400"],
+html[data-theme="light"] .project-status {
+    color: #15803d !important;
+}
+
+html[data-theme="light"] .group:hover [class~="group-hover:text-green-400"] {
+    color: #16a34a !important;
+}
+
+html[data-theme="light"] .project-status-dot {
+    background-color: #16a34a !important;
+}
+
+html[data-theme="light"] [class~="text-purple-400"] {
+    color: #7e22ce !important;
+}
+
+/* Borders */
+html[data-theme="light"] [class~="border-white/5"] {
+    border-color: rgba(15, 23, 42, 0.07) !important;
+}
+
+html[data-theme="light"] [class~="border-white/10"] {
+    border-color: rgba(15, 23, 42, 0.12) !important;
+}
+
+/* Hover backgrounds */
+html[data-theme="light"] [class~="hover:bg-white/5"]:hover {
+    background-color: rgba(15, 23, 42, 0.055) !important;
+}
+
+html[data-theme="light"] [class~="hover:bg-white/10"]:hover {
+    background-color: rgba(15, 23, 42, 0.09) !important;
+}
+
+/* Hero bottom gradient */
+html[data-theme="light"] [class~="from-[#050505]"] {
+    --tw-gradient-from:
+        #f8fafc var(--tw-gradient-from-position) !important;
+
+    --tw-gradient-to:
+        rgb(248 250 252 / 0) var(--tw-gradient-to-position) !important;
+
+    --tw-gradient-stops:
+        var(--tw-gradient-from),
+        var(--tw-gradient-to) !important;
+}
+
+/* Section divider */
+html[data-theme="light"] [class~="via-white/10"] {
+    --tw-gradient-via:
+        rgba(15, 23, 42, 0.12) var(--tw-gradient-via-position) !important;
+}
+
+/* Custom cards & chips (light theme) */
+html[data-theme="light"] .skill-chip {
+    color: #475569;
+    background-color: rgba(15, 23, 42, 0.035);
+    border-color: rgba(15, 23, 42, 0.08);
+}
+
+html[data-theme="light"] .skill-chip:hover {
+    color: #0f172a;
+    background-color: rgba(15, 23, 42, 0.07);
+    border-color: rgba(15, 23, 42, 0.14);
+}
+
+html[data-theme="light"] .tool-chip {
+    color: #475569;
+    background-color: rgba(15, 23, 42, 0.035);
+    border-color: rgba(15, 23, 42, 0.08);
+}
+
+html[data-theme="light"] .tool-chip:hover {
+    color: #0f172a;
+    background-color: rgba(15, 23, 42, 0.07);
+    border-color: rgba(15, 23, 42, 0.14);
+}
+
+html[data-theme="light"] .tech-card {
+    background-color: rgba(255, 255, 255, 0.85);
+    border-color: rgba(15, 23, 42, 0.08);
+    box-shadow: 0 12px 35px rgba(15, 23, 42, 0.045);
+}
+
+html[data-theme="light"] .tech-card:hover {
+    background-color: #ffffff;
+    border-color: rgba(15, 23, 42, 0.14);
+}
+
+/*
+ * Giữ code block tối trong cả hai theme để syntax
+ * highlighting không bị giảm độ tương phản.
+ */
+html[data-theme="light"] .code-block {
+    color: #e5e7eb;
+    background-color: #0a0a0a;
+    border-color: rgba(15, 23, 42, 0.14);
+    box-shadow: 0 18px 50px rgba(15, 23, 42, 0.12);
+}
+
+html[data-theme="light"] .code-header {
+    background-color: rgba(255, 255, 255, 0.035);
+    border-bottom-color: rgba(255, 255, 255, 0.08);
+}
+
+html[data-theme="light"] .code-header [class~="text-neutral-500"] {
+    color: #9ca3af !important;
+}
+
+html[data-theme="light"] .code-block [class~="text-red-400"] {
+    color: #f87171 !important;
+}
+
+html[data-theme="light"] .code-block [class~="text-blue-400"] {
+    color: #60a5fa !important;
+}
+
+html[data-theme="light"] .code-block [class~="text-orange-400"] {
+    color: #fb923c !important;
+}
+
+html[data-theme="light"] .code-block [class~="text-green-400"] {
+    color: #4ade80 !important;
+}
+
+html[data-theme="light"] .code-block [class~="text-purple-400"] {
+    color: #c084fc !important;
+}
+
+/* Giữ project gradient và badge ảnh ở dark style để luôn rõ chữ */
+html[data-theme="light"] .project-radiant {
+    color: #ffffff;
+}
+
+html[data-theme="light"] .project-radiant [class~="text-white/90"] {
+    color: rgba(255, 255, 255, 0.9) !important;
+}
+
+html[data-theme="light"] .project-radiant [class~="text-white/40"] {
+    color: rgba(255, 255, 255, 0.4) !important;
+}
+
+html[data-theme="light"] .project-radiant .project-tech-chip {
+    color: rgba(255, 255, 255, 0.94) !important;
+    background-color: rgba(10, 10, 14, 0.84) !important;
+    border-color: rgba(255, 255, 255, 0.16) !important;
+}
+
+html[data-theme="light"] .project-radiant .project-featured-badge {
+    color: #93c5fd !important;
+    background-color: rgba(10, 10, 14, 0.84) !important;
+    border-color: rgba(96, 165, 250, 0.38) !important;
+}
+
+html[data-theme="light"] button.copy-email-btn.is-copied,
+html[data-theme="light"] button.copy-email-btn.is-copied:hover {
+    color: #15803d !important;
+    border-color: rgba(21, 128, 61, 0.28) !important;
+    background-color: rgba(34, 197, 94, 0.12) !important;
+}
+
+html[data-theme="light"] #back-to-top {
+    color: #475569 !important;
+    background-color: rgba(255, 255, 255, 0.9) !important;
+    border-color: rgba(15, 23, 42, 0.12) !important;
+    box-shadow: 0 10px 25px rgba(15, 23, 42, 0.08);
+}
+
+html[data-theme="light"] #back-to-top:hover {
+    color: #0f172a !important;
+    background-color: #ffffff !important;
+    border-color: rgba(15, 23, 42, 0.2) !important;
+}
+
+html[data-theme="light"] ::-webkit-scrollbar-track {
+    background: #eef2f7;
+}
+
+html[data-theme="light"] ::-webkit-scrollbar-thumb {
+    background: #cbd5e1;
+}
+
+html[data-theme="light"] ::-webkit-scrollbar-thumb:hover {
+    background: #94a3b8;
+}

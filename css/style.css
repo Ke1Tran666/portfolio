@@ -2,33 +2,16 @@
     font-family: 'Inter', sans-serif;
 }
 
-body {
-    background: #050505;
-    color: #ffffff;
-}
-
 ::-webkit-scrollbar {
     width: 6px;
 }
 
-::-webkit-scrollbar-track {
-    background: #0a0a0a;
-}
-
 ::-webkit-scrollbar-thumb {
-    background: #333;
     border-radius: 3px;
-}
-
-::-webkit-scrollbar-thumb:hover {
-    background: #555;
 }
 
 .grid-bg {
     background-size: 40px 40px;
-    background-image:
-        linear-gradient(to right, rgba(255, 255, 255, 0.05) 1px, transparent 1px),
-        linear-gradient(to bottom, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
 }
 
 @keyframes pulse-glow {
@@ -91,7 +74,6 @@ body {
     left: -50%;
     width: 200%;
     height: 200%;
-    background: radial-gradient(circle, rgba(59, 130, 246, 0.06) 0%, transparent 70%);
     opacity: 0;
     transition: opacity 0.45s cubic-bezier(0.22, 1, 0.36, 1);
     pointer-events: none;
@@ -102,15 +84,15 @@ body {
 }
 
 .code-block {
-    background: #0A0A0A;
-    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-width: 1px;
+    border-style: solid;
     border-radius: 12px;
     overflow: hidden;
 }
 
 .code-header {
-    background: rgba(255, 255, 255, 0.03);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    border-bottom-width: 1px;
+    border-bottom-style: solid;
     padding: 10px 16px;
     display: flex;
     align-items: center;
@@ -175,19 +157,15 @@ body {
 }
 
 /* SKILLS */
-
 .skill-chip {
     display: inline-flex;
     align-items: center;
 
     padding: 0.4rem 0.7rem;
 
+    border-width: 1px;
+    border-style: solid;
     border-radius: 9999px;
-
-    background: rgba(255, 255, 255, 0.03);
-    border: 1px solid rgba(255, 255, 255, 0.06);
-
-    color: #a3a3a3;
 
     font-size: 0.7rem;
     line-height: 1rem;
@@ -195,27 +173,16 @@ body {
     transition:
         color 0.3s ease,
         border-color 0.3s ease,
-        background 0.3s ease;
+        background-color 0.3s ease;
 }
-
-.skill-chip:hover {
-    color: #ffffff;
-
-    background: rgba(255, 255, 255, 0.05);
-
-    border-color: rgba(255, 255, 255, 0.12);
-}
-
 
 /* TECHNOLOGY CARD */
 .tech-card {
     padding: 1.5rem;
 
+    border-width: 1px;
+    border-style: solid;
     border-radius: 1rem;
-
-    background: rgba(23, 23, 23, 0.5);
-
-    border: 1px solid rgba(255, 255, 255, 0.05);
 
     transition:
         opacity 0.65s cubic-bezier(0.22, 1, 0.36, 1),
@@ -226,10 +193,6 @@ body {
 
 .tech-card:hover {
     transform: translateY(-4px);
-
-    border-color: rgba(255, 255, 255, 0.1);
-
-    background: rgba(23, 23, 23, 0.7);
 }
 
 .tech-icon {
@@ -243,7 +206,6 @@ body {
     margin-bottom: 1.25rem;
 
     border-radius: 0.75rem;
-
     border-width: 1px;
 
     transition: transform 0.35s ease;
@@ -261,14 +223,10 @@ body {
 }
 
 .tech-description {
-    color: #737373;
-
     font-size: 0.75rem;
     font-weight: 300;
-
     line-height: 1.6;
 }
-
 
 /* TOOL CHIP */
 .tool-chip {
@@ -277,13 +235,9 @@ body {
 
     padding: 0.55rem 1rem;
 
+    border-width: 1px;
+    border-style: solid;
     border-radius: 9999px;
-
-    background: rgba(255, 255, 255, 0.03);
-
-    border: 1px solid rgba(255, 255, 255, 0.05);
-
-    color: #a3a3a3;
 
     font-size: 0.875rem;
 
@@ -292,23 +246,15 @@ body {
     transition:
         color 0.3s ease,
         border-color 0.3s ease,
-        background 0.3s ease,
+        background-color 0.3s ease,
         transform 0.3s ease;
 }
 
-
 .tool-chip:hover {
-    color: #ffffff;
-
-    background: rgba(255, 255, 255, 0.05);
-
-    border-color: rgba(255, 255, 255, 0.12);
-
     transform: translateY(-2px);
 }
 
 /* RESPONSIVE LAYOUT */
-
 html,
 body {
     width: 100%;
@@ -324,7 +270,6 @@ section {
 }
 
 /* MOBILE MENU */
-
 .mobile-menu {
     visibility: hidden;
     opacity: 0;
@@ -523,16 +468,10 @@ section:first-of-type {
     }
 }
 
-/* PROJECT GRADIENT FALLBACK */
+/* PROJECT VISUAL LAYOUT */
 .project-radiant {
     position: relative;
     isolation: isolate;
-
-    background:
-        linear-gradient(135deg,
-            #111827 0%,
-            #09090b 50%,
-            #050505 100%);
 }
 
 .project-radiant::before,
@@ -567,92 +506,9 @@ section:first-of-type {
     animation-delay: -4s;
 }
 
-/* Full-stack: blue + cyan */
-.project-radiant--fullstack {
-    background:
-        linear-gradient(135deg,
-            #071426 0%,
-            #07101c 50%,
-            #050505 100%);
-}
-
-.project-radiant--fullstack::before {
-    background: #2563eb;
-}
-
-.project-radiant--fullstack::after {
-    background: #06b6d4;
-}
-
-/* Frontend: cyan + indigo */
-.project-radiant--frontend {
-    background:
-        linear-gradient(135deg,
-            #061a1f 0%,
-            #090d1f 55%,
-            #050505 100%);
-}
-
-.project-radiant--frontend::before {
-    background: #06b6d4;
-}
-
-.project-radiant--frontend::after {
-    background: #4f46e5;
-}
-
-/* Learning: orange + yellow */
-.project-radiant--learning {
-    background:
-        linear-gradient(135deg,
-            #211306 0%,
-            #171006 50%,
-            #050505 100%);
-}
-
-.project-radiant--learning::before {
-    background: #f97316;
-}
-
-.project-radiant--learning::after {
-    background: #eab308;
-}
-
-/* AI: purple + pink */
-.project-radiant--ai {
-    background:
-        linear-gradient(135deg,
-            #1c0d2e 0%,
-            #14091f 50%,
-            #050505 100%);
-}
-
-.project-radiant--ai::before {
-    background: #9333ea;
-}
-
-.project-radiant--ai::after {
-    background: #ec4899;
-}
-
-/* Default */
-.project-radiant--default::before {
-    background: #525252;
-}
-
-.project-radiant--default::after {
-    background: #2563eb;
-}
-
 .project-radiant-icon {
-    color: rgba(255, 255, 255, 0.85);
-
-    background: rgba(255, 255, 255, 0.07);
-    border: 1px solid rgba(255, 255, 255, 0.12);
-
-    box-shadow:
-        0 12px 40px rgba(0, 0, 0, 0.3),
-        inset 0 1px 0 rgba(255, 255, 255, 0.08);
+    border-width: 1px;
+    border-style: solid;
 
     backdrop-filter: blur(12px);
 }
@@ -693,14 +549,16 @@ section:first-of-type {
     }
 }
 
-.copy-email-btn:focus-visible {
-    outline: 2px solid #3b82f6;
-    outline-offset: 2px;
+.project-tech-chip,
+.project-featured-badge {
+    border-width: 1px;
+    border-style: solid;
+
+    backdrop-filter: blur(12px);
 }
 
-.copy-email-btn.is-copied,
-.copy-email-btn.is-copied:hover {
-    color: #22c55e !important;
-    border-color: rgba(34, 197, 94, 0.35) !important;
-    background-color: rgba(34, 197, 94, 0.1) !important;
+.copy-email-btn:focus-visible {
+    outline-width: 2px;
+    outline-style: solid;
+    outline-offset: 2px;
 }
