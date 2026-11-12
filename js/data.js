@@ -203,35 +203,6 @@ window.PORTFOLIO_DATA = {
             ],
         },
         {
-            title: "Adobee",
-
-            subtitle: "AI-Assisted Experiment",
-
-            desc: `
-                Project thử nghiệm được phát triển với workflow
-                AI-assisted nhằm nghiên cứu rapid prototyping,
-                UI implementation và cách kết hợp AI vào quá trình code.
-            `,
-
-            img: "",
-
-            category: "ai",
-
-            tech: [
-                "AI Assisted",
-                "Prototype",
-            ],
-
-            vibe: true,
-
-            repositories: [
-                {
-                    name: "Repository",
-                    url: "https://github.com/Ke1Tran666/Adobee",
-                },
-            ],
-        },
-        {
             title: "Gold & Silver Tracker",
 
             subtitle: "AI-Assisted Tracking Application",
