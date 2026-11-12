@@ -1,0 +1,7 @@
+# Tài liệu ghi chú local (không đưa lên repo public)
+LOCAL_CODE_GUIDE.md
+*.local.md
+
+# File hệ thống
+.DS_Store
+Thumbs.db
