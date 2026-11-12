@@ -351,33 +351,189 @@ function showToast(message, type = "success") {
 }
 
 // SCROLL EFFECTS (BACK TO TOP + ACTIVE NAV)
+function easeInOutCubic(progress) {
+  return progress < 0.5
+    ? 4 * progress * progress * progress
+    : 1 - Math.pow(-2 * progress + 2, 3) / 2;
+}
+
+function createSmoothScroller() {
+  let activeFrameId = null;
+  let cleanupActiveScroll = null;
+
+  const cancel = () => {
+    if (activeFrameId !== null) {
+      cancelAnimationFrame(activeFrameId);
+      activeFrameId = null;
+    }
+
+    if (typeof cleanupActiveScroll === "function") {
+      const cleanup = cleanupActiveScroll;
+      cleanupActiveScroll = null;
+      cleanup(false);
+    }
+  };
+
+  const scrollTo = (targetY, options = {}) => {
+    const {
+      duration,
+      onComplete,
+      onCancel,
+    } = options;
+
+    cancel();
+
+    const startY = window.scrollY || window.pageYOffset || 0;
+    const docHeight = Math.max(
+      document.body?.scrollHeight || 0,
+      document.documentElement?.scrollHeight || 0,
+    );
+    const maxScrollY = Math.max(0, docHeight - (window.innerHeight || 0));
+    const clampedTargetY = Math.min(maxScrollY, Math.max(0, Math.round(targetY)));
+    const distance = Math.abs(clampedTargetY - startY);
+
+    if (distance <= 1) {
+      window.scrollTo(0, clampedTargetY);
+      onComplete?.();
+      return;
+    }
+
+    const totalDuration =
+      typeof duration === "number"
+        ? duration
+        : prefersReducedMotion()
+          ? 360
+          : Math.min(950, Math.max(380, Math.round(320 + distance * 0.16)));
+
+    const root = document.documentElement;
+    const prevScrollBehavior = root.style.scrollBehavior;
+    root.style.scrollBehavior = "auto";
+
+    const interruptKeys = new Set([
+      "ArrowUp",
+      "ArrowDown",
+      "PageUp",
+      "PageDown",
+      "Home",
+      "End",
+      " ",
+    ]);
+
+    const handleWheelOrTouch = () => cancel();
+    const handleKeydown = (event) => {
+      if (interruptKeys.has(event.key)) {
+        cancel();
+      }
+    };
+
+    window.addEventListener("wheel", handleWheelOrTouch, { passive: true });
+    window.addEventListener("touchstart", handleWheelOrTouch, { passive: true });
+    window.addEventListener("keydown", handleKeydown);
+
+    cleanupActiveScroll = (completed) => {
+      root.style.scrollBehavior = prevScrollBehavior;
+      window.removeEventListener("wheel", handleWheelOrTouch);
+      window.removeEventListener("touchstart", handleWheelOrTouch);
+      window.removeEventListener("keydown", handleKeydown);
+
+      if (completed) {
+        onComplete?.();
+      } else {
+        onCancel?.();
+      }
+    };
+
+    const startTime = performance.now();
+
+    const step = (now) => {
+      const elapsed = now - startTime;
+      const progress = Math.min(1, elapsed / totalDuration);
+      const eased = easeInOutCubic(progress);
+      const nextY = startY + (clampedTargetY - startY) * eased;
+
+      window.scrollTo(0, nextY);
+
+      if (progress < 1) {
+        activeFrameId = requestAnimationFrame(step);
+      } else {
+        activeFrameId = null;
+        window.scrollTo(0, clampedTargetY);
+
+        const cleanup = cleanupActiveScroll;
+        cleanupActiveScroll = null;
+        cleanup?.(true);
+      }
+    };
+
+    activeFrameId = requestAnimationFrame(step);
+  };
+
+  return { scrollTo, cancel };
+}
+
 function initScrollEffects() {
   const backToTopButton = $("#back-to-top");
   const sections = Array.from($$("section[id]"));
   const navLinks = Array.from($$("nav [data-nav-link]"));
+  const anchorLinks = Array.from($$('a[href^="#"]'));
+  const scroller = createSmoothScroller();
 
   let isTopVisible = null;
   let activeSectionId = null;
+  let lockedSectionId = null;
+  let activeScrollToken = 0;
   let ticking = false;
+
+  const setActiveNavLink = (sectionId) => {
+    navLinks.forEach((link) => {
+      const isActive =
+        Boolean(sectionId) && link.getAttribute("href") === `#${sectionId}`;
+      link.classList.toggle("is-active", isActive);
+      link.classList.toggle("text-white", isActive);
+      link.classList.toggle("text-neutral-400", !isActive);
+
+      if (isActive) {
+        link.setAttribute("aria-current", "location");
+      } else {
+        link.removeAttribute("aria-current");
+      }
+    });
+  };
+
+  const setScrollingNavLink = (sectionId) => {
+    navLinks.forEach((link) => {
+      const isTarget =
+        Boolean(sectionId) && link.getAttribute("href") === `#${sectionId}`;
+      link.classList.toggle("is-scrolling", isTarget);
+    });
+  };
 
   const updateOnScroll = () => {
     ticking = false;
     const scrollY = window.scrollY;
+    const docHeight = Math.max(
+      document.body?.scrollHeight || 0,
+      document.documentElement?.scrollHeight || 0,
+    );
+    const maxScrollY = Math.max(0, docHeight - (window.innerHeight || 0));
 
     if (backToTopButton) {
       const shouldShow = scrollY > 500;
 
       if (shouldShow !== isTopVisible) {
         isTopVisible = shouldShow;
-        backToTopButton.style.opacity = shouldShow ? "1" : "0";
-        backToTopButton.style.transform = shouldShow
-          ? "translateY(0)"
-          : "translateY(1rem)";
-        backToTopButton.style.pointerEvents = shouldShow ? "auto" : "none";
+        backToTopButton.classList.toggle("is-visible", shouldShow);
+
+        if (!shouldShow && document.activeElement === backToTopButton) {
+          backToTopButton.blur();
+        }
+
+        backToTopButton.setAttribute("aria-hidden", String(!shouldShow));
+        backToTopButton.tabIndex = shouldShow ? 0 : -1;
       }
     }
 
-    if (sections.length && navLinks.length) {
+    if (sections.length && navLinks.length && lockedSectionId === null) {
       let current = "";
       const offset = scrollY + 120;
 
@@ -387,16 +543,57 @@ function initScrollEffects() {
         }
       }
 
+      if (maxScrollY > 100 && scrollY >= maxScrollY - 2) {
+        current = sections[sections.length - 1].id;
+      }
+
       if (current !== activeSectionId) {
         activeSectionId = current;
-
-        navLinks.forEach((link) => {
-          const isActive = link.getAttribute("href") === `#${current}`;
-          link.classList.toggle("text-white", isActive);
-          link.classList.toggle("text-neutral-400", !isActive);
-        });
+        setActiveNavLink(current);
       }
     }
+  };
+
+  const startProgrammaticScroll = (targetY, options = {}) => {
+    const {
+      targetId = null,
+      hash = null,
+      onEnd = null,
+    } = options;
+    const token = ++activeScrollToken;
+
+    if (targetId !== null) {
+      lockedSectionId = targetId;
+      activeSectionId = targetId;
+      setActiveNavLink(targetId);
+      setScrollingNavLink(targetId);
+    } else {
+      lockedSectionId = null;
+      setScrollingNavLink(null);
+    }
+
+    const handleEnd = (completed) => {
+      if (token === activeScrollToken) {
+        setScrollingNavLink(null);
+        lockedSectionId = null;
+        activeSectionId = null;
+
+        if (completed && hash) {
+          try {
+            history.replaceState(null, "", hash);
+          } catch (error) {}
+        }
+
+        updateOnScroll();
+      }
+
+      onEnd?.(completed);
+    };
+
+    scroller.scrollTo(targetY, {
+      onComplete: () => handleEnd(true),
+      onCancel: () => handleEnd(false),
+    });
   };
 
   const requestTick = () => {
@@ -412,9 +609,44 @@ function initScrollEffects() {
   updateOnScroll();
 
   backToTopButton?.addEventListener("click", () => {
-    window.scrollTo({
-      top: 0,
-      behavior: prefersReducedMotion() ? "auto" : "smooth",
+    backToTopButton.classList.add("is-scrolling");
+
+    startProgrammaticScroll(0, {
+      targetId: "",
+      onEnd: () => {
+        backToTopButton.classList.remove("is-scrolling");
+      },
+    });
+  });
+
+  anchorLinks.forEach((link) => {
+    link.addEventListener("click", (event) => {
+      const href = link.getAttribute("href");
+      if (!href) return;
+
+      if (href === "#") {
+        event.preventDefault();
+        startProgrammaticScroll(0, { targetId: "" });
+        return;
+      }
+
+      const targetId = href.slice(1);
+      const targetEl = document.getElementById(targetId);
+      if (!targetEl) return;
+
+      event.preventDefault();
+
+      const marginTop =
+        parseFloat(getComputedStyle(targetEl).scrollMarginTop) || 0;
+      const targetTop = Math.max(
+        0,
+        targetEl.getBoundingClientRect().top + window.scrollY - marginTop,
+      );
+
+      startProgrammaticScroll(targetTop, {
+        targetId,
+        hash: href,
+      });
     });
   });
 }
